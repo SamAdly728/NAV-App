@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: nav-productions-admin
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node src/server.js
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PGSSLMODE
+        value: require
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase: nav-productions-db
+      - key: PUBLIC_URL
+        value: https://nav-production-admin.onrender.com
+      - key: GOOGLE_CLIENT_ID
+        value: 338739274683-5d9vpv4focaanrik97qpomdeb3hkc1vs.apps.googleusercontent.com
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_REDIRECT_URI
+        value: https://nav-production-admin.onrender.com/auth/google/callback
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PRICE_ID
+        sync: false
+      - key: DROPBOX_ACCESS_TOKEN
+        sync: false
+      - key: GHL_API_KEY
+        sync: false
+databases:
+  - name: nav-productions-db
+    plan: free
