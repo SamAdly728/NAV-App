@@ -93,6 +93,39 @@
                             </a>
                         </li>
                         <li class="dropdown-item">
+
+                        <!-- Welcome Modal -->
+                        <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="welcomeLabel">Welcome to NAV Productions</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <img src="../assets/images/logo/1.png" alt="NAV Productions" class="img-fluid mb-3" style="max-height:64px;">
+                                        <p class="mb-0">We're glad you're here. Manage your projects, clients, and media from one powerful dashboard.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Let's go</button>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+
+                        <script>
+                            // Show welcome once per session
+                            (function(){
+                                try{
+                                    const key = 'nav-welcome-shown';
+                                    if(!sessionStorage.getItem(key)){
+                                        const modal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+                                        modal.show();
+                                        sessionStorage.setItem(key,'1');
+                                    }
+                                }catch(e){}
+                            })();
+                        </script>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div>
                                     <a class="f-w-500" href="#">
