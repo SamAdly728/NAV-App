@@ -68,9 +68,34 @@ app.get('/health', async (req, res) => {
   }
 });
 
-// Dashboard shared for now
+// Dashboard (shared template). We'll inject role label via client-side fetch.
 app.get('/dashboard', ensureAuth, (req, res) => {
   return res.sendFile(path.join(process.cwd(), 'template', 'index.html'));
+});
+
+// Serve any template page (authenticated) to allow in-template links to work.
+app.get('/template/:page', ensureAuth, (req, res, next) => {
+  const file = req.params.page;
+  // basic whitelist: only .html
+  if (!/^[A-Za-z0-9_-]+\.html$/.test(file)) return res.status(404).send('Not found');
+  const full = path.join(process.cwd(), 'template', file);
+  return res.sendFile(full, (err) => {
+    if (err) return next(err);
+  });
+});
+
+// Convenience: allow root relative access without /template prefix for existing hrefs
+app.get('/:page.html', ensureAuth, (req, res, next) => {
+  const file = req.params.page + '.html';
+  const full = path.join(process.cwd(), 'template', file);
+  return res.sendFile(full, (err) => {
+    if (err) return next();
+  });
+});
+
+// User info endpoint for front-end role-based labeling
+app.get('/api/me', ensureAuth, (req, res) => {
+  res.json({ id: req.user.id, email: req.user.email, role: req.user.role });
 });
 
 // Example admin-only API
