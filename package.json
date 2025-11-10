@@ -402,14 +402,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SamAdly728/NAV-Production-admin.git"
+    "url": "git+https://github.com/SamAdly728/NAV-App.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/archanadholariya/Mavis/issues"
   },
-  "homepage": "https://github.com/SamAdly728/NAV-Production-admin#readme",
+  "homepage": "https://github.com/SamAdly728/NAV-App#readme",
   "keywords": [],
   "description": ""
 }
