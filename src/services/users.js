@@ -11,6 +11,11 @@ async function getUserByEmail(email) {
   return rows[0] || null;
 }
 
+async function getUserByGoogleId(googleId) {
+  const { rows } = await pool.query('SELECT id, email, role, password_hash, google_id AS "googleId", created_at FROM users WHERE google_id = $1', [googleId]);
+  return rows[0] || null;
+}
+
 async function findOrCreateUser({ googleId, email }) {
   // Try by googleId first
   if (googleId) {
@@ -75,4 +80,4 @@ async function createUserWithRoleIfMissing({ email, password, role = 'client' })
   return rows[0].id;
 }
 
-module.exports = { getUserById, getUserByEmail, findOrCreateUser, createAdminIfMissing, createUserWithRoleIfMissing };
+module.exports = { getUserById, getUserByEmail, getUserByGoogleId, findOrCreateUser, createAdminIfMissing, createUserWithRoleIfMissing };

@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-lg-5 form-content-box">
                     <div class="form-container ">
-                        <form class="app-form">
+                        <form class="app-form" method="POST" action="/auth/login">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="mb-5 text-center text-lg-start">
@@ -74,17 +74,15 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="UserName" placeholder="Email Username"
-                                               type="text">
-                                        <label for="UserName">Username</label>
+                         <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                         <label for="email">Email</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
 
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="floatingInput" placeholder="Email Username"
-                                               type="text">
-                                        <label for="floatingInput">Password</label>
+                         <input class="form-control" id="password" name="password" placeholder="Password" type="password" required>
+                         <label for="password">Password</label>
 
                                     </div>
                                     <div class="text-end ">
@@ -101,26 +99,25 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div id="error-message" class="col-12 mt-2 d-none">
+                                    <div class="alert alert-danger p-2 mb-0" role="alert"></div>
+                                </div>
                                 <div class="col-12 mt-3">
-                                    <a class="btn btn-primary btn-lg w-100" href="/auth/google" role="button">
-                                        <i class="ph-bold  ph-google-logo me-1"></i> Continue with Google
-                                    </a>
+                                    <button type="submit" class="btn btn-primary btn-lg w-100" role="button">
+                                        Sign In
+                                    </button>
                                 </div>
                                 <div class="col-12 mt-4">
                                     <div class="text-center text-lg-start f-w-500">
-                                        Don't Have Your Account yet?
+                                        Don't have your account yet?
                                         <a class="text-white-800 text-decoration-underline" href="./sign_up.html">Sign up</a>
                                     </div>
                                 </div>
-
-                                <div class="app-divider-v light justify-content-center py-lg-5 py-3">
-                                    <p>OR</p>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="d-flex gap-3 justify-content-center text-center">
-                                        <a class="btn btn-light-white icon-btn w-45 h-45 b-r-15 d-flex align-items-center justify-content-center" href="/auth/google">
-                                            <i class="ph-bold  ph-google-logo f-s-20"></i>
+                                <div class="col-12 mt-4">
+                                    <div class="text-center">
+                                        <p class="text-muted mb-2">Or sign in with</p>
+                                        <a class="btn btn-light icon-btn w-45 h-45 b-r-15 d-inline-flex align-items-center justify-content-center" href="/auth/google" title="Google Login">
+                                            <i class="ph-bold ph-google-logo f-s-20"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -138,6 +135,25 @@
 
 <!-- Bootstrap js-->
 <script src="../assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script>
+    (function(){
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get('error');
+        if(error){
+            const map = {
+                'credentials': 'Invalid email or password.',
+                'google': 'Google account not found. Please contact support or sign up.',
+                'no-account': 'Google account not linked to any NAV Productions user.',
+                'missing': 'Please provide both email and password.'
+            };
+            const el = document.getElementById('error-message');
+            if(el){
+                el.classList.remove('d-none');
+                el.querySelector('.alert').textContent = map[error] || 'Login failed.';
+            }
+        }
+    })();
+</script>
 
 
 </body>
