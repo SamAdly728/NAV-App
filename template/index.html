@@ -1193,6 +1193,46 @@
             <!-- Body main section starts -->
             <main>
                 <div class="container-fluid">
+                    <!-- GHL Dashboard Widgets -->
+                    <div class="row mb-3" id="ghl-widgets">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                                <h5 class="mb-0">NAV Productions</h5>
+                                        <div class="d-flex align-items-center gap-2">
+                                          <small class="text-muted" id="ghl-updated"></small>
+                                          <button type="button" class="btn btn-sm btn-outline-primary" id="ghl-refresh" title="Refresh data">Refresh</button>
+                                        </div>
+                                    </div>
+                                    <div class="row g-3">
+                                        <div class="col-md-6 col-xxl-3">
+                                            <h6 class="mb-2">Next 5 bookings</h6>
+                                            <ul class="list-unstyled mb-0" id="ghl-bookings">
+                                                <li class="text-muted">Loading…</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6 col-xxl-3">
+                                            <h6 class="mb-2">Pipeline stages</h6>
+                                            <ul class="list-unstyled mb-0" id="ghl-stages">
+                                                <li class="text-muted">Loading…</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6 col-xxl-3">
+                                            <h6 class="mb-2">Last 5 activities</h6>
+                                            <ul class="list-unstyled mb-0" id="ghl-activities">
+                                                <li class="text-muted">Loading…</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6 col-xxl-3">
+                                            <h6 class="mb-2">Payments summary</h6>
+                                            <div id="ghl-payments" class="text-muted">Loading…</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-5 col-xxl-3 eshop-cards-container">
                             <div class="row">
@@ -1808,6 +1848,87 @@
 
 <!-- App js-->
 <script src="../assets/js/script.js"></script>
+
+<!-- GHL Widgets script -->
+<script>
+    (function(){
+        function firstArray(obj){
+            if(!obj || typeof obj !== 'object') return [];
+            if (Array.isArray(obj)) return obj;
+            for (const k of Object.keys(obj)) if (Array.isArray(obj[k])) return obj[k];
+            return [];
+        }
+        function li(t){ const e=document.createElement('li'); e.textContent=t; return e; }
+        function render(data){
+            // Bookings
+            const bookingsWrap = document.getElementById('ghl-bookings');
+            bookingsWrap.innerHTML='';
+            const bookings = firstArray(data.bookings).sort((a,b)=>{
+                const ad = new Date(a.startTime || a.start_date || a.date || 0).getTime();
+                const bd = new Date(b.startTime || b.start_date || b.date || 0).getTime();
+                return ad - bd;
+            }).slice(0,5);
+            if(bookings.length===0) bookingsWrap.appendChild(li('No upcoming bookings'));
+            bookings.forEach(b=>{
+                const when = b.startTime || b.start_date || b.date || '';
+                const name = b.title || b.contactName || b.name || 'Booking';
+                bookingsWrap.appendChild(li(`${name} – ${when}`));
+            });
+
+            // Stages
+            const stagesWrap = document.getElementById('ghl-stages');
+            stagesWrap.innerHTML='';
+            const opps = firstArray(data.opportunities);
+            if(opps.length===0) stagesWrap.appendChild(li('No pipeline data'));
+            const counts = {};
+            opps.forEach(o=>{ const key = o.stage || o.pipelineStage || o.stageName || o.status || 'Unknown'; counts[key]=(counts[key]||0)+1; });
+            Object.keys(counts).slice(0,7).forEach(k=> stagesWrap.appendChild(li(`${k}: ${counts[k]}`)) );
+
+            // Activities
+            const actsWrap = document.getElementById('ghl-activities');
+            actsWrap.innerHTML='';
+            const acts = firstArray(data.activities).slice(0,5);
+            if(acts.length===0) actsWrap.appendChild(li('No recent activity'));
+            acts.forEach(a=>{
+                const who = a.contactName || a.fromName || a.userName || 'Contact';
+                const msg = (a.lastMessage || a.body || a.snippet || '').toString().replace(/\s+/g,' ').slice(0,60);
+                actsWrap.appendChild(li(`${who}: ${msg}`));
+            });
+
+            // Payments
+            const payEl = document.getElementById('ghl-payments');
+            if (data.payments && Array.isArray(data.payments.items) && data.payments.items.length){
+                const total = data.payments.items.reduce((s,p)=> s + (p.amount || 0), 0);
+                payEl.textContent = `Payments: ${data.payments.items.length} • Total $${(total/100).toFixed(2)}`;
+            } else {
+                payEl.textContent = 'Payments integration coming soon';
+            }
+            // Last updated
+            const tsEl = document.getElementById('ghl-updated');
+            if (tsEl) tsEl.textContent = `Updated ${new Date().toLocaleString()}`;
+        }
+        function showError(){
+            ['ghl-bookings','ghl-stages','ghl-activities'].forEach(id=>{
+                const el=document.getElementById(id); el.innerHTML=''; el.appendChild(li('Unable to load')); });
+            document.getElementById('ghl-payments').textContent='Unable to load';
+            const tsEl = document.getElementById('ghl-updated');
+            if (tsEl) tsEl.textContent = '';
+        }
+        function loadData(force){
+            const url = '/api/ghl/dashboard' + (force? '?force=1':'');
+            fetch(url, { credentials: 'include' })
+                .then(r=>r.ok?r.json():Promise.reject())
+                .then(render)
+                .catch(showError);
+        }
+        document.getElementById('ghl-refresh').addEventListener('click', function(){
+            this.disabled = true; this.textContent='Refreshing…';
+            loadData(true);
+            setTimeout(()=>{ this.disabled=false; this.textContent='Refresh'; }, 800);
+        });
+        loadData(false);
+    })();
+</script>
 
 </body>
 
