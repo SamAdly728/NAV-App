@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const { ghlClient, fetchBookings, fetchOpportunities, fetchActivities, fetchPayments } = require('../services/ghl');
+const { ghlClient, resolveLocationId, fetchBookings, fetchOpportunities, fetchActivities, fetchPayments } = require('../services/ghl');
 const { wrap } = require('../services/cache');
 const router = express.Router();
 
@@ -8,8 +8,9 @@ const router = express.Router();
 router.get('/bookings', async (req, res) => {
   try {
     if (!process.env.GHL_API_KEY) return res.status(501).json({ error: 'GHL integration not configured' });
-    const client = ghlClient();
-    const data = await wrap('ghl:bookings', 60_000, () => fetchBookings(client));
+  const client = ghlClient();
+  const locationId = resolveLocationId();
+  const data = await wrap('ghl:bookings', 60_000, () => fetchBookings(client, locationId));
     res.json(data);
   } catch (e) {
     console.error(e.response?.data || e.message);
@@ -23,7 +24,8 @@ router.get('/dashboard', async (req, res) => {
     if (!process.env.GHL_API_KEY) return res.status(501).json({ error: 'GHL integration not configured' });
     const force = (req.query.force === '1');
     const ttl = 60_000; // 1 minute cache
-    const client = ghlClient();
+  const client = ghlClient();
+  const locationId = resolveLocationId();
 
     const key = 'ghl:dashboard';
     if (!force) {
@@ -32,10 +34,10 @@ router.get('/dashboard', async (req, res) => {
     }
 
     const [bookings, opportunities, activities, payments] = await Promise.all([
-      fetchBookings(client),
-      fetchOpportunities(client),
-      fetchActivities(client),
-      fetchPayments(client)
+      fetchBookings(client, locationId),
+      fetchOpportunities(client, locationId),
+      fetchActivities(client, locationId),
+      fetchPayments(client, locationId)
     ]);
 
     const payload = {
