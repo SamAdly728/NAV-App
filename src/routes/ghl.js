@@ -23,6 +23,7 @@ router.get('/dashboard', async (req, res) => {
   try {
     if (!process.env.GHL_API_KEY) return res.status(501).json({ error: 'GHL integration not configured' });
     const force = (req.query.force === '1');
+    const debug = (req.query.debug === '1');
     const ttl = 60_000; // 1 minute cache
   const client = ghlClient();
   const locationId = resolveLocationId();
@@ -47,11 +48,20 @@ router.get('/dashboard', async (req, res) => {
       activities,
       payments
     };
+    if (debug) {
+      payload._debug = {
+        locationId,
+        bookingsKeys: Object.keys(bookings || {}),
+        opportunitiesKeys: Object.keys(opportunities || {}),
+        activitiesKeys: Object.keys(activities || {}),
+        paymentsKeys: Object.keys(payments || {})
+      };
+    }
     require('../services/cache').setCache(key, payload, ttl);
     return res.json(payload);
   } catch (e) {
     console.error(e.response?.data || e.message);
-    return res.status(500).json({ error: 'Failed to fetch dashboard data' });
+    return res.status(500).json({ error: 'Failed to fetch dashboard data', detail: e.response?.data || e.message });
   }
 });
 

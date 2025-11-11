@@ -24,7 +24,7 @@ function resolveLocationId(apiKey = process.env.GHL_API_KEY, explicit = process.
 function ghlClient(apiKey = process.env.GHL_API_KEY) {
   if (!apiKey) throw new Error('GHL_API_KEY missing');
   const client = axios.create({
-    baseURL: 'https://rest.gohighlevel.com',
+    baseURL: 'https://services.leadconnectorhq.com',
     headers: {
       Authorization: `Bearer ${apiKey}`,
       Version: '2021-07-28'
