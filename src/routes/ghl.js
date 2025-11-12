@@ -1,6 +1,8 @@
 const express = require('express');
 const axios = require('axios');
 const { ghlClient, resolveLocationId, fetchAppointments, fetchAppointmentById, fetchBookings, fetchOpportunities, fetchActivities, fetchPayments } = require('../services/ghl');
+const { ensureRole } = require('../middleware/auth');
+const { getCache } = require('../services/cache');
 const { wrap } = require('../services/cache');
 const router = express.Router();
 
@@ -42,6 +44,17 @@ router.get('/bookings', async (req, res) => {
   } catch (e) {
     console.error(e.response?.data || e.message);
     res.status(500).json({ error: 'Failed to fetch bookings' });
+  }
+});
+
+// Recent booking webhook events (admin only), pulled from in-memory cache
+router.get('/booking-webhooks/recent', ensureRole('admin'), async (req, res) => {
+  try {
+    const list = getCache('webhook:bookings') || [];
+    res.json({ items: list });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: 'Failed to load recent webhook events' });
   }
 });
 
