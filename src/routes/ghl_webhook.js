@@ -6,7 +6,16 @@ const { appendToList, delCache } = require('../services/cache');
 function validateSecret(req) {
   const secret = process.env.GHL_WEBHOOK_SECRET;
   if (!secret) return true; // allow in dev if not set
-  return req.query.secret === secret || req.headers['x-ghl-webhook-secret'] === secret;
+  const headerSecret = req.headers['x-ghl-webhook-secret'] || req.headers['x-webhook-secret'];
+  const auth = req.headers['authorization'];
+  const bearer = auth && auth.toLowerCase().startsWith('bearer ')
+    ? auth.slice(7).trim()
+    : null;
+  return (
+    req.query.secret === secret ||
+    headerSecret === secret ||
+    bearer === secret
+  );
 }
 
 // Normalizer for booking/appointment style payloads
@@ -27,9 +36,23 @@ function normalizeBooking(body) {
 }
 
 // Webhook endpoint for booking form submissions or appointment create/update
-router.post('/booking', express.json({ limit: '200kb' }), (req, res) => {
+// Accept both JSON and x-www-form-urlencoded payloads
+router.post('/booking', express.urlencoded({ extended: true }), express.json({ limit: '200kb' }), (req, res) => {
   if (!validateSecret(req)) return res.status(401).json({ error: 'invalid_secret' });
-  const booking = normalizeBooking(req.body);
+  // If payload was nested/encoded as a JSON string, attempt to parse it
+  let payload = req.body || {};
+  try {
+    if (typeof payload === 'string') {
+      payload = JSON.parse(payload);
+    } else if (typeof payload.payload === 'string' && payload.payload.trim().startsWith('{')) {
+      payload = JSON.parse(payload.payload);
+    } else if (typeof payload.data === 'string' && payload.data.trim().startsWith('{')) {
+      payload = JSON.parse(payload.data);
+    }
+  } catch {
+    // leave payload as-is if parsing fails
+  }
+  const booking = normalizeBooking(payload);
   appendToList('webhook:bookings', booking, 100);
   // Invalidate cached dashboard & bookings so next fetch is fresh
   delCache('ghl:dashboard');
