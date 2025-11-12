@@ -32,3 +32,14 @@ function wrap(key, ttlMs, fn) {
 }
 
 module.exports = { setCache, getCache, delCache, wrap };
+// Append item to a capped list stored in cache
+function appendToList(key, item, maxLen = 50, ttlMs = 7 * 24 * 60 * 60 * 1000) {
+  let list = getCache(key) || [];
+  if (!Array.isArray(list)) list = [];
+  list.push(item);
+  if (list.length > maxLen) list = list.slice(list.length - maxLen);
+  setCache(key, list, ttlMs);
+  return list;
+}
+
+module.exports.appendToList = appendToList;

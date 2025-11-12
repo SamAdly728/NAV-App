@@ -18,6 +18,7 @@ const authRouter = require('./routes/auth');
 const stripeRouter = require('./routes/stripe');
 const dropboxRouter = require('./routes/dropbox');
 const ghlRouter = require('./routes/ghl');
+const ghlWebhookRouter = require('./routes/ghl_webhook');
 
 const app = express();
 
@@ -109,6 +110,8 @@ app.use('/auth', authRouter);
 app.use('/api/stripe', ensureAuth, stripeRouter);
 app.use('/api/dropbox', ensureAuth, dropboxRouter);
 app.use('/api/ghl', ensureAuth, ghlRouter);
+// Webhooks from GHL (unauthenticated, protected by secret token)
+app.use('/webhooks/ghl', ghlWebhookRouter);
 
 // 404 fallback
 app.use((req, res) => res.status(404).send('Not found'));
