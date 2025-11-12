@@ -34,8 +34,8 @@ function ghlClient(apiKey = process.env.GHL_API_KEY) {
   return client;
 }
 
-async function fetchBookings(client, locationId) {
-  const params = {};
+async function fetchBookingsLegacy(client, locationId) {
+  const params = { limit: 50 };
   if (locationId) params.locationId = locationId;
   try {
     const { data } = await client.get('/v1/appointments/', { params });
@@ -101,9 +101,9 @@ async function fetchAppointmentById(client, id) {
 
 // Back-compat: bookings wrapper
 async function fetchBookings(client, locationId) {
-  const params = {};
+  const params = { limit: 50 };
   if (locationId) params.locationId = locationId;
   return fetchAppointments(client, params);
 }
 
-module.exports = { ghlClient, resolveLocationId, fetchAppointments, fetchAppointmentById, fetchBookings, fetchOpportunities, fetchActivities, fetchPayments };
+module.exports = { ghlClient, resolveLocationId, fetchAppointments, fetchAppointmentById, fetchBookings, fetchBookingsLegacy, fetchOpportunities, fetchActivities, fetchPayments };
