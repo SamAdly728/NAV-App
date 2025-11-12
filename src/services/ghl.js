@@ -81,4 +81,29 @@ async function fetchPayments(client, locationId) {
   }
 }
 
-module.exports = { ghlClient, resolveLocationId, fetchBookings, fetchOpportunities, fetchActivities, fetchPayments };
+async function fetchAppointments(client, params = {}) {
+  try {
+    const { data } = await client.get('/v1/appointments/', { params });
+    return data;
+  } catch (e) {
+    return { items: [], error: e.response?.data || e.message };
+  }
+}
+
+async function fetchAppointmentById(client, id) {
+  try {
+    const { data } = await client.get(`/v1/appointments/${encodeURIComponent(id)}`);
+    return data;
+  } catch (e) {
+    return { error: e.response?.data || e.message };
+  }
+}
+
+// Back-compat: bookings wrapper
+async function fetchBookings(client, locationId) {
+  const params = {};
+  if (locationId) params.locationId = locationId;
+  return fetchAppointments(client, params);
+}
+
+module.exports = { ghlClient, resolveLocationId, fetchAppointments, fetchAppointmentById, fetchBookings, fetchOpportunities, fetchActivities, fetchPayments };

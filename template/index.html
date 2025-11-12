@@ -1863,7 +1863,7 @@
             // Bookings
             const bookingsWrap = document.getElementById('ghl-bookings');
             bookingsWrap.innerHTML='';
-            const bookings = firstArray(data.bookings).sort((a,b)=>{
+                    const bookings = (data.bookingsList || firstArray(data.bookings)).sort((a,b)=>{
                 const ad = new Date(a.startTime || a.start_date || a.date || 0).getTime();
                 const bd = new Date(b.startTime || b.start_date || b.date || 0).getTime();
                 return ad - bd;
@@ -1878,7 +1878,7 @@
             // Stages
             const stagesWrap = document.getElementById('ghl-stages');
             stagesWrap.innerHTML='';
-            const opps = firstArray(data.opportunities);
+            const opps = data.opportunitiesList || firstArray(data.opportunities);
             if(opps.length===0) stagesWrap.appendChild(li('No pipeline data'));
             const counts = {};
             opps.forEach(o=>{ const key = o.stage || o.pipelineStage || o.stageName || o.status || 'Unknown'; counts[key]=(counts[key]||0)+1; });
@@ -1887,7 +1887,7 @@
             // Activities
             const actsWrap = document.getElementById('ghl-activities');
             actsWrap.innerHTML='';
-            const acts = firstArray(data.activities).slice(0,5);
+            const acts = (data.activitiesList || firstArray(data.activities)).slice(0,5);
             if(acts.length===0) actsWrap.appendChild(li('No recent activity'));
             acts.forEach(a=>{
                 const who = a.contactName || a.fromName || a.userName || 'Contact';
