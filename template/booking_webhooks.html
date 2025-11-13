@@ -59,7 +59,9 @@
                   <thead>
                     <tr>
                       <th style="min-width:120px">ID</th>
-                      <th style="min-width:120px">Contact</th>
+                      <th style="min-width:140px">Name</th>
+                      <th style="min-width:180px">Email</th>
+                      <th style="min-width:120px">Phone</th>
                       <th style="min-width:120px">Title</th>
                       <th style="min-width:160px">Start</th>
                       <th style="min-width:120px">Status</th>
@@ -67,7 +69,7 @@
                     </tr>
                   </thead>
                   <tbody id="eventsBody">
-                    <tr><td colspan="6" class="text-muted">Loading…</td></tr>
+                    <tr><td colspan="8" class="text-muted">Loading…</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -109,14 +111,16 @@
     if(!items || !items.length){
       const row = document.createElement('tr');
       const td = document.createElement('td');
-      td.colSpan = 6; td.className='text-muted'; td.textContent='No events yet';
+      td.colSpan = 8; td.className='text-muted'; td.textContent='No events yet';
       row.appendChild(td); body.appendChild(row); return;
     }
     items.slice().reverse().forEach(ev => {
       body.appendChild(tr([
         ev.id || '',
-        ev.contactId || '',
-        (ev.title || 'Booking').replace(/</g,'&lt;'),
+        (ev.name || '').toString().replace(/</g,'&lt;'),
+        (ev.email || '').toString().replace(/</g,'&lt;'),
+        (ev.phone || '').toString().replace(/</g,'&lt;'),
+        (ev.title || 'Booking').toString().replace(/</g,'&lt;'),
         fmt(ev.startTime),
         `<span class="badge ${ev.status==='confirmed'?'bg-success':'bg-secondary'}">${ev.status||''}</span>`,
         fmt(ev.createdAt)

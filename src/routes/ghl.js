@@ -155,12 +155,23 @@ router.get('/dashboard', async (req, res) => {
       fetchPayments(client, locationId)
     ]);
 
+    // Include recent webhook events (last 5) from in-memory cache
+    const recent = (require('../services/cache').getCache('webhook:bookings') || []).slice(-5);
     const payload = {
       fetchedAt: new Date().toISOString(),
       bookings,
       opportunities,
       activities,
       payments,
+      recentWebhooks: recent.map(ev => ({
+        id: ev.id || null,
+        name: ev.name || null,
+        email: ev.email || null,
+        phone: ev.phone || null,
+        status: ev.status || 'unknown',
+        startTime: ev.startTime || null,
+        createdAt: ev.createdAt || null
+      })),
       // Normalized lists for front-end convenience
       bookingsList: normalizeAppointments(bookings),
       opportunitiesList: normalizeOpportunities(opportunities),

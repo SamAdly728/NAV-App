@@ -30,6 +30,10 @@ function normalizeBooking(body) {
     startTime: raw.startTime || raw.start_time || raw.start || raw.dateTimeStart || null,
     endTime: raw.endTime || raw.end_time || raw.end || raw.dateTimeEnd || null,
     title: raw.title || raw.appointmentTitle || raw.type || 'Booking',
+    // Custom fields and common aliases
+    name: raw.name1 || raw.name || raw.contactName || raw.contact_name || raw.contact?.name || null,
+    email: raw.email1 || raw.email || raw.contact_email || raw.contact?.email || null,
+    phone: raw.phone1 || raw.phone || raw.contact_phone || raw.contact?.phone || raw.contact?.phoneNumber || null,
     createdAt: raw.createdAt || raw.created_at || new Date().toISOString(),
     raw
   };

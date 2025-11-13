@@ -1229,6 +1229,15 @@
                                             <div id="ghl-payments" class="text-muted">Loading…</div>
                                         </div>
                                     </div>
+                                                                        <hr class="my-3"/>
+                                                                        <div class="row g-3">
+                                                                            <div class="col-12">
+                                                                                <h6 class="mb-2">Recent booking submissions</h6>
+                                                                                <ul class="list-unstyled mb-0" id="ghl-webhooks">
+                                                                                    <li class="text-muted">Loading…</li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -1903,6 +1912,22 @@
             } else {
                 payEl.textContent = 'Payments integration coming soon';
             }
+                        // Recent webhook submissions (name/email/phone)
+                        const whEl = document.getElementById('ghl-webhooks');
+                        if (whEl){
+                            whEl.innerHTML = '';
+                            const recent = Array.isArray(data.recentWebhooks) ? data.recentWebhooks.slice().reverse().slice(0,5) : [];
+                            if (!recent.length){ whEl.appendChild(li('No recent submissions')); }
+                            recent.forEach(ev => {
+                                const parts = [];
+                                if (ev.name) parts.push(ev.name);
+                                if (ev.email) parts.push(ev.email);
+                                if (ev.phone) parts.push(ev.phone);
+                                const when = ev.startTime ? new Date(ev.startTime).toLocaleString() : '';
+                                const line = parts.length ? parts.join(' • ') + (when? ` – ${when}`:'') : (when || 'Submission');
+                                whEl.appendChild(li(line));
+                            });
+                        }
             // Last updated
             const tsEl = document.getElementById('ghl-updated');
             if (tsEl) tsEl.textContent = `Updated ${new Date().toLocaleString()}`;
