@@ -347,3 +347,78 @@ function copyTextToClipboard(text) {
     document.execCommand('copy');
     document.body.removeChild(textarea);
 }
+
+// -- Sidebar simplifier: enforce 8-item menu on all pages except master.html --
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    try {
+      const file = (location.pathname.split('/').pop() || '').toLowerCase();
+      if (file === 'master.html') return; // keep full original on master
+      const hostNav = document.querySelector('#app-simple-bar');
+      if (!hostNav) return;
+      const ulHtml = [
+        '<ul class="main-nav p-0 mt-2">',
+        '  <li class="menu-title"><span>Navigation</span></li>',
+        '  <li class="no-sub">',
+        '    <a href="profile.html">',
+        '      <svg stroke="currentColor" stroke-width="1.5"><use xlink:href="../assets/svg/_sprite.svg#home"></use></svg>',
+        '      Dashboard Overview',
+        '    </a>',
+        '  </li>',
+        '  <li class="no-sub">',
+        '    <a href="checkout.html">',
+        '      <svg stroke="currentColor" stroke-width="1.5"><use xlink:href="../assets/svg/_sprite.svg#stack"></use></svg>',
+        '      Bookings Management',
+        '    </a>',
+        '  </li>',
+        '  <li class="no-sub">',
+        '    <a href="project_app.html">',
+        '      <svg stroke="currentColor" stroke-width="1.5"><use xlink:href="../assets/svg/_sprite.svg#briefcase"></use></svg>',
+        '      Projects / Deliverables',
+        '    </a>',
+        '  </li>',
+        '  <li class="no-sub">',
+        '    <a href="invoice.html">',
+        '      <svg stroke="currentColor" stroke-width="1.5"><use xlink:href="../assets/svg/_sprite.svg#gift"></use></svg>',
+        '      Payments &amp; Financial Overview',
+        '    </a>',
+        '  </li>',
+        '  <li class="no-sub">',
+        '    <a href="ticket.html">',
+        '      <svg stroke="currentColor" stroke-width="1.5"><use xlink:href="../assets/svg/_sprite.svg#document-text"></use></svg>',
+        '      Tickets &amp; Support',
+        '    </a>',
+        '  </li>',
+        '  <li class="no-sub">',
+        '    <a href="orders.html">',
+        '      <svg stroke="currentColor" stroke-width="1.5"><use xlink:href="../assets/svg/_sprite.svg#squares"></use></svg>',
+        '      Client Management',
+        '    </a>',
+        '  </li>',
+        '  <li class="no-sub">',
+        '    <a href="kanban_board.html">',
+        '      <svg stroke="currentColor" stroke-width="1.5"><use xlink:href="../assets/svg/_sprite.svg#stack"></use></svg>',
+        '      Team &amp; Workflow Management',
+        '    </a>',
+        '  </li>',
+        '  <li class="no-sub">',
+        '    <a href="setting.html">',
+        '      <svg stroke="currentColor" stroke-width="1.5"><use xlink:href="../assets/svg/_sprite.svg#window"></use></svg>',
+        '      System Monitoring',
+        '    </a>',
+        '  </li>',
+        '</ul>'
+      ].join('');
+      const currentUl = hostNav.querySelector('.main-nav');
+      if (currentUl) {
+        currentUl.innerHTML = ulHtml.replace(/^<ul[^>]*>|<\/ul>$/g, '');
+      } else {
+        hostNav.innerHTML = ulHtml;
+      }
+      // Re-init SimpleBar if needed
+      try { new SimpleBar(hostNav, { autoHide: true }); } catch(_){}
+    } catch (e) {
+      // noop
+    }
+  });
+})();
