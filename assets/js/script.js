@@ -429,7 +429,7 @@ function copyTextToClipboard(text) {
     try {
       const nodes = document.querySelectorAll('.footer-text');
       if (!nodes || nodes.length === 0) return;
-      const year = '2025';
+      const year = new Date().getFullYear();
       const brand = 'NAV Productions';
       const text = `© ${year} ${brand}. All rights reserved.`;
       nodes.forEach(function(el){ el.textContent = text; });
