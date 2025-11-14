@@ -422,3 +422,17 @@ function copyTextToClipboard(text) {
     }
   });
 })();
+
+// -- Footer branding override: unify copyright across all pages --
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    try {
+      const nodes = document.querySelectorAll('.footer-text');
+      if (!nodes || nodes.length === 0) return;
+      const year = '2025';
+      const brand = 'NAV Productions';
+      const text = `© ${year} ${brand}. All rights reserved.`;
+      nodes.forEach(function(el){ el.textContent = text; });
+    } catch(_) { /* noop */ }
+  });
+})();
