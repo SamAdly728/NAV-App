@@ -396,7 +396,7 @@ function copyTextToClipboard(text) {
         '    </a>',
         '  </li>',
         '  <li class="no-sub">',
-        '    <a href="kanban_board.html">',
+        '    <a href="/template/project_dashboard.html">',
         '      <svg stroke="currentColor" stroke-width="1.5"><use xlink:href="../assets/svg/_sprite.svg#stack"></use></svg>',
         '      Team &amp; Workflow Management',
         '    </a>',
