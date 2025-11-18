@@ -201,7 +201,7 @@
                         <svg stroke="currentColor" stroke-width="1.5">
                             <use xlink:href="../assets/svg/_sprite.svg#briefcase"></use>
                         </svg>
-                        Projects / Deliverables
+                        Projects
                     </a>
                 </li>
 
@@ -1088,109 +1088,58 @@
                             <ul class="notifications-list box-list mb-4 ">
                                 <li class="d-flex align-items-center justify-content-between gap-3 b-s-4-primary">
                                     <div>
-                                        <h6 class="txt-ellipsis-1 mb-0"> Order Notifications List</h6>
-                                        <p class="text-secondary mb-0">Last 2H Updates</p>
+                                        <h6 class="txt-ellipsis-1 mb-0"> Most Recent Bookings</h6>
+                                        <p class="text-secondary mb-0">Last Updated at date/time</p>
                                     </div>
                                     <div class="h-45 w-45 d-flex-center rounded-circle flex-shrink-0 bg-light-primary position-relative">
                                         <i class="ph ph-bell-ringing f-s-20"></i>
                                         <span class="position-absolute translate-middle badge rounded-pill bg-danger badge-notification">4</span>
                                     </div>
                                 </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="h-45 w-45 d-flex-center b-r-12 overflow-hidden flex-shrink-0 bg-primary">
-                                        OR
-                                    </div>
-                                    <div class="ms-3">
-                                        <p class="mb-0 f-w-500 f-s-16 txt-ellipsis-1">New Order Received</p>
-                                        <p class="mb-0 text-secondary">5 min ago</p>
-                                    </div>
+                                <!-- NOTE: Replace the href values below with real routes or dynamic IDs from your app. -->
+                                <li>
+                                    <a href="/orders" class="d-flex align-items-center text-decoration-none text-reset">
+                                        <div class="h-45 w-45 d-flex-center b-r-12 overflow-hidden flex-shrink-0 bg-primary">
+                                            OR
+                                        </div>
+                                        <div class="ms-3">
+                                            <p class="mb-0 f-w-500 f-s-16 txt-ellipsis-1">New Order Received</p>
+                                            <p class="mb-0 text-secondary">5 min ago</p>
+                                        </div>
+                                    </a>
                                 </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="h-45 w-45 d-flex-center b-r-12 overflow-hidden flex-shrink-0 bg-success-400">
-                                        <img alt="order" class="img-fluid" src="../assets/images/avatar/2.png">
-                                    </div>
-                                    <div class="ms-3">
-                                        <p class="mb-0 f-w-500 f-s-16 txt-ellipsis-1">Order #1024 has been shipped</p>
-                                        <p class="mb-0 text-secondary">10 min ago</p>
-                                    </div>
+                                <li>
+                                    <a href="/orders/1024" class="d-flex align-items-center text-decoration-none text-reset">
+                                        <div class="h-45 w-45 d-flex-center b-r-12 overflow-hidden flex-shrink-0 bg-success-400">
+                                            <img alt="order" class="img-fluid" src="../assets/images/avatar/2.png">
+                                        </div>
+                                        <div class="ms-3">
+                                            <p class="mb-0 f-w-500 f-s-16 txt-ellipsis-1">Order #1024 has been shipped</p>
+                                            <p class="mb-0 text-secondary">10 min ago</p>
+                                        </div>
+                                    </a>
                                 </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="h-45 w-45 d-flex-center b-r-12 overflow-hidden flex-shrink-0 bg-danger-400">
-                                        <img alt="order" class="img-fluid" src="../assets/images/avatar/5.png">
-                                    </div>
-                                    <div class="ms-3">
-                                        <p class="mb-0 f-w-500 f-s-16 txt-ellipsis-1">Order #1022 has been canceled</p>
-                                        <p class="mb-0 text-secondary">20 min ago</p>
-                                    </div>
+                                <li>
+                                    <a href="/orders/1022" class="d-flex align-items-center text-decoration-none text-reset">
+                                        <div class="h-45 w-45 d-flex-center b-r-12 overflow-hidden flex-shrink-0 bg-danger-400">
+                                            <img alt="order" class="img-fluid" src="../assets/images/avatar/5.png">
+                                        </div>
+                                        <div class="ms-3">
+                                            <p class="mb-0 f-w-500 f-s-16 txt-ellipsis-1">Order #1022 has been canceled</p>
+                                            <p class="mb-0 text-secondary">20 min ago</p>
+                                        </div>
+                                    </a>
                                 </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="h-45 w-45 d-flex-center b-r-12 overflow-hidden flex-shrink-0 bg-danger-400">
-                                        <img alt="order" class="img-fluid" src="../assets/images/avatar/5.png">
-                                    </div>
-                                    <div class="ms-3">
-                                        <p class="mb-0 f-w-500 f-s-16 txt-ellipsis-1">Order #1022 has been canceled</p>
-                                        <p class="mb-0 text-secondary">20 min ago</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-sm-5 col-lg-4 col-xxl-3 ">
-                            <div class="card">
-                                <div class="card-body p-0">
-                                    <div class="px-4 py-3">
-                                        <h4 class="text-primary">$65,563.24</h4>
-                                        <p class="mb-0 text-secondary"><span class="text-light-danger">38.3%-</span>
-                                            Last week</p>
-                                    </div>
-                                    <div class="earning-chart">
-                                        <div id="earningChart"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-lg-4 col-xxl-3 ">
-                            <ul class=" box-list mb-4">
-                                <li class="b-s-4-primary">
-                                    <h5>Recent Purchases</h5>
-                                </li>
-                                <li class="d-flex align-items-center justify-between gap-2">
-                                    <div class="b-1-light bg-primary-200 p-1 h-40 w-40 d-flex-center b-r-12 flex-shrink-0 overflow-hidden box-list-img">
-                                        <img alt="Smart Watch"
-                                             class="img-fluid"
-                                             src="../assets/images/dashboard/ecommerce-dashboard/product/02.png">
-                                    </div>
-                                    <div class="mg-s-45 flex-grow-1">
-                                        <h6 class="mb-0 text-dark-800 f-w-500 txt-ellipsis-1">Headphones</h6>
-                                        <p class="text-secondary-800 mb-0">AudioTech</p>
-                                    </div>
-                                    <span class="badge bg-light-primary">$120</span>
-                                </li>
-                                <li class="d-flex align-items-center justify-between gap-2">
-                                    <div class="b-1-light bg-primary-200 p-1 h-40 w-40 d-flex-center b-r-12 flex-shrink-0 overflow-hidden box-list-img">
-                                        <img alt="Smart Watch"
-                                             class="img-fluid"
-                                             src="../assets/images/dashboard/ecommerce-dashboard/product/03.png">
-                                    </div>
-                                    <div class="mg-s-45 flex-grow-1">
-                                        <h6 class="mb-0 text-dark-800 f-w-500 txt-ellipsis-1">Digital Camera</h6>
-                                        <p class="text-secondary-800 mb-0">LensPro</p>
-                                    </div>
-                                    <span class="badge bg-light-primary">$350</span>
-                                </li>
-                                <li class="d-flex align-items-center justify-between gap-2">
-                                    <div class="b-1-light bg-primary-200 p-1 h-40 w-40 d-flex-center b-r-12 flex-shrink-0 overflow-hidden box-list-img">
-                                        <img alt="Smart Watch"
-                                             class="img-fluid"
-                                             src="../assets/images/dashboard/ecommerce-dashboard/product/01.png">
-                                    </div>
-
-                                    <div class="mg-s-45 flex-grow-1">
-                                        <h6 class="mb-0 text-dark-800 f-w-500 txt-ellipsis-1">Smart Watch</h6>
-                                        <p class="text-secondary-800 mb-0">TechWear</p>
-                                    </div>
-                                    <span class="badge bg-light-primary">$199</span>
+                                <li>
+                                    <a href="/orders/1022" class="d-flex align-items-center text-decoration-none text-reset">
+                                        <div class="h-45 w-45 d-flex-center b-r-12 overflow-hidden flex-shrink-0 bg-danger-400">
+                                            <img alt="order" class="img-fluid" src="../assets/images/avatar/5.png">
+                                        </div>
+                                        <div class="ms-3">
+                                            <p class="mb-0 f-w-500 f-s-16 txt-ellipsis-1">Order #1022 has been canceled</p>
+                                            <p class="mb-0 text-secondary">20 min ago</p>
+                                        </div>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
