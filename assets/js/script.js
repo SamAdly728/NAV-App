@@ -378,7 +378,7 @@ function copyTextToClipboard(text) {
         '    </a>',
         '  </li>',
         '  <li class="no-sub">',
-        '    <a href="invoice.html">',
+        '    <a href="/template/orders.html">',
         '      <svg stroke="currentColor" stroke-width="1.5"><use xlink:href="../assets/svg/_sprite.svg#gift"></use></svg>',
         '      Payments &amp; Financial Overview',
         '    </a>',
