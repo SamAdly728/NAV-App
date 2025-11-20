@@ -436,3 +436,23 @@ function copyTextToClipboard(text) {
     } catch(_) { /* noop */ }
   });
 })();
+
+// -- Profile name override: replace Ninfa Monaldo with JR NAV --
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    try {
+      const walk = function(node) {
+        if (node.nodeType === 3) { // text node
+          if (node.nodeValue && node.nodeValue.includes('Ninfa Monaldo')) {
+            node.nodeValue = node.nodeValue.replace(/Ninfa Monaldo/g, 'JR NAV');
+          }
+        } else {
+          for (let i = 0; i < node.childNodes.length; i++) {
+            walk(node.childNodes[i]);
+          }
+        }
+      };
+      walk(document.body);
+    } catch(_) { /* noop */ }
+  });
+})();
