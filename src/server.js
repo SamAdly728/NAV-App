@@ -117,6 +117,18 @@ app.use('/webhooks/ghl', ghlWebhookRouter);
 app.use((req, res) => res.status(404).send('Not found'));
 
 const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log(`NAV Productions app listening on port ${port}`);
-});
+
+// Auto-run migrations on startup, then start server
+(async () => {
+  try {
+    const { runMigrations } = require('./db/migrate');
+    await runMigrations();
+    
+    app.listen(port, () => {
+      console.log(`✅ NAV Productions app listening on port ${port}`);
+    });
+  } catch (error) {
+    console.error('❌ Failed to start server:', error);
+    process.exit(1);
+  }
+})();
