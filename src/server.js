@@ -59,6 +59,11 @@ app.get('/', (req, res) => {
   return res.sendFile(path.join(process.cwd(), 'template', 'sign_in.html'));
 });
 
+app.get('/forgot-password', (req, res) => {
+  if (req.user) return res.redirect('/dashboard');
+  return res.sendFile(path.join(process.cwd(), 'template', 'forgot_password.html'));
+});
+
 // Health check for Render
 app.get('/health', async (req, res) => {
   try {
