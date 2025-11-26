@@ -1,22 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { appendToList, delCache } = require('../services/cache');
-
-// Expect a secret in query or header to validate source
-function validateSecret(req) {
-  const secret = process.env.GHL_WEBHOOK_SECRET;
-  if (!secret) return true; // allow in dev if not set
-  const headerSecret = req.headers['x-ghl-webhook-secret'] || req.headers['x-webhook-secret'];
-  const auth = req.headers['authorization'];
-  const bearer = auth && auth.toLowerCase().startsWith('bearer ')
-    ? auth.slice(7).trim()
-    : null;
-  return (
-    req.query.secret === secret ||
-    headerSecret === secret ||
-    bearer === secret
-  );
-}
+const validateSecret = require('../middleware/webhookAuth');
 
 // Normalizer for booking/appointment style payloads
 function normalizeBooking(body) {
@@ -41,8 +26,7 @@ function normalizeBooking(body) {
 
 // Webhook endpoint for booking form submissions or appointment create/update
 // Accept both JSON and x-www-form-urlencoded payloads
-router.post('/booking', express.urlencoded({ extended: true }), express.json({ limit: '200kb' }), (req, res) => {
-  if (!validateSecret(req)) return res.status(401).json({ error: 'invalid_secret' });
+router.post('/booking', validateSecret, express.urlencoded({ extended: true }), express.json({ limit: '200kb' }), (req, res) => {
   // If payload was nested/encoded as a JSON string, attempt to parse it
   let payload = req.body || {};
   try {
@@ -65,8 +49,7 @@ router.post('/booking', express.urlencoded({ extended: true }), express.json({ l
 });
 
 // Endpoint to view recent received booking webhook events (secured via secret)
-router.get('/booking/recent', (req, res) => {
-  if (!validateSecret(req)) return res.status(401).json({ error: 'invalid_secret' });
+router.get('/booking/recent', validateSecret, (req, res) => {
   const list = require('../services/cache').getCache('webhook:bookings') || [];
   res.json({ items: list });
 });
