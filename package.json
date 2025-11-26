@@ -387,6 +387,7 @@
     "sass": "^1.87.0",
     "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",
+    "supertest": "^7.1.4",
     "url-loader": "^4.1.1",
     "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4"
@@ -397,8 +398,8 @@
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "db:migrate": "node src/scripts/migrate.js",
-    "db:seed:admin": "node src/scripts/seedAdmin.js"
-    ,"db:seed:users": "node src/scripts/seedUsers.js"
+    "db:seed:admin": "node src/scripts/seedAdmin.js",
+    "db:seed:users": "node src/scripts/seedUsers.js"
   },
   "repository": {
     "type": "git",
