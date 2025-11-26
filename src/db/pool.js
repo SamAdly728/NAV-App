@@ -3,9 +3,13 @@ require('dotenv').config();
 
 const connectionString = process.env.DATABASE_URL || process.env.DATABASE_INTERNAL_URL || '';
 
+const sslConfig = (process.env.PGSSLMODE === 'disable' || (!process.env.PGSSLMODE && !/render\.com/.test(connectionString)))
+  ? false
+  : { rejectUnauthorized: false };
+
 const pool = new Pool({
   connectionString,
-  ssl: process.env.PGSSLMODE === 'require' || /render\.com/.test(connectionString) ? { rejectUnauthorized: false } : false
+  ssl: sslConfig
 });
 
 pool.on('error', (err) => {

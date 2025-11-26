@@ -123,7 +123,7 @@ const port = process.env.PORT || 8080;
   try {
     const { runMigrations } = require('./db/migrate');
     await runMigrations();
-    
+
     app.listen(port, () => {
       console.log(`✅ NAV Productions app listening on port ${port}`);
     });
