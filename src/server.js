@@ -117,6 +117,7 @@ app.use('/api/dropbox', ensureAuth, dropboxRouter);
 app.use('/api/ghl', ensureAuth, ghlRouter);
 // Webhooks from GHL (unauthenticated, protected by secret token)
 app.use('/webhooks/ghl', ghlWebhookRouter);
+app.use('/webhooks/data', require('./routes/data_webhook'));
 
 // 404 fallback
 app.use((req, res) => res.status(404).send('Not found'));
