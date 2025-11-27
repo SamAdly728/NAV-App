@@ -129,6 +129,16 @@ Notes:
 - The webhook viewer URL is read-only; do not use it as the workflow’s POST target.
 - If `GHL_WEBHOOK_SECRET` is unset in development, the receiver accepts all requests (dev convenience).
 
+## NAV Generic Data Webhook
+
+Need to seed or sync data from an external workflow? Use the generic `/webhooks/data/:table` endpoint documented in `docs/nav_generic_webhook.md`. It covers:
+- Authentication with `GHL_WEBHOOK_SECRET`
+- Endpoint usage and required headers
+- Order-of-operations guidance for foreign keys
+- JSON payload templates for every supported table (roles, users, clients, bookings, projects, tickets, payments, etc.)
+
+The migration runner already provisioned all referenced tables. Review the doc before posting to ensure parent records exist (for example create `users` → `clients` → `properties`).
+
 ## Render Deployment
 1) Create a new Web Service on Render:
    - Runtime: Node
