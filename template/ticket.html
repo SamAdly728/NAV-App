@@ -1,55 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Multipurpose, super flexible, powerful, clean modern responsive bootstrap 5 admin template"
-          name="description">
-    <meta content="admin template, ki-admin admin template, dashboard template, flat admin template, responsive admin template, web app"
-          name="keywords">
-    <meta content="la-themes" name="author">
-    <link href="../assets/images/logo/favicon.png" rel="icon" type="image/x-icon">
-    <link href="../assets/images/logo/favicon.png" rel="shortcut icon" type="image/x-icon">
-
-    <title>Ticket | ki-admin - Premium Admin Template</title>
-
-    <!--font-awesome-css-->
-    <link href="../assets/vendor/fontawesome/css/all.css" rel="stylesheet">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-          rel="stylesheet">
-
-    <!-- tabler icons-->
-    <link href="../assets/vendor/tabler-icons/tabler-icons.css" rel="stylesheet" type="text/css">
-
-    <!--flag Icon css-->
-    <link href="../assets/vendor/flag-icons-master/flag-icon.css" rel="stylesheet" type="text/css">
-
-    <!-- slick css -->
-    <link href="../assets/vendor/slick/slick.css" rel="stylesheet">
-    <link href="../assets/vendor/slick/slick-theme.css" rel="stylesheet">
-
-    <!-- Bootstrap css-->
-    <link href="../assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Data Table css-->
-    <link href="../assets/vendor/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
-    <link href="../assets/vendor/datatable/datatable2/buttons.dataTables.min.css" rel="stylesheet" type="text/css">
-
-    <!-- simplebar css-->
-    <link href="../assets/vendor/simplebar/simplebar.css" rel="stylesheet" type="text/css">
-
-    <!-- App css-->
-    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
-
-    <!-- Responsive css-->
-    <link href="../assets/css/responsive.css" rel="stylesheet" type="text/css">
-
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="ticket-title">Title</label>
+                                                        <input class="form-control" id="ticket-title" placeholder="Ticket title" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="ticket-client">Client</label>
+                                                        <select class="form-select" id="ticket-client">
+                                                            <option value="">Select Client</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="ticket-priority">Priority</label>
+                                                        <select class="form-select" id="ticket-priority">
+                                                            <option value="">Select Priority</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="ticket-status">Status</label>
+                                                        <select class="form-select" id="ticket-status">
+                                                            <option value="">Select Status</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="ticket-description">Description</label>
+                                                        <textarea class="form-control" id="ticket-description" placeholder="Optional details" rows="3"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="ticket-category">Category</label>
+                                                        <select class="form-select" id="ticket-category">
+                                                            <option value="">Select Category</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="ticket-assigned">Assigned To</label>
+                                                        <select class="form-select" id="ticket-assigned">
+                                                            <option value="">Assign To</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="ticket-project">Project</label>
+                                                        <select class="form-select" id="ticket-project">
+                                                            <option value="">Link Project (optional)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="ticket-due">Due Date</label>
+                                                        <input class="form-control" id="ticket-due" type="date">
+                                                    </div>
+                                                </div>
 </head>
 
 <body>
@@ -1530,218 +1544,18 @@
                                                     </div>
                                                 </th>
                                                 <th>Id</th>
-                                                <th>Agent</th>
+                                                <th>Client</th>
                                                 <th>Priority</th>
                                                 <th>Title</th>
                                                 <th>Status</th>
-                                                <th>Date</th>
+                                                <th>Created</th>
                                                 <th>Due Date</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
                                             <tbody id="ticket_key_body">
-                                            <tr>
-                                                <td>
-                                                    <div class="checkbox-wrapper">
-                                                        <label class="check-box m-0">
-                                                            <input type="checkbox">
-                                                            <span class="checkmark outline-secondary"></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                                <td>AR 2044</td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="h-30 w-30 d-flex-center b-r-50 overflow-hidden text-bg-primary me-2">
-                                                            <img alt="" class="img-fluid"
-                                                                 src="../assets/images/avatar//1.png">
-                                                        </div>
-                                                        Gavin Cortez
-                                                    </div>
-                                                </td>
-
-                                                <td><span class="badge text-outline-warning">Medium</span></td>
-                                                <td>Bug Report</td>
-                                                <td><span class="badge text-outline-success">in progress</span></td>
-                                                <td>1 jan 2024</td>
-                                                <td>3 feb 2024</td>
-                                                <td>
-                                                    <div class="btn-group dropdown-icon-none">
-                                                        <button aria-expanded="false"
-                                                                class="btn border-0 icon-btn b-r-4 dropdown-toggle active"
-                                                                data-bs-auto-close="true" data-bs-toggle="dropdown"
-                                                                type="button">
-                                                            <i class="ti ti-dots-vertical"></i>
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="./ticket_details.html"><i
-                                                                    class="ti ti-eye text-primary me-2"></i> View
-                                                            </a></li>
-                                                            <li><a class="dropdown-item"
-                                                                   data-bs-target="#ticketeditModal"
-                                                                   data-bs-toggle="modal"
-                                                                   href="#"><i
-                                                                    class="ti ti-edit text-success me-2"></i>
-                                                                Edit </a></li>
-                                                            <li><a class="dropdown-item delete-btn" href="#"><i
-                                                                    class="ti ti-trash text-danger me-2"></i> Delete
-                                                            </a></li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="checkbox-wrapper">
-                                                        <label class="check-box m-0">
-                                                            <input type="checkbox">
-                                                            <span class="checkmark outline-secondary"></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                                <td>AR 1763</td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="h-30 w-30 d-flex-center b-r-50 overflow-hidden text-bg-dark me-2">
-                                                            <img alt="" class="img-fluid"
-                                                                 src="../assets/images/avatar/14.png">
-                                                        </div>
-                                                        Martena Mccray
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <span class="badge text-outline-danger">lower</span>
-                                                </td>
-                                                <td>Feature Request</td>
-                                                <td><span class="badge text-outline-info">closed</span></td>
-                                                <td>8 jan 2024</td>
-                                                <td>10 mar 2024</td>
-                                                <td>
-                                                    <div class="btn-group dropdown-icon-none">
-                                                        <button aria-expanded="false"
-                                                                class="btn border-0 icon-btn b-r-4 dropdown-toggle active"
-                                                                data-bs-auto-close="true" data-bs-toggle="dropdown"
-                                                                type="button">
-                                                            <i class="ti ti-dots-vertical"></i>
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="./ticket_details.html"><i
-                                                                    class="ti ti-eye text-primary me-2"></i> View
-                                                            </a></li>
-                                                            <li><a class="dropdown-item"
-                                                                   data-bs-target="#ticketeditModal"
-                                                                   data-bs-toggle="modal"
-                                                                   href="#"><i
-                                                                    class="ti ti-edit text-success me-2"></i>
-                                                                Edit </a></li>
-                                                            <li><a class="dropdown-item delete-btn" href="#"><i
-                                                                    class="ti ti-trash text-danger me-2"></i> Delete
-                                                            </a></li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="checkbox-wrapper">
-                                                        <label class="check-box m-0">
-                                                            <input type="checkbox">
-                                                            <span class="checkmark outline-secondary"></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                                <td>AR 7452</td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="h-30 w-30 d-flex-center b-r-50 overflow-hidden text-bg-info me-2">
-                                                            <img alt="" class="img-fluid"
-                                                                 src="../assets/images/avatar/10.png">
-                                                        </div>
-                                                        Gavin Joyce
-                                                    </div>
-                                                </td>
-                                                <td><span class="badge text-outline-success">High</span></td>
-                                                <td>Performance Issue</td>
-                                                <td><span class="badge text-outline-success">in progress</span></td>
-                                                <td>14 jan 2024</td>
-                                                <td>30 jan 2024</td>
-                                                <td>
-                                                    <div class="btn-group dropdown-icon-none">
-                                                        <button aria-expanded="false"
-                                                                class="btn border-0 icon-btn b-r-4 dropdown-toggle active"
-                                                                data-bs-auto-close="true" data-bs-toggle="dropdown"
-                                                                type="button">
-                                                            <i class="ti ti-dots-vertical"></i>
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="./ticket_details.html"><i
-                                                                    class="ti ti-eye text-primary me-2"></i> View
-                                                            </a></li>
-                                                            <li><a class="dropdown-item"
-                                                                   data-bs-target="#ticketeditModal"
-                                                                   data-bs-toggle="modal"
-                                                                   href="#"><i
-                                                                    class="ti ti-edit text-success me-2"></i>
-                                                                Edit </a></li>
-                                                            <li><a class="dropdown-item delete-btn" href="#"><i
-                                                                    class="ti ti-trash text-danger me-2"></i> Delete
-                                                            </a></li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="checkbox-wrapper">
-                                                        <label class="check-box m-0">
-                                                            <input type="checkbox">
-                                                            <span class="checkmark outline-secondary"></span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                                <td>AR 1023</td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="h-30 w-30 d-flex-center b-r-50 overflow-hidden text-bg-dark me-2">
-                                                            <img alt="" class="img-fluid"
-                                                                 src="../assets/images/avatar/2.png">
-                                                        </div>
-                                                        Gloria Little
-                                                    </div>
-
-                                                </td>
-                                                <td><span class="badge text-outline-warning">Medium</span></td>
-                                                <td>Security Concern</td>
-                                                <td><span class="badge text-outline-primary">open</span></td>
-                                                <td>6 hours ago</td>
-                                                <td>12 feb 2024</td>
-                                                <td>
-                                                    <div class="btn-group dropdown-icon-none">
-                                                        <button aria-expanded="false"
-                                                                class="btn border-0 icon-btn b-r-4 dropdown-toggle active"
-                                                                data-bs-auto-close="true" data-bs-toggle="dropdown"
-                                                                type="button">
-                                                            <i class="ti ti-dots-vertical"></i>
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="./ticket_details.html"><i
-                                                                    class="ti ti-eye text-primary me-2"></i> View
-                                                            </a></li>
-                                                            <li><a class="dropdown-item"
-                                                                   data-bs-target="#ticketeditModal"
-                                                                   data-bs-toggle="modal"
-                                                                   href="#"><i
-                                                                    class="ti ti-edit text-success me-2"></i>
-                                                                Edit </a></li>
-                                                            <li><a class="dropdown-item delete-btn" href="#"><i
-                                                                    class="ti ti-trash text-danger me-2"></i> Delete
-                                                            </a></li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
+                                            <tbody id="ticket_key_body">
+                                            </tbody>
                                                 <td>
                                                     <div class="checkbox-wrapper">
                                                         <label class="check-box m-0">

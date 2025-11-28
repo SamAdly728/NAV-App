@@ -364,6 +364,43 @@ CREATE TABLE IF NOT EXISTS ticket_comments (
         FOREIGN KEY (author_user_id) REFERENCES users(id)
 );
 
+-- Seed default ticket metadata
+INSERT INTO ticket_statuses (name, label, badge_class, is_closed_state)
+SELECT 'open', 'Open', 'text-outline-primary', FALSE
+WHERE NOT EXISTS (SELECT 1 FROM ticket_statuses WHERE name = 'open');
+
+INSERT INTO ticket_statuses (name, label, badge_class, is_closed_state)
+SELECT 'in_progress', 'In Progress', 'text-outline-success', FALSE
+WHERE NOT EXISTS (SELECT 1 FROM ticket_statuses WHERE name = 'in_progress');
+
+INSERT INTO ticket_statuses (name, label, badge_class, is_closed_state)
+SELECT 'closed', 'Closed', 'text-outline-secondary', TRUE
+WHERE NOT EXISTS (SELECT 1 FROM ticket_statuses WHERE name = 'closed');
+
+INSERT INTO ticket_priorities (name, weight, badge_class)
+SELECT 'low', 1, 'text-outline-secondary'
+WHERE NOT EXISTS (SELECT 1 FROM ticket_priorities WHERE name = 'low');
+
+INSERT INTO ticket_priorities (name, weight, badge_class)
+SELECT 'medium', 2, 'text-outline-warning'
+WHERE NOT EXISTS (SELECT 1 FROM ticket_priorities WHERE name = 'medium');
+
+INSERT INTO ticket_priorities (name, weight, badge_class)
+SELECT 'high', 3, 'text-outline-danger'
+WHERE NOT EXISTS (SELECT 1 FROM ticket_priorities WHERE name = 'high');
+
+INSERT INTO ticket_categories (name, description)
+SELECT 'general', 'General inquiries'
+WHERE NOT EXISTS (SELECT 1 FROM ticket_categories WHERE name = 'general');
+
+INSERT INTO ticket_categories (name, description)
+SELECT 'billing', 'Billing or invoicing issues'
+WHERE NOT EXISTS (SELECT 1 FROM ticket_categories WHERE name = 'billing');
+
+INSERT INTO ticket_categories (name, description)
+SELECT 'technical', 'Technical support requests'
+WHERE NOT EXISTS (SELECT 1 FROM ticket_categories WHERE name = 'technical');
+
 -- =========================================
 -- GROUP 7 – PAYMENTS
 -- =========================================
