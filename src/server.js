@@ -19,6 +19,8 @@ const stripeRouter = require('./routes/stripe');
 const dropboxRouter = require('./routes/dropbox');
 const ghlRouter = require('./routes/ghl');
 const ghlWebhookRouter = require('./routes/ghl_webhook');
+const dashboardRouter = require('./routes/dashboard');
+const calendarRouter = require('./routes/calendar');
 
 const app = express();
 
@@ -115,6 +117,8 @@ app.use('/auth', authRouter);
 app.use('/api/stripe', ensureAuth, stripeRouter);
 app.use('/api/dropbox', ensureAuth, dropboxRouter);
 app.use('/api/ghl', ensureAuth, ghlRouter);
+app.use('/api/dashboard', ensureAuth, dashboardRouter);
+app.use('/api/calendar', ensureAuth, calendarRouter);
 // Webhooks from GHL (unauthenticated, protected by secret token)
 app.use('/webhooks/ghl', ghlWebhookRouter);
 app.use('/webhooks/data', require('./routes/data_webhook'));

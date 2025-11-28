@@ -36,12 +36,35 @@ CREATE TABLE IF NOT EXISTS bookings (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
 );
 
+CREATE TABLE IF NOT EXISTS events (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  title VARCHAR(255) NOT NULL,
+  start_time TIMESTAMP WITH TIME ZONE NOT NULL,
+  end_time TIMESTAMP WITH TIME ZONE,
+  all_day BOOLEAN DEFAULT FALSE,
+  class_name VARCHAR(50),
+  description TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
 CREATE TABLE IF NOT EXISTS session (
   sid varchar NOT NULL COLLATE "default",
   sess json NOT NULL,
   expire timestamp(6) NOT NULL
 );
-ALTER TABLE session ADD CONSTRAINT session_pkey PRIMARY KEY (sid) NOT DEFERRABLE INITIALLY IMMEDIATE;
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1
+    FROM pg_constraint
+    WHERE conname = 'session_pkey'
+      AND conrelid = 'session'::regclass
+  ) THEN
+    ALTER TABLE session ADD CONSTRAINT session_pkey PRIMARY KEY (sid) NOT DEFERRABLE INITIALLY IMMEDIATE;
+  END IF;
+END $$;
 CREATE INDEX IF NOT EXISTS idx_session_expire ON session(expire);
 `;
 

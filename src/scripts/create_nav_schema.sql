@@ -181,6 +181,21 @@ CREATE TABLE IF NOT EXISTS shoot_booking_addons (
         FOREIGN KEY (addon_id) REFERENCES shoot_addons(id)
 );
 
+CREATE TABLE IF NOT EXISTS events (
+    id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    user_id     BIGINT NOT NULL,
+    title       VARCHAR(255) NOT NULL,
+    start_time  TIMESTAMPTZ NOT NULL,
+    end_time    TIMESTAMPTZ,
+    all_day     BOOLEAN NOT NULL DEFAULT FALSE,
+    class_name  VARCHAR(50),
+    description TEXT,
+    created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    CONSTRAINT fk_events_user
+        FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
 -- =========================================
 -- GROUP 4 – PROJECTS & DELIVERABLES
 -- =========================================
@@ -413,6 +428,14 @@ BEGIN
     END IF;
     IF EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = 'shoot_bookings') AND NOT EXISTS (SELECT 1 FROM pg_indexes WHERE indexname = 'idx_shoot_bookings_scheduled_start') THEN
         CREATE INDEX idx_shoot_bookings_scheduled_start ON shoot_bookings(scheduled_start);
+    END IF;
+
+    -- Events indexes
+    IF EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = 'events') AND NOT EXISTS (SELECT 1 FROM pg_indexes WHERE indexname = 'idx_events_user_id') THEN
+        CREATE INDEX idx_events_user_id ON events(user_id);
+    END IF;
+    IF EXISTS (SELECT 1 FROM information_schema.tables WHERE table_name = 'events') AND NOT EXISTS (SELECT 1 FROM pg_indexes WHERE indexname = 'idx_events_start_time') THEN
+        CREATE INDEX idx_events_start_time ON events(start_time);
     END IF;
     
     -- Projects indexes

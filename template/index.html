@@ -188,7 +188,7 @@
                 </li>
 
                 <li class="no-sub">
-                    <a href="checkout.html">
+                    <a href="calendar.html">
                         <svg stroke="currentColor" stroke-width="1.5">
                             <use xlink:href="../assets/svg/_sprite.svg#stack"></use>
                         </svg>
@@ -908,9 +908,9 @@
                                         <div class="card-body eshop-cards">
                                             <span class="ripple-effect"></span>
                                             <div class="overflow-hidden">
-                                                <h3 class="text-primary mb-0">1.2M</h3>
-                                                <p class="mg-b-35 f-w-600 text-dark-800 txt-ellipsis-1">Total Sales</p>
-                                                <a href="/reports/weekly-sales" class="badge bg-light-primary">View Report</a>
+                                                <h3 class="text-primary mb-0" id="stat-total-revenue">$0</h3>
+                                                <p class="mg-b-35 f-w-600 text-dark-800 txt-ellipsis-1">Total Revenue</p>
+                                                <span class="badge bg-light-primary" id="stat-revenue-interval">Last 30 days: $0</span>
                                             </div>
                                         </div>
                                     </div>
@@ -918,13 +918,13 @@
                                 <div class="col-6 col-md-3 col-lg-6">
                                     <div class="card">
                               <span class="bg-danger h-50 w-50 d-flex-center rounded-circle m-auto eshop-icon-box">
-                                                <i class="ph ph-x-circle f-s-24"></i>
+                                                <i class="ph ph-life-buoy f-s-24"></i>
                               </span>
                                         <div class="card-body eshop-cards">
                                             <span class="ripple-effect"></span>
-                                            <h3 class="text-danger mb-0">125</h3>
-                                            <p class="mg-b-35 f-w-600 text-dark-800 txt-ellipsis-1">Canceled Orders</p>
-                                            <a href="/reports/weekly-sales" class="badge bg-light-danger">Refunded</a>
+                                            <h3 class="text-danger mb-0" id="stat-open-tickets">0</h3>
+                                            <p class="mg-b-35 f-w-600 text-dark-800 txt-ellipsis-1">Open Support Tickets</p>
+                                            <span class="badge bg-light-danger" id="stat-total-tickets">Total tickets: 0</span>
                                         </div>
                                     </div>
                                 </div>
@@ -935,9 +935,9 @@
                             </span>
                                         <div class="card-body eshop-cards">
                                             <span class="ripple-effect"></span>
-                                            <h3 class="text-warning mb-0 txt-ellipsis-1"> 95% </h3>
-                                            <p class="mg-b-35 f-w-600 text-dark-800 txt-ellipsis-1">Top Product</p>
-                                            <a href="/reports/weekly-sales" class="badge bg-light-dark">watch X200</a>
+                                            <h3 class="text-warning mb-0 txt-ellipsis-1" id="stat-project-completion">0%</h3>
+                                            <p class="mg-b-35 f-w-600 text-dark-800 txt-ellipsis-1">Project Completion</p>
+                                            <span class="badge bg-light-dark" id="stat-active-projects">Active projects: 0</span>
                                         </div>
                                     </div>
                                 </div>
@@ -948,9 +948,9 @@
                              </span>
                                         <div class="card-body eshop-cards">
                                             <span class="ripple-effect"></span>
-                                            <h3 class="text-success mb-0">8.5k</h3>
-                                            <p class="mg-b-35 f-w-600 text-dark-800 txt-ellipsis-1">New Customers</p>
-                                            <a href="/reports/weekly-sales" class="badge bg-light-success">Active</a>
+                                            <h3 class="text-success mb-0" id="stat-upcoming-bookings">0</h3>
+                                            <p class="mg-b-35 f-w-600 text-dark-800 txt-ellipsis-1">Upcoming Bookings</p>
+                                            <span class="badge bg-light-success" id="stat-cancelled-bookings">Cancelled bookings: 0</span>
                                         </div>
                                     </div>
                                 </div>
@@ -982,101 +982,47 @@
 
                                         <div class="col-sm-6 cart-side-card mt-3 mt-sm-0">
                                             <div class="mb-2">
-                                                <h6 class="text-dark mb-0 txt-ellipsis-1">Delivery Date : 20 Feb
-                                                    2025 </h6>
+                                                <h6 class="text-dark mb-0 txt-ellipsis-1">Last Payment: <span id="last-payment-date">--</span></h6>
                                             </div>
                                             <div class="table-responsive">
                                                 <table class="table cart-side-table mb-0">
                                                     <tbody>
                                                     <tr class="total-price">
-                                                        <th>Sub Total :</th>
+                                                        <th>Amount:</th>
                                                         <th class="text-end">
-                                                            <span id="cart-sub">$359.96</span>
+                                                            <span id="last-payment-amount">$0.00</span>
                                                         </th>
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <p class="mb-0 txt-ellipsis-1">Discount:</p>
+                                                            <p class="mb-0 txt-ellipsis-1">Status:</p>
                                                         </td>
-                                                        <td class="text-end text-success">-$53.00</td>
+                                                        <td class="text-end" id="last-payment-status">--</td>
                                                     </tr>
                                                     <tr class="total-price">
-                                                        <th><p class="mb-0 txt-ellipsis-1">Total (USD) :</p></th>
+                                                        <th><p class="mb-0 txt-ellipsis-1">Payments (30d):</p></th>
                                                         <th class="text-end">
-                                                                 <span id="cart-total">
-                                                                   $415.96
-                                                                 </span>
+                                                                 <span id="recent-payments-count">0</span>
                                                         </th>
                                                     </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <p class="f-w-500 mb-0 txt-ellipsis-1">  Support: <a href="{{route('email" class="link-primary text-d-underline ">https://support.aicom.com/order?r72qU2892</a> </p>
+                                            <p class="f-w-500 mb-0 txt-ellipsis-1">  Support: <a href="mailto:info@nav-productions.com" class="link-primary text-d-underline">info@nav-productions.com</a> </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-body">
-                                    <ul class="app-side-timeline shipping-timeline">
-                                        <li class="side-timeline-section w-100 right-side complete-step">
-                                            <div class="side-timeline-icon">
-                                                        <span class="bg-primary h-35 w-35 d-flex-center b-r-50">
-                                                               <i class="ph-fill  ph-shopping-bag-open f-s-18"></i>
-                                                        </span>
-                                            </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <h6 class="mb-0">Latest Notifications</h6>
+                                        <span class="badge bg-light-primary" id="notifications-count">0</span>
+                                    </div>
+                                    <ul class="app-side-timeline shipping-timeline" id="notifications-list">
+                                        <li class="side-timeline-section w-100 right-side" data-placeholder="notifications-empty">
                                             <div class="timeline-content p-0">
-                                                <div>
-                                                    <h6 class="f-s-15 mb-2 txt-ellipsis-1">Booking Confirmed</h6>
-                                                    <p class="mb-0  text-dark-800 f-w-400">Feb 14/25 <span
-                                                            class="text-primary f-w-500">10:15 AM</span></p>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="side-timeline-section w-100 right-side complete-step">
-                                            <div class="side-timeline-icon">
-                                                <span class="bg-primary h-35 w-35 d-flex-center b-r-50">
-                                                    <i class="ph-fill  ph-seal-check f-s-18"></i>
-                                                </span>
-                                            </div>
-                                            <div class="timeline-content p-0">
-                                                <div>
-                                                    <h6 class="f-s-15 mb-2 txt-ellipsis-1">Shoot Day</h6>
-                                                    <p class="mb-0  text-dark-800 f-w-400">Feb 14/25 <span
-                                                            class="text-primary f-w-500">10:30 AM</span></p>
-                                                </div>
-                                            </div>
-                                        </li>
-
-
-                                        <li class="side-timeline-section w-100 right-side">
-                                            <div class="side-timeline-icon">
-                                                        <span class="bg-light-secondary text-dark-400 h-35 w-35 d-flex-center b-r-50">
-                                                            <i class="ph-fill  ph-truck f-s-18"></i>
-                                                        </span>
-                                            </div>
-                                            <div class="timeline-content p-0">
-                                                <div>
-                                                    <h6 class="f-s-15 mb-2 txt-ellipsis-1">In Production</h6>
-                                                    <p class="mb-0  text-dark-800 f-w-400">Feb 15/25 <span
-                                                            class="text-primary f-w-500">9:00 AM</span></p>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="side-timeline-section w-100 right-side">
-                                            <div class="side-timeline-icon">
-                                                        <span class="bg-light-secondary text-dark-400 h-35 w-35 d-flex-center b-r-50">
-                                                            <i class="ph-fill  ph-house f-s-18"></i>
-                                                        </span>
-                                            </div>
-                                            <div class="timeline-content p-0">
-                                                <div>
-                                                    <h6 class="f-s-15 mb-2 txt-ellipsis-1">Delivered</h6>
-                                                    <p class="mb-0  text-dark-800 f-w-400">Feb 18/25 <span
-                                                            class="text-primary f-w-500">3:45 PM</span></p>
-                                                </div>
+                                                <p class="mb-0 text-dark-800">No notifications yet.</p>
                                             </div>
                                         </li>
                                     </ul>
@@ -1085,114 +1031,27 @@
                         </div>
 
                         <div class="col-sm-7 col-lg-4 col-xxl-3 ">
-                            <ul class="notifications-list box-list mb-4 ">
-                                <li class="d-flex align-items-center justify-content-between gap-3 b-s-4-primary">
+                            <ul class="notifications-list box-list mb-4" id="recent-bookings-list">
+                                <li class="d-flex align-items-center justify-content-between gap-3 b-s-4-primary" data-header="recent-bookings">
                                     <div>
-                                        <h6 class="txt-ellipsis-1 mb-0"> Most Recent Bookings</h6>
-                                        <p class="text-secondary mb-0">Last Updated at date/time</p>
+                                        <h6 class="txt-ellipsis-1 mb-0">Most Recent Bookings</h6>
+                                        <p class="text-secondary mb-0" id="recent-bookings-updated">Last updated: --</p>
                                     </div>
                                     <div class="h-45 w-45 d-flex-center rounded-circle flex-shrink-0 bg-light-primary position-relative">
-                                        <i class="ph ph-bell-ringing f-s-20"></i>
-                                        <span class="position-absolute translate-middle badge rounded-pill bg-danger badge-notification">4</span>
+                                        <i class="ph ph-calendar-check f-s-20"></i>
+                                        <span class="position-absolute translate-middle badge rounded-pill bg-danger badge-notification" id="recent-bookings-count">0</span>
                                     </div>
                                 </li>
-                                <!-- NOTE: Replace the href values below with real routes or dynamic IDs from your app. -->
-                                <li>
-                                    <a href="/orders" class="d-flex align-items-center text-decoration-none text-reset">
-                                        <div class="h-45 w-45 d-flex-center b-r-12 overflow-hidden flex-shrink-0 bg-primary">
-                                            OR
-                                        </div>
-                                        <div class="ms-3">
-                                            <p class="mb-0 f-w-500 f-s-16 txt-ellipsis-1">New Order Received</p>
-                                            <p class="mb-0 text-secondary">5 min ago</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/orders/1024" class="d-flex align-items-center text-decoration-none text-reset">
-                                        <div class="h-45 w-45 d-flex-center b-r-12 overflow-hidden flex-shrink-0 bg-success-400">
-                                            <img alt="order" class="img-fluid" src="../assets/images/avatar/2.png">
-                                        </div>
-                                        <div class="ms-3">
-                                            <p class="mb-0 f-w-500 f-s-16 txt-ellipsis-1">Order #1024 has been shipped</p>
-                                            <p class="mb-0 text-secondary">10 min ago</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/orders/1022" class="d-flex align-items-center text-decoration-none text-reset">
-                                        <div class="h-45 w-45 d-flex-center b-r-12 overflow-hidden flex-shrink-0 bg-danger-400">
-                                            <img alt="order" class="img-fluid" src="../assets/images/avatar/5.png">
-                                        </div>
-                                        <div class="ms-3">
-                                            <p class="mb-0 f-w-500 f-s-16 txt-ellipsis-1">Order #1022 has been canceled</p>
-                                            <p class="mb-0 text-secondary">20 min ago</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/orders/1022" class="d-flex align-items-center text-decoration-none text-reset">
-                                        <div class="h-45 w-45 d-flex-center b-r-12 overflow-hidden flex-shrink-0 bg-danger-400">
-                                            <img alt="order" class="img-fluid" src="../assets/images/avatar/5.png">
-                                        </div>
-                                        <div class="ms-3">
-                                            <p class="mb-0 f-w-500 f-s-16 txt-ellipsis-1">Order #1022 has been canceled</p>
-                                            <p class="mb-0 text-secondary">20 min ago</p>
-                                        </div>
-                                    </a>
-                                </li>
+                                <li class="text-center py-3 text-secondary" data-placeholder="recent-bookings-empty">Loading bookings…</li>
                             </ul>
                         </div>
 
                         <div class="col-sm-6 col-lg-4 col-xxl-3">
-                            <ul class="list-box top-brand-list mb-4">
-                                <li class="b-s-4-primary">
+                            <ul class="list-box top-brand-list mb-4" id="top-clients-list">
+                                <li class="b-s-4-primary" data-header="top-clients">
                                     <h5>Top Clients</h5>
                                 </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="b-1-light bg-primary-200 p-1 h-40 w-40 d-flex-center b-r-12 flex-shrink-0 overflow-hidden box-list-img">
-                                        <img alt="Smart Watch"
-                                             class="img-fluid"
-                                             src="../assets/images/dashboard/ecommerce-dashboard/product/04.png">
-                                    </div>
-                                    <div class="flex-grow-1 mg-s-45">
-                                        <h6 class="mb-0 f-w-500 text-dark-800 txt-ellipsis-1">Stylique</h6>
-                                        <p class="text-secondary-800 mb-0">Clothing</p>
-                                    </div>
-                                    <div class="text-end">
-                                        <span class="badge bg-light-primary">96.85%</span>
-                                    </div>
-                                </li>
-
-                                <li class="d-flex align-items-center">
-                                    <div class="b-1-light bg-primary-200 p-1 h-40 w-40 d-flex-center b-r-12 flex-shrink-0 overflow-hidden box-list-img">
-                                        <img alt="Smart Watch"
-                                             class="img-fluid"
-                                             src="../assets/images/dashboard/ecommerce-dashboard/product/06.png">
-                                    </div>
-                                    <div class="flex-grow-1 mg-s-45">
-                                        <h6 class="mb-0 f-w-500 text-dark-800 txt-ellipsis-1">Techspire</h6>
-                                        <p class="text-secondary-800 mb-0">Electronics</p>
-                                    </div>
-                                    <div class="text-end">
-                                        <span class="badge bg-light-success">89.42%</span>
-                                    </div>
-                                </li>
-
-                                <li class="d-flex align-items-center">
-                                    <div class="b-1-light bg-primary-200 p-1 h-40 w-40 d-flex-center b-r-12 flex-shrink-0 overflow-hidden box-list-img">
-                                        <img alt="Smart Watch"
-                                             class="img-fluid"
-                                             src="../assets/images/dashboard/ecommerce-dashboard/product/07.png">
-                                    </div>
-                                    <div class="flex-grow-1 mg-s-45">
-                                        <h6 class="mb-0 f-w-500 text-dark-800 txt-ellipsis-1">TrekVibe</h6>
-                                        <p class="text-secondary-800 mb-0">Bag's</p>
-                                    </div>
-                                    <div class="text-end">
-                                        <span class="badge bg-light-danger">74.30%</span>
-                                    </div>
-                                </li>
+                                <li class="text-center py-3 text-secondary" data-placeholder="top-clients-empty">Loading clients…</li>
                             </ul>
                         </div>
 
@@ -1219,7 +1078,8 @@
                                              <span class="bg-white h-45 w-45 d-flex-center b-r-50 status-icon">
                                                 <i class="ti ti-clock-hour-5 f-s-20 text-primary"></i>
                                              </span>
-                                                <p class="text-white mb-0 txt-ellipsis-1">Running</p>
+                                                <h4 class="text-white mb-1" id="project-running-count">0</h4>
+                                                <p class="text-white mb-0 txt-ellipsis-1">Active Projects</p>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -1227,7 +1087,8 @@
                                             <span class="bg-white h-45 w-45 d-flex-center b-r-50 status-icon">
                                                 <i class="ti ti-circle-check f-s-20 text-success"></i>
                                              </span>
-                                                <p class="text-white mb-0 txt-ellipsis-1">Completed</p>
+                                                <h4 class="text-white mb-1" id="project-completed-count">0</h4>
+                                                <p class="text-white mb-0 txt-ellipsis-1">Completed Projects</p>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -1235,73 +1096,17 @@
                                             <span class="bg-white h-45 w-45 d-flex-center b-r-50 status-icon">
                                                 <i class="ti ti-refresh f-s-20 text-danger"></i>
                                              </span>
-                                                <p class="text-white mb-0 txt-ellipsis-1">Pending</p>
+                                                <h4 class="text-white mb-1" id="project-pending-count">0</h4>
+                                                <p class="text-white mb-0 txt-ellipsis-1">Pending Projects</p>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row mt-3">
-                                        <div class="col-sm-6">
-                                            <ul class="">
-                                                <li class="d-flex align-items-center justify-content-between">
-                                                    <div class="bg-danger-200 d-flex-center p-1 w-30 h-30 b-r-8">
-                                                        <img alt="avatar" class="img-fluid" src="../assets/images/icons/language/logo1.png">
-                                                    </div>
-                                                    <div class="ms-2 flex-grow-1">
-                                                        <p class="text-dark-800 mb-0 f-w-500 f-s-15 txt-ellipsis-1">New Task Assigned</p>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-center justify-content-between mt-3">
-                                                    <div class="bg-success-200 d-flex-center p-1 w-30 h-30 b-r-8">
-                                                        <img alt="avatar" class="img-fluid" src="../assets/images/icons/language/logo5.png">
-                                                    </div>
-                                                    <div class="ms-2 flex-grow-1">
-                                                        <p class="text-dark-800 mb-0 f-w-500 f-s-15 txt-ellipsis-1">Database Migration</p>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-center justify-content-between mt-3">
-                                                    <div class="bg-info-200 d-flex-center p-1 w-30 h-30 b-r-8">
-                                                        <img alt="avatar" class="img-fluid" src="../assets/images/icons/language/logo6.png">
-                                                    </div>
-                                                    <div class="ms-2 flex-grow-1">
-                                                        <p class="text-dark-800 mb-0 f-w-500 f-s-15 txt-ellipsis-1">New Task Assigned</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <ul class="">
-                                                <li class="d-flex align-items-center justify-content-between">
-                                                    <div class="bg-primary-200 d-flex-center p-1 w-30 h-30 b-r-8">
-                                                        <img alt="avatar" class="img-fluid" src="../assets/images/icons/language/logo4.png">
-                                                    </div>
-                                                    <div class="ms-2 flex-grow-1">
-                                                        <p class="text-dark-800 mb-0 f-w-500 f-s-15 txt-ellipsis-1">API Development
-                                                            Phase</p>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-center justify-content-between mt-3">
-                                                    <div class="bg-danger-200 d-flex-center p-1 w-30 h-30 b-r-8">
-                                                        <img alt="avatar" class="img-fluid" src="../assets/images/icons/language/logo3.png">
-                                                    </div>
-                                                    <div class="ms-2 flex-grow-1">
-                                                        <p class="text-dark-800 mb-0 f-w-500 f-s-15 txt-ellipsis-1">UI/UX Design Update</p>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-center justify-content-between mt-3">
-                                                    <div class="bg-info-200 d-flex-center p-1 w-30 h-30 b-r-8">
-                                                        <img alt="avatar" class="img-fluid" src="../assets/images/icons/language/logo2.png">
-                                                    </div>
-                                                    <div class="ms-2 flex-grow-1">
-                                                        <p class="text-dark-800 mb-0 f-w-500 f-s-15 txt-ellipsis-1">New Task Assigned</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
                                     <div class="mt-3">
-                                        <button class="btn btn-primary w-100 btn-sm">View all</button>
+                                        <h6 class="mb-2">Latest Activity</h6>
+                                        <ul class="list-unstyled mb-0" id="activity-log">
+                                            <li class="text-secondary" data-placeholder="activity-empty">No activity yet.</li>
+                                        </ul>
                                     </div>
 
                                 </div>
@@ -1525,6 +1330,9 @@
 
 <!-- App js-->
 <script src="../assets/js/script.js"></script>
+
+<!-- Dashboard data js-->
+<script src="../assets/js/dashboard_data.js"></script>
 
 <!-- GHL Widgets script -->
 <script>

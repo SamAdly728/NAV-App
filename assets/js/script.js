@@ -366,7 +366,7 @@ function copyTextToClipboard(text) {
         '    </a>',
         '  </li>',
         '  <li class="no-sub">',
-        '    <a href="checkout.html">',
+        '    <a href="calendar.html">',
         '      <svg stroke="currentColor" stroke-width="1.5"><use xlink:href="../assets/svg/_sprite.svg#stack"></use></svg>',
         '      Bookings Management',
         '    </a>',
