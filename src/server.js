@@ -54,7 +54,7 @@ app.use(passport.session());
 
 // Static assets
 app.use('/assets', express.static(path.join(process.cwd(), 'assets')));
-app.use('/template', express.static(path.join(process.cwd(), 'template')));
+app.use('/template', ensureAuth, express.static(path.join(process.cwd(), 'template')));
 
 // Root -> login if not authed
 app.get('/', (req, res) => {
