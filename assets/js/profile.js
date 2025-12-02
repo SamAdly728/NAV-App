@@ -36,25 +36,25 @@ GLightbox({
 
 //  **-----post js**
 
-const pond= FilePond.create(
-    document.querySelector('.filepond-file'),
-    {
-        labelIdle: `<i class="fa-solid fa-cloud-upload fa-fw fs-4"></i> <div class="filepond--label-action text-decoration-none">Upload Your Files</div>`,
-    }
-);
+const filepondTarget = document.querySelector('.filepond-file');
+if (filepondTarget) {
+    FilePond.registerPlugin(FilePondPluginFileValidateType);
+    FilePond.registerPlugin(FilePondPluginImagePreview);
+    FilePond.registerPlugin(FilePondPluginFileEncode);
+    FilePond.registerPlugin(FilePondPluginFileValidateSize);
+    FilePond.registerPlugin(FilePondPluginImageExifOrientation);
 
-FilePond.registerPlugin(FilePondPluginFileValidateType);
-FilePond.registerPlugin(FilePondPluginImagePreview);
-FilePond.registerPlugin(FilePondPluginFileEncode);
-FilePond.registerPlugin(FilePondPluginFileValidateSize);
-FilePond.registerPlugin(FilePondPluginImageExifOrientation);
-
-const pondInput = FilePond.create(
-    document.querySelector('#id'),
-    {
+    FilePond.create(filepondTarget, {
         labelIdle: `<i class="fa-solid fa-cloud-upload fa-fw fs-4"></i> <div class="filepond--label-action text-decoration-none">Upload Your Files</div>`,
+    });
+
+    const pondInputTarget = document.querySelector('#id');
+    if (pondInputTarget) {
+        FilePond.create(pondInputTarget, {
+            labelIdle: `<i class="fa-solid fa-cloud-upload fa-fw fs-4"></i> <div class="filepond--label-action text-decoration-none">Upload Your Files</div>`,
+        });
     }
-);
+}
 
 //  **------post gallery js**
 GLightbox({

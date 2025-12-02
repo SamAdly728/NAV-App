@@ -12,23 +12,34 @@
     <meta content="la-themes" name="author">
     <link href="../assets/images/logo/favicon.png" rel="icon" type="image/x-icon">
     <link href="../assets/images/logo/favicon.png" rel="shortcut icon" type="image/x-icon">
-    <title>Profile | ki-admin - Premium Admin Template</title>
+
+    <title>Profile | NAV Productions Admin</title>
+
     <!--font-awesome-css-->
     <link href="../assets/vendor/fontawesome/css/all.css" rel="stylesheet">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
           rel="stylesheet">
 
+    <!-- animation css -->
     <link href="../assets/vendor/animation/animate.min.css" rel="stylesheet">
+
     <!-- tabler icons-->
     <link href="../assets/vendor/tabler-icons/tabler-icons.css" rel="stylesheet" type="text/css">
+
+    <!--flag Icon css-->
+    <link href="../assets/vendor/flag-icons-master/flag-icon.css" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap css-->
     <link href="../assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-    <!-- glight css -->
+    <!-- simplebar css-->
+    <link href="../assets/vendor/simplebar/simplebar.css" rel="stylesheet" type="text/css">
+
+    <!-- glightbox css -->
     <link href="../assets/vendor/glightbox/glightbox.min.css" rel="stylesheet">
 
     <!-- filepond css -->
@@ -39,18 +50,17 @@
     <link href="../assets/vendor/slick/slick.css" rel="stylesheet">
     <link href="../assets/vendor/slick/slick-theme.css" rel="stylesheet">
 
-    <!-- simplebar css-->
-    <link href="../assets/vendor/simplebar/simplebar.css" rel="stylesheet" type="text/css">
-
     <!-- App css-->
     <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
 
     <!-- Responsive css-->
     <link href="../assets/css/responsive.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
 <div class="app-wrapper">
+
     <div class="loader-wrapper">
         <div class="loader_24"></div>
     </div>
@@ -338,6 +348,7 @@
                         Misc
                     </a>
                 </li>
+
                 <li class="menu-title"><span>Map & Charts </span></li>
                 <li>
                     <a aria-expanded="false" data-bs-toggle="collapse" href="#maps">
@@ -433,92 +444,108 @@
                     </ul>
                 </li>
 
-                <li>
-                    <a aria-expanded="false" data-bs-toggle="collapse" href="#ready_to_use">
+                <li class="menu-title"><span>Authentication</span></li>
+                <li class="another-level">
+                    <a aria-expanded="false" data-bs-toggle="collapse" href="#authenticaton">
                         <svg stroke="currentColor" stroke-width="1.5">
-                            <use xlink:href="../assets/svg/_sprite.svg#newspaper"></use>
+                            <use xlink:href="../assets/svg/_sprite.svg#line-columns"></use>
                         </svg>
-                        Ready to use
-                        <span class="badge text-bg-success badge-notification ms-2">2</span>
+                        Authentication
                     </a>
-                    <ul class="collapse" id="ready_to_use">
-                        <li><a href="form_wizards.html">Form wizards</a></li>
-                        <li><a href="form_wizard_1.html">Form wizards 1</a></li>
-                        <li><a href="form_wizard_2.html">Form wizards 2</a></li>
-                        <li><a href="ready_to_use_form.html">Ready To Use Form</a></li>
-                        <li><a href="ready_to_use_table.html">Ready To Use Tables</a></li>
-                    </ul>
-                </li>
-
-                <li class="menu-title"><span>Pages</span></li>
-
-                <li>
-                    <a aria-expanded="false" data-bs-toggle="collapse" href="#auth_pages">
-                        <svg stroke="currentColor" stroke-width="1.5">
-                            <use xlink:href="../assets/svg/_sprite.svg#window"></use>
-                        </svg>
-                        Auth Pages
-                    </a>
-                    <ul class="collapse" id="auth_pages">
+                    <ul class="collapse" id="authenticaton">
                         <li><a href="sign_in.html">Sign In</a></li>
-                        <li><a href="sign_in_1.html">Sign In with Bg-image</a></li>
                         <li><a href="sign_up.html">Sign Up</a></li>
-                        <li><a href="sign_up_1.html">Sign Up with Bg-image</a></li>
-                        <li><a href="password_reset.html">Password Reset</a></li>
-                        <li><a href="password_reset_1.html">Password Reset with Bg-image</a></li>
-                        <li><a href="password_create.html">Password Create</a></li>
-                        <li><a href="password_create_1.html">Password Create with Bg-image</a></li>
+                        <li><a href="forgot_password.html">Forgot Password</a></li>
+                        <li><a href="reset_password.html">Reset Password</a></li>
+                        <li><a href="password_create.html">Create Password</a></li>
+                        <li><a href="password_reset.html">Reset Password</a></li>
                         <li><a href="lock_screen.html">Lock Screen</a></li>
-                        <li><a href="lock_screen_1.html">Lock Screen with Bg-image</a></li>
-                        <li><a href="two_step_verification.html">Two-Step Verification</a></li>
-                        <li><a href="two_step_verification_1.html">Two-Step Verification with Bg-image</a></li>
+                        <li><a href="two_step_verification.html">Two Step</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a aria-expanded="false" data-bs-toggle="collapse" href="#error_pages">
+                <li class="another-level">
+                    <a aria-expanded="false" data-bs-toggle="collapse" href="#authenticaton-1">
                         <svg stroke="currentColor" stroke-width="1.5">
-                            <use xlink:href="../assets/svg/_sprite.svg#exclamation-circle"></use>
+                            <use xlink:href="../assets/svg/_sprite.svg#line-columns"></use>
+                        </svg>
+                        Authentication V2
+                    </a>
+                    <ul class="collapse" id="authenticaton-1">
+                        <li><a href="sign_in_1.html">Sign In</a></li>
+                        <li><a href="sign_up_1.html">Sign Up</a></li>
+                        <li><a href="password_create_1.html">Create Password</a></li>
+                        <li><a href="password_reset_1.html">Reset Password</a></li>
+                        <li><a href="lock_screen_1.html">Lock Screen</a></li>
+                        <li><a href="two_step_verification_1.html">Two Step</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-title"><span>Utility</span></li>
+                <li>
+                    <a aria-expanded="false" data-bs-toggle="collapse" href="#error-page">
+                        <svg stroke="currentColor" stroke-width="1.5">
+                            <use xlink:href="../assets/svg/_sprite.svg#emoji-sad"></use>
                         </svg>
                         Error Pages
                     </a>
-                    <ul class="collapse" id="error_pages">
-                        <li><a href="error_400.html">Bad Request </a></li>
-                        <li><a href="error_403.html">Forbidden </a></li>
-                        <li><a href="error_404.html">Not Found</a></li>
-                        <li><a href="error_500.html">Internal Server</a></li>
-                        <li><a href="error_503.html">Service Unavailable</a></li>
+                    <ul class="collapse" id="error-page">
+                        <li><a href="error_400.html">Error 400</a></li>
+                        <li><a href="error_403.html">Error 403</a></li>
+                        <li><a href="error_404.html">Error 404</a></li>
+                        <li><a href="error_500.html">Error 500</a></li>
+                        <li><a href="error_503.html">Error 503</a></li>
                     </ul>
                 </li>
-
                 <li>
-                    <a aria-expanded="false" data-bs-toggle="collapse" href="#other_pages">
+                    <a aria-expanded="false" data-bs-toggle="collapse" href="#coming-soon">
                         <svg stroke="currentColor" stroke-width="1.5">
-                            <use xlink:href="../assets/svg/_sprite.svg#document"></use>
+                            <use xlink:href="../assets/svg/_sprite.svg#time"></use>
                         </svg>
-                        Other Pages
+                        Coming soon
                     </a>
-                    <ul class="collapse" id="other_pages">
-                        <li><a href="blank.html">Blank</a></li>
-                        <li><a href="maintenance.html">Maintenance</a></li>
-                        <li><a href="landing.html">Landing Page</a></li>
+                    <ul class="collapse" id="coming-soon">
                         <li><a href="coming_soon.html">Coming Soon</a></li>
-                        <li><a href="sitemap.html">Sitemap</a></li>
-                        <li><a href="privacy_policy.html">Privacy Policy</a></li>
-                        <li><a href="terms_condition.html">Terms &amp; Condition</a></li>
+                        <li><a href="maintenance.html">Maintenance</a></li>
                     </ul>
                 </li>
-
-                <li class="menu-title"><span>Others</span></li>
-
-                <li>
-                    <a aria-expanded="false" data-bs-toggle="collapse" href="#level">
+                <li class="no-sub">
+                    <a href="privacy_policy.html">
                         <svg stroke="currentColor" stroke-width="1.5">
-                            <use xlink:href="../assets/svg/_sprite.svg#arrow-down"></use>
+                            <use xlink:href="../assets/svg/_sprite.svg#lock"></use>
                         </svg>
-                        2 level
+                        Privacy Policy
                     </a>
-                    <ul class="collapse" id="level">
-                        <li><a href="#">Blank</a></li>
+                </li>
+                <li class="no-sub">
+                    <a href="terms_condition.html">
+                        <svg stroke="currentColor" stroke-width="1.5">
+                            <use xlink:href="../assets/svg/_sprite.svg#paper-text"></use>
+                        </svg>
+                        Terms Condition
+                    </a>
+                </li>
+                <li class="no-sub">
+                    <a href="sitemap.html">
+                        <svg stroke="currentColor" stroke-width="1.5">
+                            <use xlink:href="../assets/svg/_sprite.svg#map"></use>
+                        </svg>
+                        Sitemap
+                    </a>
+                </li>
+                <li class="another-level">
+                    <a aria-expanded="false" data-bs-toggle="collapse" href="#others">
+                        <svg stroke="currentColor" stroke-width="1.5">
+                            <use xlink:href="../assets/svg/_sprite.svg#paper"></use>
+                        </svg>
+                        Others
+                    </a>
+                    <ul class="collapse" id="others">
+                        <li><a href="landing.html" target="_blank">Landing</a></li>
+                        <li><a href="orders_list.html">Orders List</a></li>
+                        <li><a href="ready_to_use_form.html">Ready To Use Form</a></li>
+                        <li><a href="ready_to_use_table.html">Ready To Use Table</a></li>
+                        <li><a href="app_coming.html">App Coming Soon</a></li>
+                        <li><a href="blank.html">Blank</a></li>
                         <li class="another-level">
                             <a aria-expanded="false" data-bs-toggle="collapse" href="#level2">
                                 Another level
@@ -559,6 +586,7 @@
 
     </nav>
     <!-- Menu Navigation ends -->
+
 
     <div class="app-content">
         <div class="">
@@ -819,322 +847,115 @@
                                                         <span>
                                                           <i class="ph-light  ph-selection-foreground f-s-30"></i>
                                                         </span>
-                                                        <p class="mb-0 f-w-500 text-dark">Task Board</p>
+                                                        <p class="mb-0 f-w-500 text-dark">Kanban</p>
                                                     </a>
                                                 </div>
                                                 <div class="d-flex-center text-center">
-                                                    <a class="d-flex-center text-light-secondary w-100 h-100 rounded-3 p-2 dashed-1-secondary"
-                                                       href="kanban_board.html"
+                                                    <a class="text-light-info w-100 rounded-3 py-3 px-2 "
+                                                       href="api.html"
                                                        target="_blank">
                                                         <span>
-                                                          <i class="ph-light  ph-plus f-s-30"></i>
+                                                          <i class="ph-light  ph-brackets-angle f-s-30"></i>
                                                         </span>
+                                                        <p class="mb-0 f-w-500 text-dark">API</p>
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </li>
 
-                                <li class="header-cart">
-                                    <a aria-controls="cartcanvasRight"
-                                       class="d-block head-icon position-relative bg-light-dark rounded-circle f-s-22 p-2"
-                                       data-bs-target="#cartcanvasRight"
-                                       data-bs-toggle="offcanvas"
-                                       href="#" role="button">
-                                        <i class="ph ph-shopping-cart-simple"></i>
-                                        <span
-                                                class="position-absolute translate-middle badge rounded-pill bg-danger badge-notification">4</span>
-                                    </a>
-                                    <div aria-labelledby="cartcanvasRightLabel"
-                                         class="offcanvas offcanvas-end header-cart-canvas"
-                                         id="cartcanvasRight"
-                                         tabindex="-1">
-                                        <div class="offcanvas-header">
-                                            <h5 class="offcanvas-title" id="cartcanvasRightLabel">Cart</h5>
-                                            <button aria-label="Close" class="btn-close" data-bs-dismiss="offcanvas"
-                                                    type="button"></button>
-                                        </div>
-                                        <div class="offcanvas-body app-scroll p-0">
-                                            <div class="head-container">
-                                                <div class="head-box">
-                                                  <span class="b-1-light bg-light-primary h-45 w-45 d-flex-center b-r-6">
-                                                      <img alt="cart" class="img-fluid p-1"
-                                                           src="../assets/images/header/cart/01.png">
-                                                  </span>
-
-                                                    <div class="flex-grow-1 ms-2">
-                                                        <a class="mb-0 f-w-600 f-s-16" href="product_details.html"
-                                                           target="_blank"> Backpacks (3<i
-                                                                class="ti ti-star-filled text-warning f-s-12"></i>)
-                                                        </a>
-                                                        <div>
-                                                            <span class="text-dark"><span
-                                                                    class="text-secondary f-w-400">size</span> : M</span>
-                                                            <span class="text-dark ms-2"><span
-                                                                    class="text-secondary f-w-400">color</span> :Pink</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <i class="ph ph-trash f-s-18 text-danger close-btn"></i>
-                                                        <p class="text-muted f-w-500 mb-0">$600.50 x 1</p>
-                                                    </div>
-                                                </div>
-                                                <div class="head-box">
-                                                    <span class="b-1-light bg-light-primary h-45 w-45 d-flex-center b-r-6">
-                                                      <img alt="cart" class="img-fluid p-1"
-                                                           src="../assets/images/header/cart/05.png">
-                                                  </span>
-                                                    <div class="flex-grow-1 ms-2">
-                                                        <a class="mb-0 f-w-600 f-s-16" href="product_details.html"
-                                                           target="_blank"> Women's Watch (4<i
-                                                                class="ti ti-star-filled text-warning f-s-12"></i>)</a>
-                                                        <div>
-                                                            <span class="text-dark"><span
-                                                                    class="text-secondary f-w-400">size</span> : S</span>
-                                                            <span class="text-dark ms-2"><span
-                                                                    class="text-secondary f-w-400">color</span> :Rose Gold</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <i class="ph ph-trash f-s-18 text-danger close-btn"></i>
-                                                        <p class="text-muted f-w-500 mb-0">$519.10 x 2</p>
-                                                    </div>
-                                                </div>
-                                                <div class="head-box">
-                                                    <span class="b-1-light bg-light-primary h-45 w-45 d-flex-center b-r-6">
-                                                      <img alt="cart" class="img-fluid p-1"
-                                                           src="../assets/images/header/cart/04.png">
-                                                  </span>
-                                                    <div class="flex-grow-1 ms-2">
-                                                        <a class="mb-0 f-w-600 f-s-16" href="product_details.html"
-                                                           target="_blank">Sandals (5 <i
-                                                                class="ti ti-star-filled text-warning f-s-12"></i>)</a>
-                                                        <div>
-                                                            <span class="text-dark"><span
-                                                                    class="text-secondary f-w-400">size</span> : 8</span>
-                                                            <span class="text-dark ms-2"><span
-                                                                    class="text-secondary f-w-400">color</span> :White</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <i class="ph ph-trash f-s-18 text-danger close-btn"></i>
-                                                        <p class="text-muted f-w-500 mb-0">$390 x 2</p>
-                                                    </div>
-                                                </div>
-                                                <div class="head-box ">
-                                                    <span class="b-1-light bg-light-primary h-45 w-45 d-flex-center b-r-6">
-                                                      <img alt="cart" class="img-fluid p-1"
-                                                           src="../assets/images/header/cart/03.png">
-                                                  </span>
-                                                    <div class="flex-grow-1 ms-2">
-                                                        <a class="mb-0 f-w-600 f-s-16" href="product_details.html"
-                                                           target="_blank"> Jackets (3<i
-                                                                class="ti ti-star-filled text-warning f-s-12"></i>)</a>
-                                                        <div>
-                                                            <span class="text-dark"><span
-                                                                    class="text-secondary f-w-400">size</span> : XL</span>
-                                                            <span class="text-dark ms-2"><span
-                                                                    class="text-secondary f-w-400">color</span> :Blue</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <i class="ph ph-trash f-s-18 text-danger close-btn"></i>
-                                                        <p class="text-muted f-w-500 mb-0">$300.00 x 2</p>
-                                                    </div>
-                                                </div>
-                                                <div class="head-box ">
-                                                    <span class="b-1-light bg-light-primary h-45 w-45 d-flex-center b-r-6">
-                                                      <img alt="cart" class="img-fluid p-1"
-                                                           src="../assets/images/header/cart/02.png">
-                                                  </span>
-                                                    <div class="flex-grow-1 ms-2">
-                                                        <a class="mb-0 f-w-600 f-s-16" href="product_details.html"
-                                                           target="_blank"> Shoes (3<i
-                                                                class="ti ti-star-filled text-warning f-s-12"></i>)</a>
-                                                        <div>
-                                                            <span class="text-dark"><span
-                                                                    class="text-secondary f-w-400">size</span> : 9</span>
-                                                            <span class="text-dark ms-2"><span
-                                                                    class="text-secondary f-w-400">color</span> :White</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <i class="ph ph-trash f-s-18 text-danger close-btn"></i>
-                                                        <p class="text-muted f-w-500 mb-0">$450.00 x 1</p>
-                                                    </div>
-                                                </div>
-                                                <div class="hidden-massage py-4 px-3">
-
-                                                    <div>
-                                                            <i class="ph-duotone  ph-shopping-bag-open f-s-50 text-primary"></i>
-                                                        <h6 class="mb-0">Your Cart is Empty</h6>
-                                                        <p class="text-secondary mb-0">Add some items :)</p>
-                                                        <a class="btn btn-light-primary btn-xs mt-2"
-                                                           href="product_details.html">Shop
-                                                            Now</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="offcanvas-footer">
-                                            <div class="head-box-footer p-3">
-                                                <div class="mb-4">
-                                                    <h6 class="text-muted f-w-600">Total <span
-                                                            class="float-end text-primary">$3,468.00</span></h6>
-                                                </div>
-                                                <div class="header-cart-btn">
-                                                    <a class="btn btn-primary" href="./cart.html" role="button"
-                                                       target="_blank">
-                                                        <i class="ti ti-eye"></i> View Cart</a>
-                                                    <a class="btn btn-success" href="./checkout.html" role="button"
-                                                       target="_blank">
-                                                        Checkout <i class="ti ti-shopping-cart"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="header-dark">
-                                    <div class="sun-logo head-icon bg-light-dark rounded-circle f-s-22 p-2">
-                                        <i class="ph ph-moon-stars"></i>
-                                    </div>
-                                    <div class="moon-logo head-icon bg-light-dark rounded-circle f-s-22 p-2">
-                                        <i class="ph ph-sun-dim"></i>
-                                    </div>
-                                </li>
-
-                                <li class="header-notification">
-                                    <a aria-controls="notificationcanvasRight"
-                                       class="d-block head-icon position-relative bg-light-dark rounded-circle f-s-22 p-2"
-                                       data-bs-target="#notificationcanvasRight"
-                                       data-bs-toggle="offcanvas"
+                                <li class="dropdown header-mode">
+                                    <a aria-expanded="false" class="d-block head-icon bg-light-dark rounded-circle f-s-22 p-2"
+                                       data-bs-auto-close="outside"
+                                       data-bs-toggle="dropdown"
                                        href="#"
                                        role="button">
-                                        <i class="ph ph-bell"></i>
-                                        <span
-                                                class="position-absolute translate-middle p-1 bg-primary border border-light rounded-circle animate__animated animate__fadeIn animate__infinite animate__slower"></span>
+                                        <i class="ph ph-moon-stars"></i>
                                     </a>
-                                    <div aria-labelledby="notificationcanvasRightLabel"
-                                         class="offcanvas offcanvas-end header-notification-canvas"
-                                         id="notificationcanvasRight" tabindex="-1">
-                                        <div class="offcanvas-header">
-                                            <h5 class="offcanvas-title" id="notificationcanvasRightLabel">
-                                                Notification</h5>
-                                            <button aria-label="Close" class="btn-close" data-bs-dismiss="offcanvas"
-                                                    type="button"></button>
+                                    <div class="dropdown-menu dropdown-menu-end p-3">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0">Dark Mode</h6>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input form-check-primary" id="dark-mode-switch"
+                                                       type="checkbox">
+                                            </div>
                                         </div>
-                                        <div class="offcanvas-body app-scroll p-0">
-                                            <div class="head-container">
-                                                <div class="notification-message head-box">
+                                    </div>
+                                </li>
 
-                                                    <div class="message-content-box flex-grow-1 pe-2">
-
-                                                        <a class="f-s-15 text-dark mb-0"
-                                                           href="./read_email.html"><span
-                                                                class="f-w-500 text-dark">Gene Hart</span> wants to
-                                                            edit <span
-                                                                    class="f-w-500 text-dark">Report.doc</span></a>
-                                                        <div>
-                                                            <a class="d-inline-block f-w-500 text-success me-1"
-                                                               href="#">Approve</a>
-                                                            <a class="d-inline-block f-w-500 text-danger"
-                                                               href="#">Deny</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <i class="ph ph-trash f-s-18 text-danger close-btn"></i>
-                                                        <div>
-                                                            <span class="badge text-light-primary"> sep 23 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="notification-message head-box">
-
-                                                    <div class="message-content-box flex-grow-1 pe-2">
-                                                        <a class="f-s-15 text-dark mb-0" href="./read_email.html">Hey
-                                                            <span
-                                                                    class="f-w-500 text-dark">Emery McKenzie</span>,
-                                                            get ready: Your order from <span
-                                                                    class="f-w-500 text-dark">@Shopper.com</span></a>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <i class="ph ph-trash f-s-18 text-danger close-btn"></i>
-                                                        <div>
-                                                            <span class="badge text-light-primary"> sep 23 </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                <li class="dropdown header-notification">
+                                    <a aria-expanded="false" class="d-block head-icon bg-light-dark rounded-circle f-s-22 p-2"
+                                       data-bs-auto-close="outside" data-bs-toggle="dropdown"
+                                       href="#" role="button">
+                                        <i class="ph ph-bell"></i>
+                                        <span class="notification-badge"></span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end header-card p-0">
+                                        <div class="card">
+                                            <div class="card-header d-flex align-items-center justify-content-between">
+                                                <h5 class="mb-0">Notifications</h5>
+                                                <span class="badge bg-primary text-white">3 new</span>
+                                            </div>
+                                            <div class="card-body app-scroll">
                                                 <div class="notification-message head-box">
                                                     <div class="message-content-box flex-grow-1 pe-2">
-                                                        <a class="f-s-15 text-dark mb-0"
-                                                           href="./read_email.html"><span
-                                                                class="f-w-500 text-dark">Simon Young</span> shared
-                                                            a file called <span
-                                                                    class="f-w-500 text-dark">Dropdown.pdf</span></a>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <i class="ph ph-trash f-s-18 text-danger close-btn"></i>
-                                                        <div>
-                                                            <span class="badge text-light-primary"> 30 min</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="notification-message head-box">
-                                                    <div class="message-content-box flex-grow-1 pe-2">
-                                                        <a class="f-s-15 text-dark mb-0"
-                                                           href="./read_email.html"><span
-                                                                class="f-w-500 text-dark">Becky G. Hayes</span> has
-                                                            added a comment to <span
-                                                                    class="f-w-500 text-dark">Final_Report.pdf</span></a>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <i class="ph ph-trash f-s-18 text-danger close-btn"></i>
-                                                        <div>
-                                                            <span class="badge text-light-primary"> 45 min</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="notification-message head-box">
-                                                    <div class="message-content-box  flex-grow-1 pe-2">
-                                                        <a class="f-s-15 text-dark mb-0 "
-                                                           href="./read_email.html"><span
-                                                                class="f-w-600 text-dark">@Romaine</span>
-                                                            invited you to a meeting
+                                                        <a class="f-s-15 text-dark mb-0" href="#"><span
+                                                                class="f-w-500 text-dark">Meetings</span> updated for
+                                                            today
                                                         </a>
-                                                        <div>
-                                                            <a class="d-inline-block f-w-500 text-success me-1"
-                                                               href="#">Join</a>
-                                                            <a class="d-inline-block f-w-500 text-danger" href="#">Decline</a>
-                                                        </div>
-
+                                                        <p class="text-muted mb-0">10 minutes ago</p>
                                                     </div>
                                                     <div class="text-end">
                                                         <i class="ph ph-trash f-s-18 text-danger close-btn"></i>
-                                                        <div>
-                                                            <span class="badge text-light-primary"> 1 hour ago </span>
-                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="hidden-massage py-4 px-3">
-                                                       <div>
+                                                <div class="notification-message head-box">
+                                                    <div class="message-content-box flex-grow-1 pe-2">
+                                                        <a class="f-s-15 text-dark mb-0" href="#"><span
+                                                                class="f-w-500 text-dark">Server</span> reboot completed</a>
+                                                        <p class="text-muted mb-0">30 minutes ago</p>
+                                                    </div>
+                                                    <div class="text-end">
+                                                        <i class="ph ph-trash f-s-18 text-danger close-btn"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="hidden-massage py-4 px-3 text-center">
+                                                    <div>
                                                         <i class="ph-duotone  ph-bell-ringing f-s-50 text-primary"></i>
                                                     </div>
                                                     <div>
                                                         <h6 class="mb-0">Notification Not Found</h6>
-                                                        <p class="text-dark">When you have any notifications added
-                                                            here,will
-                                                            appear here.
-                                                        </p>
+                                                        <p class="text-dark mb-0">When you have notifications, they will appear here.</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </li>
+
+                                <li class="header-profile">
+                                    <div class="dropdown">
+                                        <a aria-expanded="false" class="d-flex align-items-center" data-bs-toggle="dropdown"
+                                           href="#">
+                                            <div class="me-2">
+                                                <h6 class="mb-0">Ninfa Monaldo</h6>
+                                                <small class="text-muted">Admin</small>
+                                            </div>
+                                            <span class="h-40 w-40 d-flex-center b-r-50 position-relative bg-primary">
+                                                <img alt="avatar" class="img-fluid b-r-50" src="../assets/images/avatar/5.jpg">
+                                            </span>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="profile.html">Profile</a>
+                                            <a class="dropdown-item" href="setting.html">Settings</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item text-danger" href="sign_in.html">Logout</a>
+                                        </div>
+                                    </div>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -1161,1550 +982,252 @@
                                     <a class="f-s-14 f-w-500" href="#">Profile</a>
                                 </li>
                                 <li class="active">
-                                    <a class="f-s-14 f-w-500" href="#">Profile</a>
+                                    <a class="f-s-14 f-w-500" href="#">Overview</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <!-- Breadcrumb end -->
 
-                    <div class="row">
+                    <div class="row g-3">
                         <div class="col-lg-3">
-                            <!-- profile tabs -->
                             <div class="card">
                                 <div class="card-body">
                                     <div class="tab-wrapper">
                                         <ul class="profile-app-tabs ">
-                                            <li class="tab-link fw-medium f-s-16 f-w-600 active" data-tab="1"><i
-                                                    class="ti ti-user fw-bold"></i>
+                                            <li class="tab-link fw-medium f-s-16 f-w-600 active" data-tab="1"><i class="ti ti-user fw-bold"></i>
                                                 Profile
                                             </li>
-                                            <li class="tab-link fw-medium f-s-16 f-w-600" data-tab="2"><i
-                                                    class="ti ti-timeline fw-bold"></i>
+                                            <li class="tab-link fw-medium f-s-16 f-w-600" data-tab="2"><i class="ti ti-timeline fw-bold"></i>
                                                 Activities
-                                                <span class="badge rounded-pill bg-warning badge-notification">
-                            10+
-                            <span class="visually-hidden">unread messages</span>
-                          </span>
+                                                <span class="badge rounded-pill bg-warning badge-notification d-none" id="profile-activity-count">
+                                                    <span class="visually-hidden">unread messages</span>
+                                                </span>
                                             </li>
-                                            <li class="tab-link fw-medium f-s-16 f-w-600" data-tab="3"><i
-                                                    class="ti ti-clipboard-data fw-bold"></i> Projects
-                                            </li>
-                                            <li class="tab-link fw-medium f-s-16 f-w-600" data-tab="4"><i
-                                                    class="ti ti-photo-heart fw-bold"></i> Post
-                                            </li>
-                                            <li class="tab-link fw-medium f-s-16  f-w-600" data-tab="5"><i
-                                                    class="ti ti-users fw-bold"></i>
-                                                Friends
+                                            <li class="tab-link fw-medium f-s-16 f-w-600" data-tab="3"><i class="ti ti-clipboard-data fw-bold"></i>
+                                                Projects
                                             </li>
                                         </ul>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="card d-lg-block d-none">
-                                <div class="card-header">
-                                    <h5>Friends</h5>
-                                </div>
-                                <div class="card-body profile-friends">
-                                    <div class="d-flex align-items-center">
-                                        <div class="h-40 w-40 d-flex-center b-r-50 overflow-hidden bg-dark">
-                                            <img alt="image" class="img-fluid" src="../assets/images/avatar/2.png">
-                                        </div>
-                                        <div class="flex-grow-1 ps-2">
-                                            <div class="fw-medium"> Bette Hagenes</div>
-                                            <div class="text-muted f-s-12">Wed Developer</div>
-                                        </div>
-                                        <a class="btn btn-light-secondary icon-btn b-r-22" href="#"> <i
-                                                class="ti ti-user-check"></i> </a>
-                                    </div>
-                                    <div class="d-flex align-items-center mt-3">
-                                        <div class="h-40 w-40 d-flex-center b-r-50 overflow-hidden bg-primary">
-                                            <img alt="image" class="img-fluid" src="../assets/images/avatar/10.png">
-                                        </div>
-                                        <div class="flex-grow-1 ps-2">
-                                            <div class="fw-medium"> Fleta Walsh</div>
-                                            <div class="text-muted f-s-12">Wed Designer</div>
-                                        </div>
-                                        <a class="btn btn-light-secondary icon-btn b-r-22" href="#"> <i
-                                                class="ti ti-user-check"></i> </a>
-                                    </div>
-                                    <div class="d-flex align-items-center mt-3">
-                                        <div class="h-40 w-40 d-flex-center b-r-50 overflow-hidden bg-success">
-                                            <img alt="image" class="img-fluid" src="../assets/images/avatar/14.png">
-                                        </div>
-                                        <div class="flex-grow-1 ps-2">
-                                            <div class="fw-medium"> Lenora</div>
-                                            <div class="text-muted f-s-12">UI/UX designer</div>
-                                        </div>
-                                        <a class="btn btn-light-secondary icon-btn b-r-22" href="#"> <i
-                                                class="ti ti-user-check"></i> </a>
-                                    </div>
-                                    <div class="d-flex align-items-center mt-3">
-                                        <div class="h-40 w-40 d-flex-center b-r-50 overflow-hidden bg-warning">
-                                            <img alt="image" class="img-fluid" src="../assets/images/avatar/16.png">
-                                        </div>
-                                        <div class="flex-grow-1 ps-2">
-                                            <div class="fw-medium"> Fleta Walsh</div>
-                                            <div class="text-muted f-s-12">React Developer</div>
-                                        </div>
-                                        <a class="btn btn-light-secondary icon-btn b-r-22" href="#"> <i
-                                                class="ti ti-user-check"></i> </a>
-                                    </div>
-                                    <div class="d-flex align-items-center mt-3">
-                                        <div class="h-40 w-40 d-flex-center b-r-50 overflow-hidden bg-danger">
-                                            <img alt="image" class="img-fluid" src="../assets/images/avatar/13.png">
-                                        </div>
-                                        <div class="flex-grow-1 ps-2">
-                                            <div class="fw-medium"> Emery McKenzie</div>
-                                            <div class="text-muted f-s-12">Wed Developer</div>
-                                        </div>
-                                        <a class="btn btn-light-secondary icon-btn b-r-22" href="#"> <i
-                                                class="ti ti-user-check"></i> </a>
-                                    </div>
-                                    <div class="d-flex align-items-center mt-3">
-                                        <div class="h-40 w-40 d-flex-center b-r-50 overflow-hidden bg-info">
-                                            <img alt="image" class="img-fluid" src="../assets/images/avatar/1.png">
-                                        </div>
-                                        <div class="flex-grow-1 ps-2">
-                                            <div class="fw-medium"> Bette Hagenes</div>
-                                            <div class="text-muted f-s-12">Wed Designer</div>
-                                        </div>
-                                        <a class="btn btn-light-secondary icon-btn b-r-22" href="#"> <i
-                                                class="ti ti-user-check"></i> </a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="card">
+                                <div class="card-body text-center">
+                                    <div class="position-relative d-inline-block mb-3">
+                                        <img alt="Profile avatar" class="img-90 rounded-circle border border-3 border-light" id="profile-avatar" src="../assets/images/avatar/2.jpg">
+                                        <span class="position-absolute bottom-0 end-0 h-12 w-12 bg-success border border-2 border-white rounded-circle"></span>
+                                    </div>
+                                    <h5 class="mb-1" id="profile-name">—</h5>
+                                    <p class="text-muted mb-3" id="profile-role">—</p>
+                                    <div class="d-flex justify-content-center gap-2 flex-wrap mb-3" id="profile-status-pill"></div>
+                                    <div class="d-flex justify-content-center gap-2 flex-wrap">
+                                        <button class="btn btn-primary btn-sm" id="followButton"><i class="ti ti-user"></i> Follow</button>
+                                        <button class="btn btn-outline-secondary btn-sm" id="profile-message-btn"><i class="ti ti-send"></i> Message</button>
+                                    </div>
+                                    <ul class="list-unstyled text-start mt-4 small" id="profile-contact-list"></ul>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Highlights</h5>
+                                </div>
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="h-45 w-45 d-flex-center b-r-50 overflow-hidden bg-danger">
-                                            <img alt="" class="img-fluid" src="../assets/images/avatar/16.png">
-                                        </div>
-                                        <div class="flex-grow-1 ps-2 pe-2">
-                                            <div class="f-w-600">Heli Walsh</div>
-                                            <div class="text-muted f-s-12">3 Week</div>
-                                        </div>
-                                        <div><i class="ti ti-dots-vertical"></i></div>
-                                    </div>
-                                    <div class="post-div">
-                                        <div class="row g-2 my-2">
-                                            <div class="col-6">
-                                                <a class="glightbox" data-glightbox="type: image; zoomable: true;"
-                                                   href="../assets/images/profile-app/19.jpg">
-                                                    <img alt="" class="w-100 rounded"
-                                                         src="../assets/images/profile-app/19.jpg">
-                                                </a>
-                                            </div>
-                                            <div class="col-6">
-                                                <a class="glightbox" data-glightbox="type: image; zoomable: true;"
-                                                   href="../assets/images/profile-app/27.jpg">
-                                                    <img alt="" class="w-100 rounded"
-                                                         src="../assets/images/profile-app/27.jpg">
-                                                </a>
-                                            </div>
-                                            <div class="col-4">
-                                                <a class="glightbox" data-glightbox="type: image; zoomable: true;"
-                                                   href="../assets/images/profile-app/28.jpg">
-                                                    <img alt="" class="w-100 rounded"
-                                                         src="../assets/images/profile-app/28.jpg">
-                                                </a>
-                                            </div>
-                                            <div class="col-4">
-                                                <a class="glightbox" data-glightbox="type: image; zoomable: true;"
-                                                   href="../assets/images/profile-app/29.jpg">
-                                                    <img alt="" class="w-100 rounded"
-                                                         src="../assets/images/profile-app/29.jpg">
-                                                </a>
-                                            </div>
-                                            <div class="col-4">
-                                                <a class="glightbox" data-glightbox="type: image; zoomable: true;"
-                                                   href="../assets/images/profile-app/30.jpg">
-                                                    <img alt="" class="w-100 rounded"
-                                                         src="../assets/images/profile-app/30.jpg">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <p class="test-muted">There's nothing like fresh flowers!......🌸🌼🌻</p>
-                                        <div class="post-icon">
-                                            <i class="ti ti-heart"></i>
-                                            <i class="ti ti-brand-hipchat"></i>
-                                            <i class="ti ti-send"></i>
-                                            <p class="text-secondary">2k Likes</p>
-                                        </div>
-                                    </div>
+                                    <ul class="list-unstyled mb-0" id="profile-side-highlights"></ul>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Tags</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex flex-wrap gap-2" id="profile-tags"></div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-5 col-xxl-6 col-box-5">
-                            <!-- profile content -->
                             <div class="content-wrapper">
-                                <!-- tab 1 -->
                                 <div class="tabs-content active" id="tab-1">
                                     <div class="profile-content">
-
-                                        <!-- story section -->
                                         <div class="card">
                                             <div class="card-header">
-                                                <h5>Featured Stories</h5>
+                                                <h5>Overview</h5>
                                             </div>
                                             <div class="card-body">
-                                                <div class="story-container app-arrow">
-                                                    <div>
-                                                        <a class="glightbox story"
-                                                           data-glightbox="type: image; zoomable: true;"
-                                                           href="../assets/images/profile-app/11.jpg">
-                                                            <img alt="image"
-                                                                 class="rounded img-fluid"
-                                                                 src="../assets/images/profile-app/11.jpg">
-                                                            <div class="h-50 w-50 d-flex-center b-r-50 overflow-hidden story-icon bg-primary">
-                                                                <img alt="image" class="img-fluid"
-                                                                     src="../assets/images/avatar/1.png">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div>
-                                                        <a class="glightbox story"
-                                                           data-glightbox="type: image; zoomable: true;"
-                                                           href="../assets/images/profile-app/12.jpg">
-                                                            <img alt="image"
-                                                                 class="rounded img-fluid"
-                                                                 src="../assets/images/profile-app/12.jpg">
-                                                            <div class="h-50 w-50 d-flex-center b-r-50 overflow-hidden story-icon bg-danger">
-                                                                <img alt="image" class="img-fluid"
-                                                                     src="../assets/images/avatar/08.png">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div>
-                                                        <a class="glightbox story"
-                                                           data-glightbox="type: image; zoomable: true;"
-                                                           href="../assets/images/profile-app/13.jpg">
-                                                            <img alt="image"
-                                                                 class="rounded img-fluid"
-                                                                 src="../assets/images/profile-app/13.jpg">
-                                                            <div class="h-50 w-50 d-flex-center b-r-50 overflow-hidden story-icon bg-secondary">
-                                                                <img alt="image" class="img-fluid"
-                                                                     src="../assets/images/avatar/2.png">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div>
-                                                        <a class="glightbox story"
-                                                           data-glightbox="type: image; zoomable: true;"
-                                                           href="../assets/images/profile-app/14.jpg">
-                                                            <img alt="image"
-                                                                 class="rounded img-fluid"
-                                                                 src="../assets/images/profile-app/14.jpg">
-                                                            <div class="h-50 w-50 d-flex-center b-r-50 overflow-hidden story-icon bg-dark">
-                                                                <img alt="image" class="img-fluid"
-                                                                     src="../assets/images/avatar/3.png">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div>
-                                                        <a class="glightbox story"
-                                                           data-glightbox="type: image; zoomable: true;"
-                                                           href="../assets/images/profile-app/15.jpg">
-                                                            <img alt="image"
-                                                                 class="rounded img-fluid"
-                                                                 src="../assets/images/profile-app/15.jpg">
-                                                            <div class="h-50 w-50 d-flex-center b-r-50 overflow-hidden story-icon bg-warning">
-                                                                <img alt="image" class="img-fluid"
-                                                                     src="../assets/images/avatar/07.png">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div>
-                                                        <a class="glightbox story"
-                                                           data-glightbox="type: image; zoomable: true;"
-                                                           href="../assets/images/profile-app/16.jpg">
-                                                            <img alt="image"
-                                                                 class="rounded img-fluid"
-                                                                 src="../assets/images/profile-app/16.jpg">
-                                                            <div class="h-50 w-50 d-flex-center b-r-50 overflow-hidden story-icon bg-info">
-                                                                <img alt="image" class="img-fluid"
-                                                                     src="../assets/images/avatar/4.png">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div>
-                                                        <a class="glightbox story"
-                                                           data-glightbox="type: image; zoomable: true;"
-                                                           href="../assets/images/profile-app/17.jpg">
-                                                            <img alt="image"
-                                                                 class="rounded img-fluid"
-                                                                 src="../assets/images/profile-app/17.jpg">
-                                                            <div class="h-45 w-45 d-flex-center b-r-50 overflow-hidden story-icon bg-primary">
-                                                                <img alt="image" class="img-fluid"
-                                                                     src="../assets/images/avatar/5.png">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div>
-                                                        <a class="glightbox story"
-                                                           data-glightbox="type: image; zoomable: true;"
-                                                           href="../assets/images/profile-app/18.jpg">
-                                                            <img alt="image"
-                                                                 class="rounded img-fluid"
-                                                                 src="../assets/images/profile-app/18.jpg">
-                                                            <div class="h-45 w-45 d-flex-center b-r-50 overflow-hidden story-icon bg-success">
-                                                                <img alt="image" class="img-fluid"
-                                                                     src="../assets/images/avatar/6.png">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                                <p class="text-muted mb-3" id="profile-overview-text"></p>
+                                                <div class="row g-3" id="profile-overview-metrics"></div>
                                             </div>
                                         </div>
 
-                                        <!-- post section-->
                                         <div class="card">
                                             <div class="card-header">
-                                                <h5>Post</h5>
+                                                <h5>Recent Notes</h5>
                                             </div>
                                             <div class="card-body">
-                                                <div class="col-12">
-                                                    <div class="photos-container">
-                                                        <div class="left-main-img img-box">
-                                                            <a class="glightbox"
-                                                               data-glightbox="type: image; zoomable: true;"
-                                                               href="../assets/images/profile-app/20.jpg">
-                                                                <img alt="image"
-                                                                     src="../assets/images/profile-app/20.jpg">
-                                                                <div class="transparent-box2">
-                                                                    <div class="captions">
-                                                                        Simple image example
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div>
-                                                            <div class="sub">
-                                                                <div class="img-box">
-                                                                    <a class="glightbox"
-                                                                       data-glightbox="type: image"
-                                                                       href="../assets/images/profile-app/21.jpg">
-                                                                        <img alt="image"
-                                                                             src="../assets/images/profile-app/21.jpg">
-                                                                        <div class="transparent-box2">
-                                                                            <div class="captions">
-                                                                                Simple image example
-                                                                            </div>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="img-box"><a
-                                                                        class="glightbox"
-                                                                        data-glightbox="type: image"
-                                                                        href="../assets/images/profile-app/23.jpg"><img
-                                                                        alt="image"
-                                                                        src="../assets/images/profile-app/23.jpg">
-                                                                    <div class="transparent-box2">
-                                                                        <div class="captions">
-                                                                            Simple image example
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                                </div>
-                                                                <div class="img-box"><a
-                                                                        class="glightbox"
-                                                                        data-glightbox="type: image"
-                                                                        href="../assets/images/profile-app/24.jpg"><img
-                                                                        alt="image"
-                                                                        src="../assets/images/profile-app/24.jpg">
-                                                                    <div class="transparent-box2">
-                                                                        <div class="captions">
-                                                                            Simple image example
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                                </div>
-                                                                <div class="img-box" id="multi-link">
-                                                                    <a class="glightbox"
-                                                                       data-glightbox="type: image"
-                                                                       href="../assets/images/profile-app/22.jpg">
-                                                                        <img alt="image"
-                                                                             src="../assets/images/profile-app/22.jpg">
-                                                                        <div class="transparent-box">
-                                                                            <div class="caption">
-                                                                                +3
-                                                                            </div>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="extra-images-container hide-element" id="more-img">
-                                                            <a class="glightbox" data-glightbox="type: image"
-                                                               href="../assets/images/blog-app/01.jpg"><img
-                                                                    alt="image"
-                                                                    src="../assets/images/blog-app/01.jpg"></a>
-                                                            <a class="glightbox" data-glightbox="type: image"
-                                                               href="../assets/images/blog-app/02.jpg"><img
-                                                                    alt="image"
-                                                                    src="../assets/images/blog-app/02.jpg"></a>
-                                                            <a class="glightbox" data-glightbox="type: image"
-                                                               href="../assets/images/blog-app/03.jpg"><img
-                                                                    alt="image"
-                                                                    src="../assets/images/blog-app/03.jpg"></a>
-                                                        </div>
-                                                    </div>
+                                                <ul class="list-unstyled mb-0" id="profile-overview-list"></ul>
+                                            </div>
+                                        </div>
 
-                                                    <div class="photos-container">
-                                                        <div class="left-main-img img-box">
-                                                            <a class="glightbox"
-                                                               href="../assets/images/profile-app/video.mp4">
-                                                                <img alt="image"
-                                                                     src="../assets/images/profile-app/26.jpg">
-                                                                <div class="transparent-box">
-                                                                    <div class="caption">
-                                                                        <i class="fa-solid fa-play-circle fa-fw"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="right-main-img img-box">
-                                                            <a class="glightbox"
-                                                               href="../assets/images/profile-app/video.mp4">
-                                                                <img alt="image"
-                                                                     src="../assets/images/profile-app/25.jpg">
-                                                                <div class="transparent-box">
-                                                                    <div class="caption">
-                                                                        <i class="fa-solid fa-play-circle fa-fw"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Attachments</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row g-3" id="profile-attachments"></div>
+                                                <div class="filepond-file mt-3"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- tab 2 -->
-                                <div class="tabs-content " id="tab-2">
+                                <div class="tabs-content" id="tab-2">
                                     <div class="card">
                                         <div class="card-header">
                                             <h5>Activity</h5>
                                         </div>
                                         <div class="card-body">
-                                            <ul class="app-timeline-box">
-                                                <li class="timeline-section">
-                                                    <div class="timeline-icon">
-                              <span class="text-light-primary h-35 w-35 d-flex-center b-r-50">
-                                W
-                              </span>
-                                                    </div>
-                                                    <div class="timeline-content">
-                                                        <div class="f-s-16">
-                                                            <span class="text-primary f-s-16 mb-0">Wilson<span
-                                                                    class="text-secondary ms-2">added reaction in <span
-                                                                    class="badge text-outline-primary me-2">#product website</span>post</span></span>
-                                                        </div>
-                                                        <p class="f-w-500 text-end mt-2 mb-0">
-                                                            <i class="ph ph-clock me-1 align-middle"></i>09.00AM
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="timeline-section">
-                                                    <div class="timeline-icon">
-                              <span class="text-light-info h-35 w-35 d-flex-center b-r-50 icon-direction">
-                                <i class="ph-duotone  ph-image f-s-18"></i>
-                              </span>
-                                                    </div>
-                                                    <div class="timeline-content">
-                                                        <p class=" f-s-16 text-info mb-0">2 image files and 2 videos
-                                                            uploaded</p>
-
-                                                        <div class="app-timeline-info-text timeline-border-box me-2 ms-0 mt-3 p-3">
-                                                            <div class="row">
-                                                                <div class="col-sm-4">
-                                                                    <a class="glightbox img-hover-zoom"
-                                                                       data-glightbox="type: image; zoomable: true;"
-                                                                       href="../assets/images/draggable/02.jpg">
-                                                                        <img alt=""
-                                                                             class="w-100 rounded"
-                                                                             src="../assets/images/draggable/02.jpg">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="col-sm-4">
-                                                                    <a class="glightbox img-hover-zoom"
-                                                                       data-glightbox="type: image; zoomable: true;"
-                                                                       href="../assets/images/draggable/04.jpg">
-                                                                        <img alt=""
-                                                                             class="w-100 rounded"
-                                                                             src="../assets/images/draggable/04.jpg">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="col-sm-4">
-                                                                    <a class="glightbox img-hover-zoom"
-                                                                       data-glightbox="type: image; zoomable: true;"
-                                                                       href="../assets/images/draggable/01.jpg">
-                                                                        <img alt=""
-                                                                             class="w-100 rounded"
-                                                                             src="../assets/images/draggable/01.jpg">
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <p class="f-w-500 text-end mt-2 mb-0">
-                                                            <i class="ph ph-clock me-1 align-middle"></i>Updated at
-                                                            12:45 pm
-                                                        </p>
-                                                    </div>
-
-
-                                                </li>
-                                                <li class="timeline-section">
-                                                    <div class="timeline-icon">
-                              <span class="text-light-success  h-35 w-35 d-flex-center b-r-50">
-                                D
-                              </span>
-                                                    </div>
-                                                    <div class="timeline-content">
-                                                        <div class="f-s-16">
-                                                            <span class="text-secondary"><span
-                                                                    class="text-success f-s-16 mb-0">Dane Wiza</span> added reaction in <span
-                                                                    class="badge text-outline-success me-2">#product website</span>post</span>
-                                                        </div>
-                                                        <div class="timeline-border-box me-2 ms-0 mt-3">
-                                                            <h6 class="mb-0">Need a feature</h6>
-                                                            <p class="mb-4 text-secondary">Hello everyone,
-                                                                question on email marketing. What are some
-                                                                tips/tricks to avoid going to promotion
-                                                                spam/ junk for automated marketing emails
-                                                                going to promotion spam/ junk for automated
-                                                                marketing emails</p>
-                                                            <span class="badge text-outline-success me-2 timeline-badge">#🙂❤10Reactions</span>
-                                                            <span class="badge text-outline-success me-2">#✨12Replies</span>
-                                                        </div>
-                                                        <p class="f-w-500 text-end mt-2 mb-0">
-                                                            <i class="ph ph-clock me-1 align-middle"></i>09.00AM
-                                                        </p>
-                                                    </div>
-
-
-                                                </li>
-                                                <li class="timeline-section">
-                                                    <div class="timeline-icon">
-                              <span class="text-light-danger h-35 w-35 d-flex-center b-r-50">
-                                B
-                              </span>
-                                                    </div>
-                                                    <div class="timeline-content">
-                                                        <div class="f-s-16">
-                                                            <span class="text-danger f-s-16 mb-0">Betty Mante <span
-                                                                    class="text-secondary ms-2">Request joined <span
-                                                                    class="badge text-outline-danger me-2">#reaserchteam</span>groups</span></span>
-                                                        </div>
-                                                        <div class="mt-3">
-                                                            <button class="btn btn-danger"
-                                                                    type="button">Accept
-                                                            </button>
-                                                            <button class="btn btn-outline-danger"
-                                                                    type="button">Rejects
-                                                            </button>
-                                                        </div>
-                                                        <p class="f-w-500 text-end mt-2 mb-0">
-                                                            <i class="ph ph-clock me-1 align-middle"></i>4 days ago
-                                                        </p>
-                                                    </div>
-
-
-                                                </li>
-                                                <li class="timeline-section">
-                                                    <div class="timeline-icon">
-                              <span class="text-light-primary h-35 w-35 d-flex-center b-r-50">
-                                P
-                              </span>
-                                                    </div>
-                                                    <div class="timeline-content">
-                                                        <div class=" f-s-16">
-                                <span class="text-primary f-s-16 mb-0">Pinkie
-                                <span class="text-secondary ms-2">uploaded
-                                  <span class="text-dark f-w-600 me-2 ms-2">2</span>attachment <span
-                                            class="badge text-outline-primary me-2">#reaserchteam</span></span>
-                                </span>
-                                                        </div>
-
-                                                        <div class="mt-3">
-                                                            <button class="btn btn-primary"
-                                                                    type="button">Accept
-                                                            </button>
-                                                            <button class="btn btn-outline-primary"
-                                                                    type="button">Rejects
-                                                            </button>
-                                                        </div>
-                                                        <p class="f-w-500 text-end mt-2 mb-0">
-                                                            <i class="ph ph-clock me-1 align-middle"></i>4 days ago
-                                                        </p>
-                                                    </div>
-
-
-                                                </li>
-                                            </ul>
+                                            <ul class="app-timeline-box" id="profile-activity"></ul>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- tab 3 -->
                                 <div class="tabs-content" id="tab-3">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="card hover-effect">
-                                                <div class="card-header">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="h-40 w-40 d-flex-center b-r-50 overflow-hidden">
-                                                            <img alt="" class="img-fluid"
-                                                                 src="../assets/images/icons/language/logo2.png">
-                                                        </div>
-                                                        <a class="flex-grow-1 px-3" href="project_details.html"
-                                                           target="_blank">
-                                                            <h6 class="m-0 text-dark f-w-600"> Designing</h6>
-                                                            <div class="text-muted f-s-14 f-w-500">Prototyping</div>
-                                                        </a>
-                                                        <div class="dropdown">
-                                                            <button aria-expanded="false" class="bg-none border-0"
-                                                                    data-bs-toggle="dropdown" type="button">
-                                                                <i class="ti ti-dots-vertical"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li>
-                                                                    <a class="dropdown-item" href="#">
-                                                                        <i class="ti ti-edit text-success"></i> Edit
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item delete-button" href="#">
-                                                                        <i class="ti ti-trash text-danger"></i> Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <h6 class="text-dark f-s-14 f-w-500">Start Date : <span
-                                                                    class="text-success">2024-02-03 </span></h6>
-                                                            <h6 class="text-dark f-s-14 f-w-500">End Date : <span
-                                                                    class="text-danger">2024-04-05</span></h6>
-                                                        </div>
-                                                        <div class="flex-grow-1 text-end">
-                                                            <p class="f-w-500 text-secondary">Pricing </p>
-                                                            <h6 class="f-w-600">$280</h6>
-                                                        </div>
-                                                    </div>
-                                                    <p class="text-muted f-s-14 text-secondary txt-ellipsis-2">I am a
-                                                        keen, hardworking, reliable and
-                                                        excellent timekeeper. I am a bright and receptive person</p>
-                                                    <div class="text-end mb-2">
-                                                        <span class="badge text-light-success">Completed</span>
-                                                    </div>
-                                                    <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="100"
-                                                         class="progress w-100" role="progressbar">
-                                                        <div class="progress-bar bg-success" style="width: 100%"> 100%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <span class="text-dark f-w-600"><i
-                                                                    class="ti ti-brand-wechat"></i> 10 Members</span>
-                                                        </div>
-                                                        <div class="col-6">
-
-                                                            <ul class="avatar-group float-end breadcrumb-start ">
-                                                                <li class="h-25 w-25 d-flex-center b-r-50 text-bg-danger b-2-light position-relative"
-                                                                    data-bs-title="Sabrina Torres"
-                                                                    data-bs-toggle="tooltip">
-                                                                    <img alt="" class="img-fluid b-r-50 overflow-hidden"
-                                                                         src="../assets/images/avatar/4.png">
-                                                                </li>
-                                                                <li class="h-25 w-25 d-flex-center b-r-50 text-bg-success b-2-light position-relative"
-                                                                    data-bs-title="Sabrina Torres"
-                                                                    data-bs-toggle="tooltip">
-                                                                    <img alt="" class="img-fluid b-r-50 overflow-hidden"
-                                                                         src="../assets/images/avatar/1.png">
-                                                                </li>
-                                                                <li class="text-bg-primary h-25 w-25 d-flex-center b-r-50"
-                                                                    data-bs-title="5 More" data-bs-toggle="tooltip">
-                                                                    5+
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="card hover-effect">
-                                                <div class="card-header">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="h-40 w-40 d-flex-center b-r-50 overflow-hidden">
-                                                            <img alt="" class="img-fluid"
-                                                                 src="../assets/images/icons/language/logo4.png">
-                                                        </div>
-                                                        <a class="flex-grow-1 px-3" href="project_details.html"
-                                                           target="_blank">
-                                                            <h6 class="m-0 text-dark f-w-600"> Web Development</h6>
-                                                            <div class="text-muted f-s-14 f-w-500">Weather Application
-                                                            </div>
-                                                        </a>
-                                                        <div class="dropdown">
-                                                            <button aria-expanded="false" class="bg-none border-0"
-                                                                    data-bs-toggle="dropdown" type="button">
-                                                                <i class="ti ti-dots-vertical"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-menu-end">
-                                                                <li>
-                                                                    <a class="dropdown-item" href="#">
-                                                                        <i class="ti ti-edit text-success"></i> Edit
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a class="dropdown-item delete-button" href="#">
-                                                                        <i class="ti ti-trash text-danger"></i> Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="d-flex">
-                                                        <div>
-                                                            <h6 class="text-dark f-s-14 f-w-500">Start Date : <span
-                                                                    class="text-success">2024-06-16 </span></h6>
-                                                            <h6 class="text-dark f-s-14 f-w-500">End Date : <span
-                                                                    class="text-danger">2024-01-01</span></h6>
-                                                        </div>
-                                                        <div class="flex-grow-1 text-end">
-                                                            <p class="f-w-500 text-secondary">Pricing </p>
-                                                            <h6 class="f-w-600">$400k</h6>
-                                                        </div>
-                                                    </div>
-                                                    <p class="text-muted f-s-14 text-secondary txt-ellipsis-2">I am a
-                                                        keen, hardworking, reliable and
-                                                        excellent timekeeper. I am a bright and receptive person</p>
-                                                    <div class="text-end mb-2">
-                                                        <span class="badge text-light-success">Progress</span>
-                                                    </div>
-                                                    <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40"
-                                                         class="progress w-100" role="progressbar">
-                                                        <div class="progress-bar bg-primary" style="width: 40%"> 40%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <span class="text-dark f-w-600"><i
-                                                                    class="ti ti-brand-wechat"></i> 34 Members</span>
-                                                        </div>
-                                                        <div class="col-6">
-
-                                                            <ul class="avatar-group float-end breadcrumb-start ">
-                                                                <li class="h-25 w-25 d-flex-center b-r-50 text-bg-danger b-2-light position-relative"
-                                                                    data-bs-title="Sabrina Torres"
-                                                                    data-bs-toggle="tooltip">
-                                                                    <img alt="" class="img-fluid b-r-50 overflow-hidden"
-                                                                         src="../assets/images/avatar/4.png">
-                                                                </li>
-                                                                <li class="h-25 w-25 d-flex-center b-r-50 text-bg-success b-2-light position-relative"
-                                                                    data-bs-title="Sabrina Torres"
-                                                                    data-bs-toggle="tooltip">
-                                                                    <img alt="" class="img-fluid b-r-50 overflow-hidden"
-                                                                         src="../assets/images/avatar/1.png">
-                                                                </li>
-                                                                <li class="h-25 w-25 d-flex-center b-r-50 text-bg-success b-2-light position-relative"
-                                                                    data-bs-title="Sabrina Torres"
-                                                                    data-bs-toggle="tooltip">
-                                                                    <img alt="" class="img-fluid b-r-50 overflow-hidden"
-                                                                         src="../assets/images/avatar/5.png">
-                                                                </li>
-                                                                <li class="text-bg-primary h-25 w-25 d-flex-center b-r-50"
-                                                                    data-bs-title="5 More" data-bs-toggle="tooltip">
-                                                                    10+
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h5>Client Messages</h5>
-                                                </div>
-                                                <div class="card-body">
-                                                    <ul class="client-list">
-                                                        <li>
-                                                            <div class="d-flex align-items-center justify-content-between position-relative">
-                                  <span class="bg-danger h-35 w-35 d-flex-center b-r-50 position-absolute">
-                                    EM
-                                  </span>
-                                                                <div class="mg-s-40">
-                                                                    <span class="f-w-500"> Elyssa Moen</span>
-                                                                </div>
-                                                                <div>
-                                                                    <i class="ti ti-star fs-5 "></i>
-                                                                </div>
-                                                            </div>
-                                                            <p class="text-muted mt-2"> It was quite good.🥳 We can
-                                                                continue with the next assignment.</p>
-                                                        </li>
-                                                        <li>
-                                                            <div class="d-flex align-items-center justify-content-between position-relative">
-                                  <span class="bg-light-secondary h-35 w-35 d-flex-center b-r-50 position-absolute">
-                                    <i class="fa-solid fa-user"></i>
-                                  </span>
-                                                                <div class="mg-s-40">
-                                                                    <span class="f-w-500"> Mark</span>
-                                                                </div>
-                                                                <div>
-                                                                    <i class="ti ti-star fs-5 "></i>
-                                                                </div>
-                                                            </div>
-                                                            <p class="text-muted mt-2">Hey, can tell me about progress
-                                                                of project? I'm waiting
-                                                                for
-                                                                your response.</p>
-                                                        </li>
-                                                        <li>
-                                                            <div class="d-flex align-items-center justify-content-between position-relative">
-                                  <span class="bg-primary h-35 w-35 d-flex-center b-r-50 position-absolute">
-                                    D
-                                  </span>
-                                                                <div class="mg-s-40">
-                                                                    <span class="f-w-500">David</span>
-                                                                </div>
-                                                                <div>
-                                                                    <i class="ti ti-star fs-5 "></i>
-                                                                </div>
-                                                            </div>
-                                                            <p class="text-muted mt-3">Awesome! 🤩 I like it. We can
-                                                                schedule a meeting for the
-                                                                next
-                                                                one.</p>
-                                                        </li>
-                                                        <li>
-                                                            <div class="d-flex align-items-center  justify-content-between position-relative">
-                                  <span class="bg-primary h-35 w-35 d-flex-center b-r-50 position-absolute">
-                                    J
-                                  </span>
-                                                                <div class="mg-s-40">
-                                                                    <span class="f-w-500"> Jessica</span>
-                                                                </div>
-                                                                <div class="float-end">
-                                                                    <i class="ti ti-star fs-5 "></i>
-                                                                </div>
-                                                            </div>
-                                                            <p class="text-muted mt-2">I am really impressed! Can't wait
-                                                                to see the final
-                                                                result.
-                                                            </p>
-                                                        </li>
-                                                        <li>
-
-                                                            <div class="d-flex align-items-center justify-content-between position-relative">
-                                  <span
-                                          class="bg-light-secondary  h-35 w-35 d-flex-center b-r-50 position-absolute">
-                                    E
-                                  </span>
-                                                                <div class="mg-s-40">
-                                                                    <span class="f-w-500">Elmer</span>
-                                                                </div>
-                                                                <div>
-                                                                    <i class="ti ti-star fs-5 "></i>
-                                                                </div>
-                                                            </div>
-                                                            <p class="text-muted mt-3">Hi! We can schedule a meeting for
-                                                                the Next week.</p>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- tab 4 -->
-                                <div class="tabs-content" id="tab-4">
-
                                     <div class="card">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-center">
-                                                <div class="h-45 w-45 d-flex-center b-r-50 overflow-hidden bg-danger">
-                                                    <img alt="avatar" class="img-fluid"
-                                                         src="../assets/images/avatar/09.png">
-                                                </div>
-                                                <div class="flex-grow-1 ps-2 pe-2">
-                                                    <div class="f-w-500">Ninfa Monaldo</div>
-                                                    <div class="text-muted f-s-12">20min ago</div>
-                                                </div>
-                                                <div><i class="ti ti-dots-vertical"></i></div>
-                                            </div>
-                                            <div class="post-div">
-                                                <div class="post"></div>
-                                                <p class="test-muted">Exploring new horizons, one destination at a
-                                                    time.🌸✨</p>
-                                                <div class="post-icon">
-                                                    <i class="ti ti-heart"></i>
-                                                    <i class="ti ti-brand-hipchat"></i>
-                                                    <i class="ti ti-send"></i>
-                                                    <p>10k Likes</p>
-                                                </div>
-                                            </div>
-                                            <div class="Comment-box mb-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="h-45 w-45 d-flex-center b-r-50 overflow-hidden bg-primary">
-                                                        <img alt="" class="img-fluid"
-                                                             src="../assets/images/avatar/6.png">
-                                                    </div>
-                                                    <div class="flex-grow-1 ps-2 pe-2">
-                                                        <div class="f-w-600">Bette Hagenes</div>
-                                                        <div class="text-muted f-s-12">1 min</div>
-                                                    </div>
-                                                    <div><i class="ti ti-dots-vertical"></i></div>
-                                                </div>
-                                                <div class="mt-2">
-                                                    <p>Love your style! keep slaying.</p>
-                                                </div>
-                                            </div>
-                                            <div class="Comment-box">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="h-45 w-45 d-flex-center b-r-50 overflow-hidden bg-warning">
-                                                        <img alt="" class="img-fluid"
-                                                             src="../assets/images/avatar/4.png">
-                                                    </div>
-                                                    <div class="flex-grow-1 ps-2 pe-2">
-                                                        <div class="f-w-600">Emery McKenzie</div>
-                                                        <div class="text-muted f-s-12">12 min</div>
-                                                    </div>
-                                                    <div><i class="ti ti-dots-vertical"></i></div>
-                                                </div>
-                                                <div class="mt-2">
-                                                    <p>Amazing post! can't wait to see more.</p>
-                                                </div>
-                                            </div>
+                                        <div class="card-header">
+                                            <h5>Projects</h5>
                                         </div>
-                                    </div>
-
-                                    <div class="card">
                                         <div class="card-body">
-                                            <div class="post-container">
-                                                <input class="post-upload" data-allow-reorder="true" id="id"
-                                                       multiple="multiple"
-                                                       type="file">
-                                            </div>
-                                            <div class="app-form mt-3">
-                                                <div class="input-group">
-                                                    <input class="form-control" placeholder="Post" type="text">
-                                                    <span class="input-group-text text-light-primary b-1-secondary"><i
-                                                            class="ti ti-mood-smile-beam"></i></span>
-                                                    <span class="input-group-text text-light-primary b-1-secondary"><i
-                                                            class="ti ti-pencil-plus"></i></span>
-                                                </div>
-                                            </div>
-                                            <div class="float-end">
-                                                <button class="btn btn-primary mt-2" type="button">
-                                                    <i class="ti ti-photo-plus"></i> Post
-                                                </button>
+                                            <div class="row g-3" id="profile-projects"></div>
+                                            <div class="text-center d-none" id="profile-projects-empty">
+                                                <i class="ti ti-briefcase mb-2 f-s-32 text-muted"></i>
+                                                <p class="text-muted mb-0">No projects assigned yet.</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- tab 5 -->
-                                <div class="tabs-content" id="tab-5">
-                                    <div class="row profile-friend-box">
-                                        <div class="col-12">
-                                            <div class="row">
-
-                                                <div class="col-xxl-6 box-col">
-                                                    <div class="card friend-list-card">
-                                                        <div class="card-body">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="h-45 w-45 d-flex-center b-r-50 overflow-hidden bg-dark position-absolute">
-                                                                    <img alt="image" class="img-fluid"
-                                                                         src="../assets/images/avatar/2.png">
-                                                                </div>
-                                                                <div class="flex-grow-1 mg-s-55">
-                                                                    <div class="f-w-500">Fleta Walsh</div>
-                                                                    <div class="text-muted f-s-12">Wed Developer</div>
-                                                                </div>
-                                                                <a class="btn btn-light-success icon-btn b-r-22"
-                                                                   href="./chat.html"
-                                                                   target="_blank"> <i
-                                                                        class="ti ti-brand-hipchat"></i> </a>
-                                                            </div>
-                                                            <div class="mt-4 friend-list-content">
-                                                                <p class="mb-0">
-                                                                    Web Developer 👩‍💼 at <span
-                                                                        class="text-primary f-w-500">@TechFirm</span>.
-                                                                    Building innovative solutions for <span
-                                                                        class="text-primary f-w-500">@PersonalProject</span>
-                                                                    in my free 🕐 time.
-                                                                </p>
-                                                                <div class="app-divider-v dashed m-0 py-3"></div>
-                                                                <p class="f-s-16 text-secondary mb-0"><span
-                                                                        class="text-dark f-w-500">14k</span> Follower
-                                                                    <span class="text-dark f-w-500">8k</span> Following
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-6 box-col">
-                                                    <div class="card friend-list-card">
-                                                        <div class="card-body">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="h-45 w-45 d-flex-center b-r-50 overflow-hidden bg-primary position-absolute">
-                                                                    <img alt="image" class="img-fluid"
-                                                                         src="../assets/images/avatar/16.png">
-                                                                </div>
-                                                                <div class="flex-grow-1 mg-s-55">
-                                                                    <div class="fw-medium"> Bette Hagenes</div>
-                                                                    <div class="text-muted f-s-12">Wed Designer</div>
-                                                                </div>
-                                                                <a class="btn btn-light-success icon-btn b-r-22"
-                                                                   href="./chat.html"
-                                                                   target="_blank"> <i
-                                                                        class="ti ti-brand-hipchat"></i> </a>
-                                                            </div>
-                                                            <div class="mt-4 friend-list-content">
-                                                                <p class="mb-0">
-                                                                    "Transforming ideas into visually stunning 💻
-                                                                    websites for <span class="text-primary f-w-500">@FreelanceProject</span>
-                                                                    during my off hours."
-                                                                </p>
-                                                                <div class="app-divider-v dashed m-0 py-3"></div>
-                                                                <p class="f-s-16 text-secondary mb-0"><span
-                                                                        class="text-dark f-w-500">14k</span> Follower
-                                                                    <span class="text-dark f-w-500">8k</span> Following
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-6 box-col">
-                                                    <div class="card friend-list-card equal-card">
-                                                        <div class="card-body">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="h-45 w-45 d-flex-center b-r-50 overflow-hidden bg-warning position-absolute">
-                                                                    <img alt="image" class="img-fluid"
-                                                                         src="../assets/images/avatar/1.png">
-                                                                </div>
-                                                                <div class="flex-grow-1 mg-s-55">
-                                                                    <div class="fw-medium"> Heli Walsh</div>
-                                                                    <div class="text-muted f-s-12">UI/UX designer</div>
-                                                                </div>
-                                                                <a class="btn btn-light-success icon-btn b-r-22"
-                                                                   href="./chat.html"
-                                                                   target="_blank"> <i
-                                                                        class="ti ti-brand-hipchat"></i> </a>
-                                                            </div>
-                                                            <div class="mt-3 friend-list-content">
-                                                                <p class="mb-0">
-                                                                    "Crafting intuitive experiences, one pixel at a time
-                                                                    📏📈."
-                                                                </p>
-                                                                <div class="app-divider-v dashed m-0 py-3"></div>
-                                                                <p class="f-s-16 text-secondary mb-0"><span
-                                                                        class="text-dark f-w-500">14k</span> Follower
-                                                                    <span class="text-dark f-w-500">8k</span> Following
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-6 box-col">
-                                                    <div class="card friend-list-card">
-                                                        <div class="card-body">
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="h-45 w-45 d-flex-center b-r-50 overflow-hidden bg-danger  position-absolute">
-                                                                    <img alt="image" class="img-fluid"
-                                                                         src="../assets/images/avatar/10.png">
-                                                                </div>
-                                                                <div class="flex-grow-1 mg-s-55">
-                                                                    <div class="fw-medium"> Lenora</div>
-                                                                    <div class="text-muted f-s-12">React Developer</div>
-                                                                </div>
-                                                                <a class="btn btn-light-success icon-btn b-r-22"
-                                                                   href="./chat.html"
-                                                                   target="_blank"> <i
-                                                                        class="ti ti-brand-hipchat"></i> </a>
-                                                            </div>
-                                                            <div class="mt-3 friend-list-content">
-                                                                <p class="mb-0">
-                                                                    "Crafting dynamic, responsive, and efficient user
-                                                                    interfaces with the ⚡ power of React."
-                                                                </p>
-                                                                <div class="app-divider-v dashed m-0 py-3"></div>
-                                                                <p class="f-s-16 text-secondary mb-0"><span
-                                                                        class="text-dark f-w-500">14k</span> Follower
-                                                                    <span class="text-dark f-w-500">8k</span> Following
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="card equal-card">
-                                                        <div class="card-header">
-                                                            <h5>Friends Requests</h5>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <ul class="friend-list">
-                                                                <li class="d-flex align-items-center position-relative">
-                                                                    <div class="h-50 w-50 d-flex-center b-r-50 overflow-hidden position-absolute bg-danger">
-                                                                        <img alt="image"
-                                                                             class="img-fluid"
-                                                                             src="../assets/images/avatar/1.png">
-                                                                    </div>
-                                                                    <div class="flex-grow-1 mg-s-50">
-                                                                        <h6 class="mb-0 fw-medium text-ellipsis">
-                                                                            @Bette</h6>
-                                                                        <p class="text-muted mb-0">Web Developer</p>
-                                                                    </div>
-                                                                    <a class="btn btn-primary b-r-5 me-2" href="#"> <i
-                                                                            class="ti ti-user-check me-2"></i><span>Follow</span>
-                                                                    </a>
-                                                                    <a class="btn btn-danger b-r-5" href="#"> <i
-                                                                            class="ti ti-user-x me-2"></i><span>Remove</span>
-                                                                    </a>
-
-                                                                </li>
-                                                                <li class="d-flex align-items-center mt-3 position-relative">
-                                                                    <div class="h-50 w-50 d-flex-center b-r-50 overflow-hidden position-absolute bg-success">
-                                                                        <img alt="image"
-                                                                             class="img-fluid"
-                                                                             src="../assets/images/avatar/10.png">
-                                                                    </div>
-                                                                    <div class="flex-grow-1 mg-s-50">
-                                                                        <h6 class="mb-0 fw-medium  text-ellipsis">
-                                                                            @Fleta</h6>
-                                                                        <p class="text-muted mb-0">Web Designer</p>
-                                                                    </div>
-                                                                    <a class="btn btn-primary b-r-5 me-2" href="#"> <i
-                                                                            class="ti ti-user-check me-2"></i><span>Follow</span>
-                                                                    </a>
-                                                                    <a class="btn btn-danger b-r-5" href="#"> <i
-                                                                            class="ti ti-user-x me-2"></i><span>Remove</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="d-flex align-items-center mt-3 position-relative">
-                                                                    <div class="h-50 w-50 d-flex-center b-r-50 overflow-hidden position-absolute bg-secondary">
-                                                                        <img alt="image"
-                                                                             class="img-fluid"
-                                                                             src="../assets/images/avatar/14.png">
-                                                                    </div>
-                                                                    <div class="flex-grow-1 mg-s-50">
-                                                                        <h6 class="mb-0 fw-medium  text-ellipsis">
-                                                                            @Lenora</h6>
-                                                                        <p class="text-muted mb-0">UI/UX designer</p>
-                                                                    </div>
-                                                                    <a class="btn btn-primary b-r-5 me-2" href="#"> <i
-                                                                            class="ti ti-user-check me-2"></i><span>Follow</span>
-                                                                    </a>
-                                                                    <a class="btn btn-danger b-r-5" href="#"> <i
-                                                                            class="ti ti-user-x me-2"></i><span>Remove</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="d-flex align-items-center mt-3 position-relative">
-                                                                    <div class="h-50 w-50 d-flex-center b-r-50 overflow-hidden position-absolute bg-warning">
-                                                                        <img alt="image"
-                                                                             class="img-fluid"
-                                                                             src="../assets/images/avatar/12.png">
-                                                                    </div>
-                                                                    <div class="flex-grow-1 mg-s-50">
-                                                                        <h6 class="mb-0 fw-medium text-ellipsis">
-                                                                            @Olive </h6>
-                                                                        <p class="text-muted mb-0"> Developer</p>
-                                                                    </div>
-                                                                    <a class="btn btn-primary b-r-5 me-2" href="#"> <i
-                                                                            class="ti ti-user-check me-2"></i><span>Follow</span>
-                                                                    </a>
-                                                                    <a class="btn btn-danger b-r-5" href="#"> <i
-                                                                            class="ti ti-user-x me-2"></i><span>Remove</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="d-flex align-items-center mt-3 position-relative">
-                                                                    <div class="h-50 w-50 d-flex-center b-r-50 overflow-hidden position-absolute bg-primary">
-                                                                        <img alt="image"
-                                                                             class="img-fluid"
-                                                                             src="../assets/images/avatar/2.png">
-                                                                    </div>
-                                                                    <div class="flex-grow-1 mg-s-50">
-                                                                        <h6 class="mb-0 fw-medium text-ellipsis">
-                                                                            @Mason</h6>
-                                                                        <p class="text-muted mb-0"> Developer</p>
-                                                                    </div>
-                                                                    <a class="btn btn-primary b-r-5 me-2" href="#"> <i
-                                                                            class="ti ti-user-check me-2"></i><span>Follow</span>
-                                                                    </a>
-                                                                    <a class="btn btn-danger b-r-5" href="#"> <i
-                                                                            class="ti ti-user-x me-2"></i><span>Remove</span>
-                                                                    </a>
-                                                                </li>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-xxl-3 col-box-4 order-lg--1">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="profile-container">
-                                        <div class="image-details">
-                                            <div class="profile-image"></div>
-                                            <div class="profile-pic">
-                                                <div class="avatar-upload">
-                                                    <div class="avatar-edit">
-                                                        <input accept=".png, .jpg, .jpeg" id="imageUpload" type="file">
-                                                        <label for="imageUpload"><i
-                                                                class="ti ti-photo-heart"></i></label>
-                                                    </div>
-                                                    <div class="avatar-preview">
-                                                        <div id="imgPreview">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="person-details">
-                                            <h5 class="f-w-600">Ninfa Monaldo
-                                                <img alt="instagram-check-mark" class="w-20 h-20"
-                                                     src="../assets/images/profile-app/01.png">
-                                            </h5>
-                                            <p>Web designer &amp; Developer</p>
-                                            <div class="details">
-                                                <div>
-                                                    <h4 class="text-primary">10</h4>
-                                                    <p class="text-secondary">Post</p>
-                                                </div>
-                                                <div>
-                                                    <h4 class="text-primary">3.4k</h4>
-                                                    <p class="text-secondary">Follower</p>
-                                                </div>
-                                                <div>
-                                                    <h4 class="text-primary">1k</h4>
-                                                    <p class="text-secondary">Following</p>
-                                                </div>
-                                            </div>
-                                            <div class="my-2">
-                                                <button class="btn btn-primary b-r-22" id="followButton" type="button">
-                                                    <i class="ti ti-user"></i>
-                                                    Follow
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-lg-4 col-xxl-3">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>About Me</h5>
+                                    <h5>Profile Details</h5>
                                 </div>
                                 <div class="card-body">
-                                    <p class="text-muted f-s-13">Hello! I am,Ninfa Monaldo Devoted web designer with
-                                        over five years of experience and a strong understanding of Adobe Creative
-                                        Suite,
-                                        HTML5, CSS3 and Java. Excited to bring my exceptional front-end development
-                                        abilities to the retail industry. </p>
-                                    <div class="about-list">
-                                        <div>
-                                            <span class="fw-medium"><i class="ti ti-briefcase"></i> Work passion</span>
-                                            <span class="float-end f-s-13 text-secondary">IT Section</span>
-                                        </div>
-                                        <div>
-                                            <span class="fw-medium"><i class="ti ti-mail"></i> Email</span>
-                                            <span class="float-end f-s-13 text-secondary">Ninfa@gmail.com</span>
-                                        </div>
-                                        <div>
-                                            <span class="fw-medium"><i class="ti ti-phone"></i> Contact</span>
-                                            <span class="float-end f-s-13 text-secondary">0364 4559103</span>
-                                        </div>
-                                        <div>
-                                            <span class="fw-medium"><i class="ti ti-cake"></i> Birth of Date</span>
-                                            <span class="float-end f-s-13 text-secondary">24 Oct</span>
-                                        </div>
-                                        <div>
-                                            <span class="fw-semibold"><i class="ti ti-map-pin"></i> Location</span>
-                                            <span class="float-end f-s-13 text-secondary">Via Partenope, 117</span>
-                                        </div>
-                                        <div>
-                                            <span class="fw-semibold"><i class="ti ti-device-laptop"></i> Website</span>
-                                            <span class="float-end f-s-13 text-secondary">Ninfa_devWWW.com</span>
-                                        </div>
-                                        <div>
-                                            <span class="fw-semibold"><i class="ti ti-brand-github"></i> Github</span>
-                                            <span class="float-end f-s-13 text-secondary">Ninfa_dev</span>
-                                        </div>
-                                    </div>
-
+                                    <p class="text-muted f-s-13" id="profile-bio"></p>
+                                    <div class="about-list" id="profile-about"></div>
                                 </div>
                             </div>
 
-                            <div class="col-md-6 col-xxl-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5>Events Update List</h5>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Events Update List</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="event-container" id="profile-events"></div>
+                                    <div class="text-center text-muted d-none" id="profile-events-empty">
+                                        <i class="ti ti-calendar mb-2 f-s-32"></i>
+                                        <p class="mb-0">No scheduled events.</p>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="event-container slider">
-                                            <div class="event-box">
-                                                <h6 class="mb-0">International Women's Day</h6>
-                                                <p class="mb-0 text-secondary f-s-13">
-                                                    Celebrated to recognize the social and political achievements of
-                                                    women.
-                                                </p>
+                                </div>
+                            </div>
 
-                                                <p class="f-s-13 text-end mb-0">
-                                                    <i class="ti ti-calendar-event me-1"></i>08 Mar 2024
-                                                </p>
-                                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Files & Documents</h5>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="mb-2">Files</h6>
+                                    <ul class="list-unstyled mb-3" id="profile-files"></ul>
+                                    <h6 class="mb-2">Documents</h6>
+                                    <ul class="list-unstyled mb-0" id="profile-documents"></ul>
+                                </div>
+                            </div>
 
-                                            <div class="event-box">
-                                                <h6 class="mb-0">World Book Day</h6>
-                                                <p class="mb-0 text-secondary f-s-13">
-                                                    Celebrated to promote reading, publishing, and copyright,
-                                                    although in the US
-                                                </p>
-                                                <p class="f-s-13 text-end mb-0">
-                                                    <i class="ti ti-calendar-event me-1"></i>23 apr 2024
-                                                </p>
-                                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Latest Notes</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled mb-0" id="profile-notes"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                                            <div class="event-box">
-                                                <h6 class="mb-0">World Refugee Day</h6>
-                                                <p class="mb-0 text-secondary f-s-13">
-                                                    Observed to honor the courage and resilience of refugees.
-                                                </p>
-                                                <p class="f-s-13 text-end mb-0">
-                                                    <i class="ti ti-calendar-event me-1"></i>20 Jun 2024
-                                                </p>
-                                            </div>
-
-                                        </div>
+                    <div class="row mt-4" id="embedded-orders-list">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">Orders List</h5>
+                                    <button class="btn btn-sm btn-outline-primary" id="profile-export-orders">
+                                        <i class="ti ti-download"></i> Export
+                                    </button>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="order-list-datatable app-scroll table-responsive">
+                                        <table class="table table-bottom-border align-middle mb-0">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <label class="check-box mb-0">
+                                                        <input id="select-all-embedded" type="checkbox">
+                                                        <span class="checkmark outline-secondary ms-2 "></span>
+                                                    </label>
+                                                </th>
+                                                <th>Order Id</th>
+                                                <th class="text-start" scope="col">Customer</th>
+                                                <th scope="col">Product</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Order Date</th>
+                                                <th scope="col">Payment</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Actions</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="profile-orders"></tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-                <!-- Embedded Orders List from orders_list.html -->
-                <div class="row mt-4" id="embedded-orders-list">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Orders List</h5>
-                        </div>
-                        <div class="card-body p-0">
-                            <div class="order-list-datatable app-scroll table-responsive">
-                                <table class="table table-bottom-border align-middle mb-0">
-                                    <thead>
-                                    <tr>
-                                        <th>
-                                            <label class="check-box mb-0">
-                                                <input id="select-all-embedded" type="checkbox">
-                                                <span class="checkmark outline-secondary ms-2 "></span>
-                                            </label>
-                                        </th>
-                                        <th>Order Id</th>
-                                        <th class="text-start" scope="col">Customer</th>
-                                        <th scope="col">Product</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Order Date</th>
-                                        <th scope="col">Payment</th>
-                                        <th scope="col">Amount</th>
-                                        <th scope="col">Actions</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <!-- Copied rows from orders_list.html -->
-                                    <tr>
-                                        <td>
-                                            <label class="check-box mb-0">
-                                                <input type="checkbox">
-                                                <span class="checkmark outline-secondary ms-2"></span>
-                                            </label>
-                                        </td>
-                                        <td>#LA098</td>
-                                        <td class="d-flex align-items-center gap-2">
-                                            <div class="h-25 w-25 d-flex-center b-r-50 overflow-hidden text-bg-primary">
-                                                <img alt="" class="img-fluid" src="../assets/images/avatar/1.png">
-                                            </div>
-                                            <span class="title-text mb-0">Bette Hagenes</span>
-                                        </td>
-                                        <td>Mens Zen Walking Shoe</td>
-                                        <td><span class="badge text-light-info">CANCELLED</span></td>
-                                        <td>5 Apr,2024 6:05 PM</td>
-                                        <td>Mastercard</td>
-                                        <td>$590</td>
-                                        <td>
-                                            <a class="btn btn-light-primary icon-btn w-30 h-30 b-r-22 me-2" href="orders_details.html" role="button" target="_blank"><i class="ti ti-eye"></i></a>
-                                            <button class="btn btn-light-success icon-btn w-30 h-30 b-r-22 me-2" data-bs-target="#staticBackdrop" data-bs-toggle="modal" type="button"><i class="ti ti-edit"></i></button>
-                                            <button class="btn btn-light-danger icon-btn w-30 h-30 b-r-22 delete-btn" type="button"><i class="ti ti-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="check-box mb-0">
-                                                <input type="checkbox">
-                                                <span class="checkmark outline-secondary ms-2"></span>
-                                            </label>
-                                        </td>
-                                        <td>#LA19</td>
-                                        <td class="d-flex align-items-center gap-2">
-                                            <div class="h-25 w-25 d-flex-center b-r-50 overflow-hidden text-bg-secondary">
-                                                <img alt="" class="img-fluid" src="../assets/images/avatar/2.png">
-                                            </div>
-                                            <span class="title-text mb-0">Mark Dev</span>
-                                        </td>
-                                        <td>Mens Zen Walking Shoe</td>
-                                        <td><span class="badge text-light-danger"> DELIVERED</span></td>
-                                        <td>8 july,2024 1:15 PM</td>
-                                        <td>Visa</td>
-                                        <td>$410</td>
-                                        <td>
-                                            <a class="btn btn-light-primary icon-btn w-30 h-30 b-r-22 me-2" href="orders_details.html" role="button" target="_blank"><i class="ti ti-eye"></i></a>
-                                            <button class="btn btn-light-success icon-btn w-30 h-30 b-r-22 me-2" data-bs-target="#staticBackdrop" data-bs-toggle="modal" type="button"><i class="ti ti-edit"></i></button>
-                                            <button class="btn btn-light-danger icon-btn w-30 h-30 b-r-22 delete-btn" type="button"><i class="ti ti-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="check-box mb-0">
-                                                <input type="checkbox">
-                                                <span class="checkmark outline-secondary ms-2"></span>
-                                            </label>
-                                        </td>
-                                        <td>#LA025</td>
-                                        <td class="d-flex align-items-center gap-2">
-                                            <div class="h-25 w-25 d-flex-center b-r-50 overflow-hidden text-bg-success">
-                                                <img alt="" class="img-fluid" src="../assets/images/avatar/3.png">
-                                            </div>
-                                            <span class="title-text mb-0">Fleta Walsh</span>
-                                        </td>
-                                        <td>Mens ExquisiteFormal</td>
-                                        <td><span class="badge text-light-primary"> INPROGRESS</span></td>
-                                        <td>5 sep,2024 5:11PM</td>
-                                        <td> Code</td>
-                                        <td>$75</td>
-                                        <td>
-                                            <a class="btn btn-light-primary icon-btn w-30 h-30 b-r-22 me-2" href="orders_details.html" role="button" target="_blank"><i class="ti ti-eye"></i></a>
-                                            <button class="btn btn-light-success icon-btn w-30 h-30 b-r-22 me-2" data-bs-target="#staticBackdrop" data-bs-toggle="modal" type="button"><i class="ti ti-edit"></i></button>
-                                            <button class="btn btn-light-danger icon-btn w-30 h-30 b-r-22 delete-btn" type="button"><i class="ti ti-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="check-box mb-0">
-                                                <input type="checkbox">
-                                                <span class="checkmark outline-secondary ms-2"></span>
-                                            </label>
-                                        </td>
-                                        <td>#LA050</td>
-                                        <td class="d-flex align-items-center gap-2">
-                                            <div class="h-25 w-25 d-flex-center b-r-50 overflow-hidden text-bg-danger">
-                                                <img alt="" class="img-fluid" src="../assets/images/avatar/4.png">
-                                            </div>
-                                            <span class="title-text mb-0">Bette Hagenes</span>
-                                        </td>
-                                        <td>Men's Sports Shoes</td>
-                                        <td><span class="badge text-light-success"> PICKUPS</span></td>
-                                        <td>9 jan,2024 2:41PM</td>
-                                        <td>Paypal</td>
-                                        <td>$111</td>
-                                        <td>
-                                            <a class="btn btn-light-primary icon-btn w-30 h-30 b-r-22 me-2" href="orders_details.html" role="button" target="_blank"><i class="ti ti-eye"></i></a>
-                                            <button class="btn btn-light-success icon-btn w-30 h-30 b-r-22 me-2" data-bs-target="#staticBackdrop" data-bs-toggle="modal" type="button"><i class="ti ti-edit"></i></button>
-                                            <button class="btn btn-light-danger icon-btn w-30 h-30 b-r-22 delete-btn" type="button"><i class="ti ti-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="check-box mb-0">
-                                                <input type="checkbox">
-                                                <span class="checkmark outline-secondary ms-2"></span>
-                                            </label>
-                                        </td>
-                                        <td>#LA123</td>
-                                        <td class="d-flex align-items-center gap-2">
-                                            <div class="h-25 w-25 d-flex-center b-r-50 overflow-hidden text-bg-warning">
-                                                <img alt="" class="img-fluid" src="../assets/images/avatar/5.png">
-                                            </div>
-                                            <span class="title-text mb-0">Emery McKenzie</span>
-                                        </td>
-                                        <td>Leather jacket for men</td>
-                                        <td><span class="badge text-light-danger">DELIVERED</span></td>
-                                        <td>1 jan,2024 4:00PM</td>
-                                        <td>Mastercard</td>
-                                        <td>$20</td>
-                                        <td>
-                                            <a class="btn btn-light-primary icon-btn w-30 h-30 b-r-22 me-2" href="orders_details.html" role="button" target="_blank"><i class="ti ti-eye"></i></a>
-                                            <button class="btn btn-light-success icon-btn w-30 h-30 b-r-22 me-2" data-bs-target="#staticBackdrop" data-bs-toggle="modal" type="button"><i class="ti ti-edit"></i></button>
-                                            <button class="btn btn-light-danger icon-btn w-30 h-30 b-r-22 delete-btn" type="button"><i class="ti ti-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Embedded Orders List -->
-                 
             </main>
-        </div>
-    </div>
-    <!-- Body main section ends -->
+            <!-- Body main section ends -->
 
-    <!-- tap on top -->
-    <div class="go-top">
-      <span class="progress-value">
-        <i class="ti ti-arrow-up"></i>
-      </span>
-    </div>
+            <!-- tap on top -->
+            <div class="go-top">
+          <span class="progress-value">
+            <i class="ti ti-arrow-up"></i>
+          </span>
+            </div>
 
-    <!-- Footer Section starts-->
-    <footer>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-9 col-12">
-                    <p class="footer-text f-w-600 mb-0">Copyright © 2025 ki-admin. All rights reserved 💖 V1.0.0</p>
-                </div>
-                <div class="col-md-3">
-                    <div class="footer-text text-end">
-                        <a class="f-w-500 text-primary" href="mailto:teqlathemes@gmail.com"> Need Help <i
-                                class="ti ti-help"></i></a>
+            <!-- Footer Section starts-->
+            <footer>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-9 col-12">
+                            <p class="footer-text f-w-600 mb-0">Copyright © 2025 ki-admin. All rights reserved 💖
+                                V1.0.0</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="footer-text text-end">
+                                <a class="f-w-500 text-primary" href="mailto:teqlathemes@gmail.com"> Need Help <i
+                                        class="ti ti-help"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section ends-->
+            </footer>
+            <!-- Footer Section ends-->
 
+        </div>
+    </div>
 </div>
 
 
@@ -2714,14 +1237,14 @@
 <!-- latest jquery-->
 <script src="../assets/js/jquery-3.6.3.min.js"></script>
 
-<!-- Bootstrap js-->
-<script src="../assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
-
 <!-- Simple bar js-->
 <script src="../assets/vendor/simplebar/simplebar.js"></script>
 
 <!-- phosphor js -->
 <script src="../assets/vendor/phosphor/phosphor.js"></script>
+
+<!-- Bootstrap js-->
+<script src="../assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
 
 <!-- Glight js -->
 <script src="../assets/vendor/glightbox/glightbox.min.js"></script>
@@ -2736,9 +1259,8 @@
 
 <!-- slick-file -->
 <script src="../assets/vendor/slick/slick.min.js"></script>
-<script src="../assets/vendor/shepherdjs/shepherd.js"></script>
 
-<!-- js -->
+<!-- Profile js -->
 <script src="../assets/js/profile.js"></script>
 
 <!-- App js-->
@@ -2746,6 +1268,7 @@
 
 <!-- Customizer js-->
 <script src="../assets/js/customizer.js"></script>
+
 
 </body>
 
