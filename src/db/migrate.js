@@ -17,14 +17,19 @@ async function runMigrations() {
   try {
     console.log('🔄 Running database migrations...');
 
-    const schemaPath = path.join(__dirname, '..', 'scripts', 'create_nav_schema.sql');
-    const schemaSql = fs.readFileSync(schemaPath, 'utf8');
+    const scriptsDir = path.join(__dirname, '..', 'scripts');
 
-    await pool.query(schemaSql);
+    const coreSchemaSql = fs.readFileSync(path.join(scriptsDir, 'create_nav_schema.sql'), 'utf8');
+    await pool.query(coreSchemaSql);
 
-    const resetTokenSchemaPath = path.join(__dirname, '..', 'scripts', 'add_reset_token_to_users.sql');
-    const resetTokenSchemaSql = fs.readFileSync(resetTokenSchemaPath, 'utf8');
-    await pool.query(resetTokenSchemaSql);
+    const resetTokenSql = fs.readFileSync(path.join(scriptsDir, 'add_reset_token_to_users.sql'), 'utf8');
+    await pool.query(resetTokenSql);
+
+    const projectSchemaUpdatePath = path.join(scriptsDir, 'update_project_schema.sql');
+    if (fs.existsSync(projectSchemaUpdatePath)) {
+      const projectSchemaUpdateSql = fs.readFileSync(projectSchemaUpdatePath, 'utf8');
+      await pool.query(projectSchemaUpdateSql);
+    }
 
     console.log('✅ Database migrations completed successfully');
 
