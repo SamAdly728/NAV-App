@@ -2,29 +2,29 @@ const bcrypt = require('bcrypt');
 const { pool } = require('../db/pool');
 
 async function getUserById(id) {
-  const { rows } = await pool.query('SELECT id, email, role, google_id AS "googleId", created_at FROM users WHERE id = $1', [id]);
+  const { rows } = await pool.query('SELECT id, email, role, avatar_url, full_name, phone, bio, work_passion, birth_date, location, website, github, google_id AS "googleId", created_at FROM users WHERE id = $1', [id]);
   return rows[0] || null;
 }
 
 async function getUserByEmail(email) {
-  const { rows } = await pool.query('SELECT id, email, role, password_hash, google_id AS "googleId", created_at FROM users WHERE email = $1', [email]);
+  const { rows } = await pool.query('SELECT id, email, role, avatar_url, full_name, phone, bio, work_passion, birth_date, location, website, github, password_hash, google_id AS "googleId", created_at FROM users WHERE email = $1', [email]);
   return rows[0] || null;
 }
 
 async function getUserByGoogleId(googleId) {
-  const { rows } = await pool.query('SELECT id, email, role, password_hash, google_id AS "googleId", created_at FROM users WHERE google_id = $1', [googleId]);
+  const { rows } = await pool.query('SELECT id, email, role, avatar_url, full_name, phone, bio, work_passion, birth_date, location, website, github, password_hash, google_id AS "googleId", created_at FROM users WHERE google_id = $1', [googleId]);
   return rows[0] || null;
 }
 
 async function findOrCreateUser({ googleId, email }) {
   // Try by googleId first
   if (googleId) {
-    const byG = await pool.query('SELECT id, email, role, google_id AS "googleId", created_at FROM users WHERE google_id = $1', [googleId]);
+    const byG = await pool.query('SELECT id, email, role, avatar_url, full_name, phone, bio, work_passion, birth_date, location, website, github, google_id AS "googleId", created_at FROM users WHERE google_id = $1', [googleId]);
     if (byG.rows[0]) return byG.rows[0];
   }
   // Else try by email
   if (email) {
-    const byE = await pool.query('SELECT id, email, role, google_id AS "googleId", created_at FROM users WHERE email = $1', [email]);
+    const byE = await pool.query('SELECT id, email, role, avatar_url, full_name, phone, bio, work_passion, birth_date, location, website, github, google_id AS "googleId", created_at FROM users WHERE email = $1', [email]);
     if (byE.rows[0]) {
       // attach googleId if newly provided
       if (googleId && !byE.rows[0].googleId) {
@@ -37,7 +37,7 @@ async function findOrCreateUser({ googleId, email }) {
   // Create
   const role = 'client';
   const { rows } = await pool.query(
-    'INSERT INTO users (email, role, google_id) VALUES ($1,$2,$3) RETURNING id, email, role, google_id AS "googleId", created_at',
+    'INSERT INTO users (email, role, google_id) VALUES ($1,$2,$3) RETURNING id, email, role, avatar_url, google_id AS "googleId", created_at',
     [email || null, role, googleId || null]
   );
   return rows[0];
@@ -75,9 +75,34 @@ async function createUserWithRoleIfMissing({ email, password, role = 'client' })
   const hash = password ? await bcrypt.hash(password, 12) : null;
   const { rows } = await pool.query(
     'INSERT INTO users (email, role, password_hash) VALUES ($1,$2,$3) RETURNING id',
-    [email, role, hash]
+    [email || null, role, googleId || null]
   );
-  return rows[0].id;
+  return rows[0];
 }
 
-module.exports = { getUserById, getUserByEmail, getUserByGoogleId, findOrCreateUser, createAdminIfMissing, createUserWithRoleIfMissing };
+async function updateUser(id, { full_name, phone, bio, work_passion, birth_date, location, website, github }) {
+  const { rows } = await pool.query(
+    `UPDATE users 
+     SET full_name = COALESCE($1, full_name), 
+         phone = COALESCE($2, phone), 
+         bio = COALESCE($3, bio),
+         work_passion = COALESCE($4, work_passion),
+         birth_date = COALESCE($5, birth_date),
+         location = COALESCE($6, location),
+         website = COALESCE($7, website),
+         github = COALESCE($8, github),
+         updated_at = NOW()
+     WHERE id = $9
+     RETURNING id, email, role, avatar_url, full_name, phone, bio, work_passion, birth_date, location, website, github, google_id AS "googleId", created_at`,
+    [full_name, phone, bio, work_passion, birth_date, location, website, github, id]
+  );
+  return rows[0];
+}
+
+module.exports = {
+  getUserById,
+  getUserByEmail,
+  getUserByGoogleId,
+  findOrCreateUser,
+  updateUser
+};

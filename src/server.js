@@ -106,7 +106,46 @@ app.get('/:page.html', ensureAuth, (req, res, next) => {
 
 // User info endpoint for front-end role-based labeling
 app.get('/api/me', ensureAuth, (req, res) => {
-  res.json({ id: req.user.id, email: req.user.email, role: req.user.role });
+  res.json({
+    id: req.user.id,
+    email: req.user.email,
+    role: req.user.role,
+    avatar: req.user.avatar_url,
+    full_name: req.user.full_name,
+    phone: req.user.phone,
+    bio: req.user.bio,
+    work_passion: req.user.work_passion,
+    birth_date: req.user.birth_date,
+    location: req.user.location,
+    website: req.user.website,
+    github: req.user.github
+  });
+});
+
+const { updateUser } = require('./services/users');
+
+app.put('/api/me', ensureAuth, async (req, res) => {
+  try {
+    const { full_name, phone, bio, work_passion, birth_date, location, website, github } = req.body;
+    const updatedUser = await updateUser(req.user.id, { full_name, phone, bio, work_passion, birth_date, location, website, github });
+    res.json({
+      id: updatedUser.id,
+      email: updatedUser.email,
+      role: updatedUser.role,
+      avatar: updatedUser.avatar_url,
+      full_name: updatedUser.full_name,
+      phone: updatedUser.phone,
+      bio: updatedUser.bio,
+      work_passion: updatedUser.work_passion,
+      birth_date: updatedUser.birth_date,
+      location: updatedUser.location,
+      website: updatedUser.website,
+      github: updatedUser.github
+    });
+  } catch (err) {
+    console.error('Error updating user:', err);
+    res.status(500).json({ error: 'Failed to update profile' });
+  }
 });
 
 // Example admin-only API

@@ -57,6 +57,46 @@ BEGIN
     IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'users' AND column_name = 'updated_at') THEN
         ALTER TABLE users ADD COLUMN updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
     END IF;
+
+    -- Add full_name column if it doesn't exist
+    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'users' AND column_name = 'full_name') THEN
+        ALTER TABLE users ADD COLUMN full_name VARCHAR(255);
+    END IF;
+
+    -- Add phone column if it doesn't exist
+    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'users' AND column_name = 'phone') THEN
+        ALTER TABLE users ADD COLUMN phone VARCHAR(50);
+    END IF;
+
+    -- Add bio column if it doesn't exist
+    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'users' AND column_name = 'bio') THEN
+        ALTER TABLE users ADD COLUMN bio TEXT;
+    END IF;
+
+    -- Add work_passion column if it doesn't exist
+    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'users' AND column_name = 'work_passion') THEN
+        ALTER TABLE users ADD COLUMN work_passion VARCHAR(255);
+    END IF;
+
+    -- Add birth_date column if it doesn't exist
+    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'users' AND column_name = 'birth_date') THEN
+        ALTER TABLE users ADD COLUMN birth_date VARCHAR(50);
+    END IF;
+
+    -- Add location column if it doesn't exist
+    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'users' AND column_name = 'location') THEN
+        ALTER TABLE users ADD COLUMN location VARCHAR(255);
+    END IF;
+
+    -- Add website column if it doesn't exist
+    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'users' AND column_name = 'website') THEN
+        ALTER TABLE users ADD COLUMN website VARCHAR(255);
+    END IF;
+
+    -- Add github column if it doesn't exist
+    IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'users' AND column_name = 'github') THEN
+        ALTER TABLE users ADD COLUMN github VARCHAR(255);
+    END IF;
 END $$;
 
 CREATE TABLE IF NOT EXISTS clients (
