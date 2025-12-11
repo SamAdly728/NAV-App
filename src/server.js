@@ -23,7 +23,10 @@ const dashboardRouter = require('./routes/dashboard');
 const ticketsRouter = require('./routes/tickets');
 const calendarRouter = require('./routes/calendar');
 const projectsRouter = require('./routes/projects');
+
 const ordersRouter = require('./routes/orders');
+const apiRouter = require('./routes/api');
+const settingsRouter = require('./routes/settings');
 
 const app = express();
 
@@ -104,58 +107,9 @@ app.get('/:page.html', ensureAuth, (req, res, next) => {
   });
 });
 
-// User info endpoint for front-end role-based labeling
-app.get('/api/me', ensureAuth, (req, res) => {
-  res.json({
-    id: req.user.id,
-    email: req.user.email,
-    role: req.user.role,
-    avatar: req.user.avatar_url,
-    full_name: req.user.full_name,
-    phone: req.user.phone,
-    bio: req.user.bio,
-    work_passion: req.user.work_passion,
-    birth_date: req.user.birth_date,
-    location: req.user.location,
-    website: req.user.website,
-    github: req.user.github
-  });
-});
-
-const { updateUser } = require('./services/users');
-
-app.put('/api/me', ensureAuth, async (req, res) => {
-  try {
-    const { full_name, phone, bio, work_passion, birth_date, location, website, github } = req.body;
-    const updatedUser = await updateUser(req.user.id, { full_name, phone, bio, work_passion, birth_date, location, website, github });
-    res.json({
-      id: updatedUser.id,
-      email: updatedUser.email,
-      role: updatedUser.role,
-      avatar: updatedUser.avatar_url,
-      full_name: updatedUser.full_name,
-      phone: updatedUser.phone,
-      bio: updatedUser.bio,
-      work_passion: updatedUser.work_passion,
-      birth_date: updatedUser.birth_date,
-      location: updatedUser.location,
-      website: updatedUser.website,
-      github: updatedUser.github
-    });
-  } catch (err) {
-    console.error('Error updating user:', err);
-    res.status(500).json({ error: 'Failed to update profile' });
-  }
-});
-
-// Example admin-only API
-app.get('/admin/users', ensureAuth, ensureRole('admin'), async (_req, res) => {
-  const { rows } = await pool.query('SELECT id, email, role, created_at FROM users ORDER BY created_at DESC LIMIT 50');
-  res.json(rows);
-});
-
 // Mount routers
 app.use('/auth', authRouter);
+app.use('/api', ensureAuth, apiRouter);
 app.use('/api/stripe', ensureAuth, stripeRouter);
 app.use('/api/dropbox', ensureAuth, dropboxRouter);
 app.use('/api/ghl', ensureAuth, ghlRouter);
@@ -164,6 +118,7 @@ app.use('/api/tickets', ensureAuth, ticketsRouter);
 app.use('/api/calendar', ensureAuth, calendarRouter);
 app.use('/api/projects', ensureAuth, projectsRouter);
 app.use('/api/orders', ensureAuth, ordersRouter);
+app.use('/api/settings', ensureAuth, settingsRouter);
 // Webhooks from GHL (unauthenticated, protected by secret token)
 app.use('/webhooks/ghl', ghlWebhookRouter);
 app.use('/webhooks/data', require('./routes/data_webhook'));

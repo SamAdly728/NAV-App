@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const { ghlClient, resolveLocationId, fetchAppointments, fetchAppointmentById, fetchBookings, fetchOpportunities, fetchActivities, fetchPayments } = require('../services/ghl');
+const { ghlClient, getGhlCredentials, resolveLocationId, fetchAppointments, fetchAppointmentById, fetchBookings, fetchOpportunities, fetchActivities, fetchPayments } = require('../services/ghl');
 const { ensureRole } = require('../middleware/auth');
 const { getCache } = require('../services/cache');
 const { wrap } = require('../services/cache');
@@ -33,13 +33,16 @@ function normalizeActivities(data) {
   return Array.isArray(arr) ? arr : [];
 }
 
-// Proxy to GoHighLevel API (GHL). Requires an API key/token in env.
+// Proxy to GoHighLevel API (GHL). Requires an API key/token.
 router.get('/bookings', async (req, res) => {
   try {
-    if (!process.env.GHL_API_KEY) return res.status(501).json({ error: 'GHL integration not configured' });
-  const client = ghlClient();
-  const locationId = resolveLocationId();
-    const data = await wrap('ghl:bookings', 60_000, () => fetchBookings(client, locationId));
+    const { apiKey, locationId } = await getGhlCredentials();
+    if (!apiKey) return res.status(501).json({ error: 'GHL integration not configured' });
+
+    const client = ghlClient(apiKey);
+    const resolvedLocationId = resolveLocationId(apiKey, locationId);
+
+    const data = await wrap('ghl:bookings', 60_000, () => fetchBookings(client, resolvedLocationId));
     res.json(data);
   } catch (e) {
     console.error(e.response?.data || e.message);
@@ -61,27 +64,21 @@ router.get('/booking-webhooks/recent', ensureRole('admin'), async (req, res) => 
 // Appointments proxy with filters
 router.get('/appointments', async (req, res) => {
   try {
-    if (!process.env.GHL_API_KEY) return res.status(501).json({ error: 'GHL integration not configured' });
-    const client = ghlClient();
-    const locationId = resolveLocationId();
+    const { apiKey, locationId } = await getGhlCredentials();
+    if (!apiKey) return res.status(501).json({ error: 'GHL integration not configured' });
+
+    const client = ghlClient(apiKey);
+    const resolvedLocationId = resolveLocationId(apiKey, locationId);
+
     const allowed = ['calendarId', 'contactId', 'dateFrom', 'dateTo', 'status', 'limit', 'page'];
     const params = {};
-    if (locationId) params.locationId = locationId;
+    if (resolvedLocationId) params.locationId = resolvedLocationId;
     for (const k of allowed) if (req.query[k]) params[k] = req.query[k];
 
     // Cache key based on params
     const cacheKey = `ghl:appointments:${JSON.stringify(params)}`;
     const data = await wrap(cacheKey, 30_000, () => fetchAppointments(client, params));
 
-    // normalize response
-    const firstArray = (obj) => {
-      if (!obj || typeof obj !== 'object') return [];
-      if (Array.isArray(obj)) return obj;
-      for (const key of Object.keys(obj)) {
-        if (Array.isArray(obj[key])) return obj[key];
-      }
-      return [];
-    };
     const items = firstArray(data) || firstArray(data?.data) || data?.appointments || data?.items || [];
     const debug = req.query.debug === '1';
     return res.json(debug ? { items, rawKeys: Object.keys(data || {}), data } : { items });
@@ -94,24 +91,19 @@ router.get('/appointments', async (req, res) => {
 // Upcoming appointments (sorted ascending by start time)
 router.get('/appointments/upcoming', async (req, res) => {
   try {
-    if (!process.env.GHL_API_KEY) return res.status(501).json({ error: 'GHL integration not configured' });
-    const client = ghlClient();
-    const locationId = resolveLocationId();
+    const { apiKey, locationId } = await getGhlCredentials();
+    if (!apiKey) return res.status(501).json({ error: 'GHL integration not configured' });
+
+    const client = ghlClient(apiKey);
+    const resolvedLocationId = resolveLocationId(apiKey, locationId);
+
     const limit = parseInt(req.query.limit || '5', 10);
     const dateFrom = new Date().toISOString();
-    const params = { locationId, dateFrom, limit: 50 }; // fetch a page, then slice after sort
-    const data = await wrap(`ghl:appointments:upcoming:${dateFrom.slice(0,13)}`, 30_000, () => fetchAppointments(client, params));
+    const params = { locationId: resolvedLocationId, dateFrom, limit: 50 }; // fetch a page, then slice after sort
+    const data = await wrap(`ghl:appointments:upcoming:${dateFrom.slice(0, 13)}`, 30_000, () => fetchAppointments(client, params));
 
-    const firstArray = (obj) => {
-      if (!obj || typeof obj !== 'object') return [];
-      if (Array.isArray(obj)) return obj;
-      for (const key of Object.keys(obj)) {
-        if (Array.isArray(obj[key])) return obj[key];
-      }
-      return [];
-    };
     const all = firstArray(data) || firstArray(data?.data) || data?.appointments || data?.items || [];
-    const sorted = all.sort((a,b)=> new Date(a.startTime || a.start_date || a.date || 0) - new Date(b.startTime || b.start_date || b.date || 0));
+    const sorted = all.sort((a, b) => new Date(a.startTime || a.start_date || a.date || 0) - new Date(b.startTime || b.start_date || b.date || 0));
     return res.json({ items: sorted.slice(0, limit) });
   } catch (e) {
     console.error(e.response?.data || e.message);
@@ -122,8 +114,10 @@ router.get('/appointments/upcoming', async (req, res) => {
 // Appointment by id
 router.get('/appointments/:id', async (req, res) => {
   try {
-    if (!process.env.GHL_API_KEY) return res.status(501).json({ error: 'GHL integration not configured' });
-    const client = ghlClient();
+    const { apiKey } = await getGhlCredentials();
+    if (!apiKey) return res.status(501).json({ error: 'GHL integration not configured' });
+
+    const client = ghlClient(apiKey);
     const data = await fetchAppointmentById(client, req.params.id);
     res.json(data);
   } catch (e) {
@@ -135,12 +129,15 @@ router.get('/appointments/:id', async (req, res) => {
 // Aggregated dashboard endpoint
 router.get('/dashboard', async (req, res) => {
   try {
-    if (!process.env.GHL_API_KEY) return res.status(501).json({ error: 'GHL integration not configured' });
+    const { apiKey, locationId } = await getGhlCredentials();
+    if (!apiKey) return res.status(501).json({ error: 'GHL integration not configured' });
+
     const force = (req.query.force === '1');
     const debug = (req.query.debug === '1');
     const ttl = 60_000; // 1 minute cache
-  const client = ghlClient();
-  const locationId = resolveLocationId();
+
+    const client = ghlClient(apiKey);
+    const resolvedLocationId = resolveLocationId(apiKey, locationId);
 
     const key = 'ghl:dashboard';
     if (!force) {
@@ -149,10 +146,10 @@ router.get('/dashboard', async (req, res) => {
     }
 
     const [bookings, opportunities, activities, payments] = await Promise.all([
-      fetchBookings(client, locationId),
-      fetchOpportunities(client, locationId),
-      fetchActivities(client, locationId),
-      fetchPayments(client, locationId)
+      fetchBookings(client, resolvedLocationId),
+      fetchOpportunities(client, resolvedLocationId),
+      fetchActivities(client, resolvedLocationId),
+      fetchPayments(client, resolvedLocationId)
     ]);
 
     // Include recent webhook events (last 5) from in-memory cache
@@ -179,7 +176,7 @@ router.get('/dashboard', async (req, res) => {
     };
     if (debug) {
       payload._debug = {
-        locationId,
+        locationId: resolvedLocationId,
         bookingsKeys: Object.keys(bookings || {}),
         opportunitiesKeys: Object.keys(opportunities || {}),
         activitiesKeys: Object.keys(activities || {}),

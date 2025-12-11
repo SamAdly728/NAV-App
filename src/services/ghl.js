@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { pool } = require('../db/pool');
 
 function decodeJwtPayload(token) {
   try {
@@ -14,6 +15,34 @@ function decodeJwtPayload(token) {
   }
 }
 
+async function getSetting(key) {
+  try {
+    const res = await pool.query('SELECT value FROM settings WHERE key = $1', [key]);
+    if (res.rows.length > 0) return res.rows[0].value;
+  } catch (err) {
+    console.error(`Failed to fetch setting ${key}:`, err.message);
+  }
+  return null;
+}
+
+// Fetch credentials from DB, fallback to ENV
+async function getGhlCredentials() {
+  const dbApiKey = await getSetting('ghl_api_key');
+  const dbLocationId = await getSetting('ghl_location_id');
+
+  const apiKey = dbApiKey || process.env.GHL_API_KEY;
+
+  // Prefer DB location ID if set, otherwise extract from token or env
+  let locationId = dbLocationId || process.env.GHL_LOCATION_ID;
+
+  if (!locationId && apiKey) {
+    const payload = decodeJwtPayload(apiKey);
+    locationId = payload?.location_id || payload?.locationId;
+  }
+
+  return { apiKey, locationId };
+}
+
 function resolveLocationId(apiKey = process.env.GHL_API_KEY, explicit = process.env.GHL_LOCATION_ID) {
   if (explicit) return explicit;
   if (!apiKey) return undefined;
@@ -22,7 +51,14 @@ function resolveLocationId(apiKey = process.env.GHL_API_KEY, explicit = process.
 }
 
 function ghlClient(apiKey = process.env.GHL_API_KEY) {
-  if (!apiKey) throw new Error('GHL_API_KEY missing');
+  // If no API key provided here (and not in env), it will throw or fail later.
+  // We should prefer passing the key explicitly now.
+  if (!apiKey) {
+    // Allow it to be instantiated without key if we plan to add interceptors, 
+    // but for now let's just warn or throw if totally missing
+    // console.warn('GHL_API_KEY missing in sync ghlClient call');
+  }
+
   const client = axios.create({
     baseURL: 'https://services.leadconnectorhq.com',
     headers: {
@@ -106,4 +142,4 @@ async function fetchBookings(client, locationId) {
   return fetchAppointments(client, params);
 }
 
-module.exports = { ghlClient, resolveLocationId, fetchAppointments, fetchAppointmentById, fetchBookings, fetchBookingsLegacy, fetchOpportunities, fetchActivities, fetchPayments };
+module.exports = { ghlClient, getGhlCredentials, resolveLocationId, fetchAppointments, fetchAppointmentById, fetchBookings, fetchBookingsLegacy, fetchOpportunities, fetchActivities, fetchPayments };

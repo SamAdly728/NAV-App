@@ -41,7 +41,7 @@ function setUpHorizontalHeader() {
     $(".menu-next").removeClass("d-none");
     $(".menu-previous").removeClass("d-none");
   } else {
-    navBar.css("marginLeft",0)
+    navBar.css("marginLeft", 0)
     $(".menu-next").addClass("d-none");
     $(".menu-previous").addClass("d-none");
   }
@@ -49,7 +49,7 @@ function setUpHorizontalHeader() {
 }
 
 $(document).on('click', '.menu-previous', function (e) {
-  let layoutOption = getLocalStorageItem("layout-option","ltr");
+  let layoutOption = getLocalStorageItem("layout-option", "ltr");
   let attribute = (layoutOption == 'ltr' || layoutOption == 'box-layout') ? 'marginLeft' : 'marginRight';
   let currentPosition = parseInt(navBar.css(attribute));
   if (currentPosition < 0) {
@@ -63,7 +63,7 @@ $(document).on('click', '.menu-previous', function (e) {
 })
 
 $(document).on('click', '.menu-next', function (e) {
-  let layoutOption = getLocalStorageItem("layout-option","ltr");
+  let layoutOption = getLocalStorageItem("layout-option", "ltr");
   let attribute = (layoutOption == 'ltr' || layoutOption == 'box-layout') ? 'marginLeft' : 'marginRight';
   let currentPosition = parseInt(navBar.css(attribute));
   if (currentPosition >= maxNavbarLimit) {
@@ -77,9 +77,9 @@ $(document).on('click', '.menu-next', function (e) {
 })
 
 $(function () {
-    setUpHorizontalHeader();
+  setUpHorizontalHeader();
   let themeMode = getLocalStorageItem('theme-mode', 'light')
-    setTimeout(() => {
+  setTimeout(() => {
     $('body').addClass(`${themeMode}`)
   }, 1500);
 });
@@ -130,52 +130,52 @@ const $contactListbox = $(".contact-listbox");
 
 // Event listener for click
 $contactListbox.on("click", function () {
-    $(this).toggleClass("stared");
+  $(this).toggleClass("stared");
 });
 
 function resize() {
-    $nav.removeClass('semi-nav');
-    if ($window.width() < 768) {
-    } else if ($window.width() < 1199) {
-        $nav.addClass('semi-nav');
-    }
+  $nav.removeClass('semi-nav');
+  if ($window.width() < 768) {
+  } else if ($window.width() < 1199) {
+    $nav.addClass('semi-nav');
+  }
 }
 $(function () {
-    resize();
+  resize();
 });
 
 window.addEventListener("resize", () => {
-    resize();
+  resize();
 });
 
 // >>-- 06 Sidebar scroll js --<<
 const myElement = document.getElementById('app-simple-bar');
 if (myElement) {
-    new SimpleBar(myElement, { autoHide: true });
+  new SimpleBar(myElement, { autoHide: true });
 }
 
 // Sidebar active class js
 $(function () {
-    const current = location.pathname.split('/').pop();
-    const $mainNavLinks = $('.main-nav li a');
+  const current = location.pathname.split('/').pop();
+  const $mainNavLinks = $('.main-nav li a');
 
-    $mainNavLinks.each(function () {
-        const $this = $(this);
-        const linkHref = $this.attr("href").split('/').pop();
+  $mainNavLinks.each(function () {
+    const $this = $(this);
+    const linkHref = $this.attr("href").split('/').pop();
 
-        if (current === linkHref) {
-            const $parentLi = $this.parent('li');
-            const $parentUl = $this.parent().parent().parent();
-            const $grandParentUl = $parentUl.parent().parent().parent();
+    if (current === linkHref) {
+      const $parentLi = $this.parent('li');
+      const $parentUl = $this.parent().parent().parent();
+      const $grandParentUl = $parentUl.parent().parent().parent();
 
-            if ($grandParentUl.hasClass("another-level")) {
-                $grandParentUl.closest('li').children().addClass('show').attr("aria-expanded", "true");
-            }
+      if ($grandParentUl.hasClass("another-level")) {
+        $grandParentUl.closest('li').children().addClass('show').attr("aria-expanded", "true");
+      }
 
-            $parentUl.children().addClass('show').attr("aria-expanded", "true");
-            $parentLi.addClass('active');
-        }
-    });
+      $parentUl.children().addClass('show').attr("aria-expanded", "true");
+      $parentLi.addClass('active');
+    }
+  });
 });
 // >>-- 07 Loader JS --<<
 $('.loader-wrapper').fadeOut('slow', function () {
@@ -185,25 +185,25 @@ $('.loader-wrapper').fadeOut('slow', function () {
 
 // >>-- 08 tap on top --<<
 let calcScrollValue = () => {
-    const $scrollProgress = document.getElementsByClassName("go-top")[0];
-    const $progressValue = document.getElementsByClassName("progress-value")[0];
-    const docElement = document.documentElement;
+  const $scrollProgress = document.getElementsByClassName("go-top")[0];
+  const $progressValue = document.getElementsByClassName("progress-value")[0];
+  const docElement = document.documentElement;
 
-    const pos = docElement.scrollTop;
-    const calcHeight = docElement.scrollHeight - docElement.clientHeight;
-    const scrollValue = Math.round((pos * 100) / calcHeight);
+  const pos = docElement.scrollTop;
+  const calcHeight = docElement.scrollHeight - docElement.clientHeight;
+  const scrollValue = Math.round((pos * 100) / calcHeight);
 
-    if (pos > 100) {
-        $scrollProgress.style.display = 'grid';
-    } else {
-        $scrollProgress.style.display = 'none';
-    }
+  if (pos > 100) {
+    $scrollProgress.style.display = 'grid';
+  } else {
+    $scrollProgress.style.display = 'none';
+  }
 
-    $scrollProgress.addEventListener("click", () => {
-        docElement.scrollTop = 0;
-    });
+  $scrollProgress.addEventListener("click", () => {
+    docElement.scrollTop = 0;
+  });
 
-    $scrollProgress.style.background = `conic-gradient(rgba(var(--primary), 1) ${scrollValue}%, rgba(var(--primary), 1) ${scrollValue}%)`;
+  $scrollProgress.style.background = `conic-gradient(rgba(var(--primary), 1) ${scrollValue}%, rgba(var(--primary), 1) ${scrollValue}%)`;
 };
 
 window.onscroll = calcScrollValue;
@@ -211,30 +211,30 @@ window.onscroll = calcScrollValue;
 
 // >>-- 09 Flag dropdown --<<
 $(function () {
-    const $flagImg = $(".flag img");
-    const $flagIcon = $(".flag i");
-    const $langs = $(".lang");
+  const $flagImg = $(".flag img");
+  const $flagIcon = $(".flag i");
+  const $langs = $(".lang");
 
-    // Initialize image and icon from the selected language
-    const initialSelected = $(".lang.selected");
-    const initialImgSrc = initialSelected.find("img").attr("src");
-    const initialIconClass = initialSelected.find("i").attr("class");
+  // Initialize image and icon from the selected language
+  const initialSelected = $(".lang.selected");
+  const initialImgSrc = initialSelected.find("img").attr("src");
+  const initialIconClass = initialSelected.find("i").attr("class");
 
-    $flagImg.prop("src", initialImgSrc);
-    $flagIcon.prop("class", initialIconClass);
+  $flagImg.prop("src", initialImgSrc);
+  $flagIcon.prop("class", initialIconClass);
 
-    $(document).on("click", ".lang", function () {
-        $langs.removeClass("selected");
+  $(document).on("click", ".lang", function () {
+    $langs.removeClass("selected");
 
-        const $this = $(this);
-        $this.addClass("selected");
+    const $this = $(this);
+    $this.addClass("selected");
 
-        const newImgSrc = $this.find("img").attr("src");
-        const newIconClass = $this.find("i").attr("class");
+    const newImgSrc = $this.find("img").attr("src");
+    const newIconClass = $this.find("i").attr("class");
 
-        $flagImg.prop("src", newImgSrc);
-        $flagIcon.prop("class", newIconClass);
-    });
+    $flagImg.prop("src", newImgSrc);
+    $flagIcon.prop("class", newIconClass);
+  });
 });
 
 
@@ -246,14 +246,14 @@ const $buttonContent = $("#button-content");
 const $buttonCode = $("#button-code");
 
 function myFunction() {
-    if (appElement.style.display === "none") {
-        appElement.style.display = "block";
-        const buttoncontent = $buttonContent.html().replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        $buttonCode.html(buttoncontent);
-    } else {
-        appElement.style.display = "none";
-        $buttonCode.html("");
-    }
+  if (appElement.style.display === "none") {
+    appElement.style.display = "block";
+    const buttoncontent = $buttonContent.html().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    $buttonCode.html(buttoncontent);
+  } else {
+    appElement.style.display = "none";
+    $buttonCode.html("");
+  }
 }
 
 
@@ -262,15 +262,15 @@ function myFunction() {
 const themeToggle = document.querySelector(".header-dark");
 
 if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-        document.querySelector(".sun-logo")?.classList.toggle("sun");
-        document.querySelector(".moon-logo")?.classList.toggle("moon");
+  themeToggle.addEventListener("click", () => {
+    document.querySelector(".sun-logo")?.classList.toggle("sun");
+    document.querySelector(".moon-logo")?.classList.toggle("moon");
 
-        const isDark = document.body.classList.contains("dark");
-        document.body.classList.toggle("dark", !isDark);
-        document.body.classList.toggle("light", isDark);
-        setLocalStorageItem('theme-mode', isDark ? 'light' : 'dark');
-    });
+    const isDark = document.body.classList.contains("dark");
+    document.body.classList.toggle("dark", !isDark);
+    document.body.classList.toggle("light", isDark);
+    setLocalStorageItem('theme-mode', isDark ? 'light' : 'dark');
+  });
 }
 function appendHtml() {
   let div = document.getElementsByClassName('app-wrapper');
@@ -292,46 +292,46 @@ $(document).on('click', '.close-btn', function () {
   }
 });
 
- // >>-- 13 Searchbar js --<<
+// >>-- 13 Searchbar js --<<
 $(document).on('keyup', '.search-filter', function () {
-    const search = $(this).val().toLowerCase();
-    $('.search-list-item').each(function () {
-        const item = $(this);
-        const contentElement = item.find('.search-list-content h6');
-        const contentText = contentElement.text().toLowerCase();
+  const search = $(this).val().toLowerCase();
+  $('.search-list-item').each(function () {
+    const item = $(this);
+    const contentElement = item.find('.search-list-content h6');
+    const contentText = contentElement.text().toLowerCase();
 
-        if (contentText.includes(search)) {
-            item.show();
-            const highlightedText = contentText.replace(new RegExp(search, 'gi'), function (match) {
-                return `<span class="highlight-searchtext">${match}</span>`;
-            });
-            contentElement.html(highlightedText);
-        } else {
-            item.hide();
-        }
-    });
+    if (contentText.includes(search)) {
+      item.show();
+      const highlightedText = contentText.replace(new RegExp(search, 'gi'), function (match) {
+        return `<span class="highlight-searchtext">${match}</span>`;
+      });
+      contentElement.html(highlightedText);
+    } else {
+      item.hide();
+    }
+  });
 });
 
 // >>-- 14 CloseCollapse js --<<
 const closeCollaps = document.querySelectorAll('.main-nav li a[data-bs-toggle="collapse"]');
 
 closeCollaps.forEach((element) => {
-    element.addEventListener('click', () => {
-        const parent = element.closest('.collapse');
-        const all = document.querySelectorAll('.main-nav ul.collapse');
+  element.addEventListener('click', () => {
+    const parent = element.closest('.collapse');
+    const all = document.querySelectorAll('.main-nav ul.collapse');
 
-        all.forEach((e) => {
-            if (e !== parent) {
-                e.classList.remove('show');
-                const ariaExpand = e.previousElementSibling;
-                if (ariaExpand) ariaExpand.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        parent?.classList.add('show');
-        const ariaExpand = element;
-        if (ariaExpand) ariaExpand.setAttribute('aria-expanded', 'true');
+    all.forEach((e) => {
+      if (e !== parent) {
+        e.classList.remove('show');
+        const ariaExpand = e.previousElementSibling;
+        if (ariaExpand) ariaExpand.setAttribute('aria-expanded', 'false');
+      }
     });
+
+    parent?.classList.add('show');
+    const ariaExpand = element;
+    if (ariaExpand) ariaExpand.setAttribute('aria-expanded', 'true');
+  });
 });
 // >>-- 15  Modal js --<<
 
@@ -340,17 +340,17 @@ $(function () {
 });
 
 function copyTextToClipboard(text) {
-    let textarea = document.createElement('textarea');
-    textarea.value = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
+  let textarea = document.createElement('textarea');
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textarea);
 }
 
 // -- Sidebar simplifier: enforce 8-item menu on all pages except master.html --
-(function(){
-  document.addEventListener('DOMContentLoaded', function(){
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
     try {
       const file = (location.pathname.split('/').pop() || '').toLowerCase();
       if (file === 'master.html') return; // keep full original on master
@@ -416,7 +416,7 @@ function copyTextToClipboard(text) {
         hostNav.innerHTML = ulHtml;
       }
       // Re-init SimpleBar if needed
-      try { new SimpleBar(hostNav, { autoHide: true }); } catch(_){}
+      try { new SimpleBar(hostNav, { autoHide: true }); } catch (_) { }
     } catch (e) {
       // noop
     }
@@ -424,35 +424,43 @@ function copyTextToClipboard(text) {
 })();
 
 // -- Footer branding override: unify copyright across all pages --
-(function(){
-  document.addEventListener('DOMContentLoaded', function(){
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
     try {
       const nodes = document.querySelectorAll('.footer-text');
       if (!nodes || nodes.length === 0) return;
       const year = new Date().getFullYear();
       const brand = 'NAV Productions';
       const text = `© ${year} ${brand}. All rights reserved.`;
-      nodes.forEach(function(el){ el.textContent = text; });
-    } catch(_) { /* noop */ }
+      nodes.forEach(function (el) { el.textContent = text; });
+    } catch (_) { /* noop */ }
   });
 })();
 
-// -- Profile name override: replace Ninfa Monaldo with JR NAV --
-(function(){
-  document.addEventListener('DOMContentLoaded', function(){
-    try {
-      const walk = function(node) {
-        if (node.nodeType === 3) { // text node
-          if (node.nodeValue && node.nodeValue.includes('Ninfa Monaldo')) {
-            node.nodeValue = node.nodeValue.replace(/Ninfa Monaldo/g, 'JR NAV');
-          }
-        } else {
-          for (let i = 0; i < node.childNodes.length; i++) {
-            walk(node.childNodes[i]);
-          }
+// -- Global User Data Fetch --
+function fetchGlobalUserData() {
+  $.ajax({
+    url: '/api/me',
+    method: 'GET',
+    success: function (data) {
+      if (data.user) {
+        // Update Header Profile Info
+        $('#profileName').text(data.user.full_name || data.user.username);
+        $('#profileRole').text(data.user.bio || 'User'); // Using Bio as role for now, or add a role column?
+        // If we want a specific role, we might need a column. For now, bio or static 'Member'
+
+        if (data.user.avatar_url) {
+          $('.nav-profile img').attr('src', data.user.avatar_url);
         }
-      };
-      walk(document.body);
-    } catch(_) { /* noop */ }
+      }
+    },
+    error: function (err) {
+      console.error('Failed to fetch global user data', err);
+    }
   });
-})();
+}
+
+$(document).ready(function () {
+  fetchGlobalUserData();
+});
+
